@@ -15,6 +15,7 @@ import se.moma.kth.iv1350.GarageDoor;
  */
 public class Garage {
     
+   
     private GarageDoor garageDoor; //instansvariabel
     /**
      * Skapar en instans av klassen <code>Garage</code>.
@@ -23,10 +24,19 @@ public class Garage {
     public Garage(GarageDoor garageDoor) {
         this.garageDoor = garageDoor;
     }
+    
     /**
-     * Stänger garaget.
+     * Stänger garaget och använder sig av en instans av klassen 
+     * <code>GarageDoor</code>.
      */
-    public void closeGarageDoor() {
+    public void closeGarage() {
         garageDoor.close();
+    }
+    /**
+     * Stänger garaget och använder sig av en instans av klassen
+     * <code>GarageDoor</code>.
+     */
+    public void openGarage() {
+        garageDoor.open();
     }
 }

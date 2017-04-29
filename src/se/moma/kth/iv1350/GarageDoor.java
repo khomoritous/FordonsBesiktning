@@ -24,6 +24,9 @@ public class GarageDoor {
     public void close() {
         System.out.println("closing garage door....");
     }
-    
+
+    public void open() {
+        System.out.println("opening garage door....");   
+    }
     
 }

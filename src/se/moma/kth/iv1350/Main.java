@@ -18,9 +18,18 @@ public class Main {
     public static void main(String[] args) {
        GarageDoor garageDoor = new GarageDoor();
        Garage garage = new Garage(garageDoor);
+       CustomerQueue customerQueue = new CustomerQueue();
+       customerQueue.customerTakeQueueNumber();
+       customerQueue.customerTakeQueueNumber();
        
-       Controller controller = new Controller(garage);
+      
+       Controller controller = new Controller(garage, customerQueue);
+       controller.inspectNewVehicle();
        controller.closeDoor();
+       
+       
+
+       
      
     }
 }
