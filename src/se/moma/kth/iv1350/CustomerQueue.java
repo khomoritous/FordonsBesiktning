@@ -27,19 +27,19 @@ class CustomerQueue {
        customerList = new ArrayList<>();
     }
     /**
-     * Lägger till ett kund av typ <code>Customer</code> 
+     * Lägger till en kund av typ <code>Customer</code> 
      * i listan skapad av <code>CustomerQueue</code>. 
      */
     public void customerTakeQueueNumber() {
         //new Customer(queueNumber++);
-        customerList.add(new Customer(queueNumber));
-        queueNumber++;
+        customerList.add(new Customer(queueNumber++));
+        //queueNumber++;
     }
     /**
      * Skriver ut nästa könummer till en display och uppdaterar kön.
      */
     public void nextCustomer() {
-        System.out.println(customerList.get(queue).getCustomer());
-        queue++;
+        System.out.println(customerList.get(queue++).getCustomer());
+        //queue++;
     }
 }
