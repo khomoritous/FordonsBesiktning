@@ -53,7 +53,7 @@ public class Controller {
      */
     public int registerNumber(int registrationNumber) {
         
-        return vehicle.getVehicleInspection();
+        return vehicle.getVehicleInspectionCost();
     }
     
     public Receipt pay(CreditCardInformation creditCard) {
@@ -64,5 +64,21 @@ public class Controller {
         }
         return receipt;
     }
+    
+    public Inspection inspectVehicle() {
+      return vehicle.getVehicleInspection();
+    }
+    
+    public void enterResultOfInspection(String result) {
+        vehicle.resultOfInspection(result);
+    }
+    
+    public void printResult(String result) {
+        ExternalPrinter printer = new ExternalPrinter();
+        printer.print(result);
+        
+    }
+    
+    
 }
     

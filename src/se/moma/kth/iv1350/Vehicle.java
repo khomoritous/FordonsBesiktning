@@ -29,11 +29,21 @@ class Vehicle {
      * fordon
      * @return inspektionen som hör till fordonet
      */
-    public int getVehicleInspection() {
-        return inspection.getInspection();
+    public int getVehicleInspectionCost() {
+        return inspection.getInspectionCost();
     }
     
     public int getVehicle() {
         return vehicleRegistrationNumber;
     }
+    
+    public Inspection getVehicleInspection() {
+       return inspection.getInspection();
+    }
+    
+    public void resultOfInspection(String result) {
+       inspection.setResultOfInspection(result);
+    }
+    
+    
 }

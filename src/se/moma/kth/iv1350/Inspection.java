@@ -12,15 +12,30 @@ package se.moma.kth.iv1350;
 class Inspection {
     
     private int cost;
-    //private boolean result;
+    private String result;
     
     public Inspection(int cost) {
         this.cost  = cost;
        // this.result = result;
     }
     
-    public int getInspection() {
+    public int getInspectionCost() {
         return cost;
+    }
+    
+    public Inspection getInspection() {
+        return this;
+    }
+    public void setResultOfInspection(String result) {
+        this.result = result;
+    }
+    public String getResult() {
+        return result;
+    }
+    
+    @Override
+    public String toString() {
+        return "Inspektioner att utföra....";
     }
     
 }
