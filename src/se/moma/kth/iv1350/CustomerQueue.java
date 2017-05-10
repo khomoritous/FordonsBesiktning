@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
+ * Skapar en kö för kunder. 
  * @author monde
  */
 class CustomerQueue {
@@ -18,28 +18,27 @@ class CustomerQueue {
     private int queue = 0; //instansvariabler för könummer.
    
     
-    List<Customer> customerList; //instansvariable av typ lista.
+    List<Customer> customerList; //instansvariabel av typ lista.
     /**
-     * Skapar en instans av typ <code>CustomerQueue</code> bestående av en 
-     * lista.
+     * Skapar en ny instans.
+     * 
      */
     public CustomerQueue() {
        customerList = new ArrayList<>();
     }
+    
     /**
-     * Lägger till en kund av typ <code>Customer</code> 
-     * i listan skapad av <code>CustomerQueue</code>. 
+     * Lägger till en kund till kön.
      */
     public void customerTakeQueueNumber() {
-        //new Customer(queueNumber++);
         customerList.add(new Customer(queueNumber++));
-        //queueNumber++;
     }
+    
     /**
-     * Skriver ut nästa könummer till en display och uppdaterar kön.
+     * Skriver ut nästa könummer för kund till en display.
      */
     public void nextCustomer() {
-        System.out.println(customerList.get(queue++).getCustomer());
-        //queue++;
+        System.out.println("Next customernumber:  "+customerList.get(queue++).getCustomerNumber());
+        
     }
 }

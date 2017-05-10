@@ -7,7 +7,7 @@ package se.moma.kth.iv1350;
  */
 
 /**
- *
+ * Skapar en controller.
  * @author monde
  */
 public class Controller {
@@ -19,31 +19,33 @@ public class Controller {
     
     
     /**
-     * Skapar en instans av klassen <code>Controller</code>.
+     * Skapar en ny instans.
      * @param garage Är en instans av klassen <code>Garage</code>.
-     * @param customerQueue Är en instans av klassen <code>CustomerQueue</code>
-     * @param vehicle Är en instans av klassen <code>Vehicle</code>
+     * @param customerQueue Är en instans av klassen <code>CustomerQueue</code>.
+     * 
      */
-    public Controller(/*Garage garage,CustomerQueue customerQueue, Vehicle vehicle*/) {
-       /* this.garage = garage;
-        this.customerQueue = customerQueue;
-        this.vehicle = vehicle;*/
-        //this.payRequest = payRequest;
+    public Controller(Garage garage,CustomerQueue customerQueue) {
+       this.garage = garage;
+       this.customerQueue = customerQueue;
+        
     }
+    
+    
+    
     /**
      * Skapar en ny fordonsbesiktning.
      */
     public void inspectNewVehicle() {
      customerQueue.nextCustomer();
      garage.openGarage();
-    }
+    } 
     
     /**
      * Stänger garaget.
      */
-    public void closeDoor() {
+    /*public void closeDoor() {
         garage.closeGarage();    
-    }
+    }*/
     /**
      * Försöker hitta fordonets registreringsnummer.
      * @param registrationNumber Är fordonets registreringsnummer och används 
@@ -51,33 +53,33 @@ public class Controller {
      *
      * @return Kostnaden för inspektion av fordonet.
      */
-    public int registerNumber(int registrationNumber) {
+   /* public int registerNumber(int registrationNumber) {
         
         return vehicle.getVehicleInspectionCost();
-    }
+    } */
     
-    public Receipt pay(CreditCardInformation creditCard) {
+   /* public Receipt pay(CreditCardInformation creditCard) {
         Receipt receipt = null;
         PaymentAuthorizationRequest payRequest = new PaymentAuthorizationRequest(10,creditCard);
         if(payRequest.isApproved()) {
           receipt = payRequest.getCustomerReceipt();
         }
         return receipt;
-    }
+    }*/
     
-    public Inspection inspectVehicle() {
+   /* public Inspection inspectVehicle() {
       return vehicle.getVehicleInspection();
-    }
+    } */
     
-    public void enterResultOfInspection(String result) {
+   /* public void enterResultOfInspection(String result) {
         vehicle.resultOfInspection(result);
-    }
+    }*/
     
-    public void printResult(String result) {
+  /*  public void printResult(String result) {
         ExternalPrinter printer = new ExternalPrinter();
         printer.print(result);
         
-    }
+    }*/
     
     
 }

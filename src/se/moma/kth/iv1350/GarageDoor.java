@@ -7,26 +7,29 @@ package se.moma.kth.iv1350;
  */
 
 /**
- *
+ * Skapar en garagedörr till en instans av klassen <code>Garage</code>
  * @author monde
  */
 public class GarageDoor {
     
     /**
-     * Skapar en instans av klassen <code>GarageDoor</code>.
+     * Skapar en ny instans.
      */
     public GarageDoor() {
-        
     }
+    
     /**
      * Stänger dörren till garaget.
      */
     public void close() {
-        System.out.println("closing garage door....");
+        System.out.println("Closing garage door....");
     }
-
+    
+    /**
+     * Öppnar dörren till garaget.
+     */
     public void open() {
-        System.out.println("opening garage door....");   
+        System.out.println("Opening garage door....");   
     }
     
 }
