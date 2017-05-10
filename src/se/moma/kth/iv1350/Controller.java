@@ -43,9 +43,10 @@ public class Controller {
     /**
      * Stänger garaget.
      */
-    /*public void closeDoor() {
+    public void closeDoor() {
         garage.closeGarage();    
-    }*/
+    }
+    
     /**
      * Försöker hitta fordonets registreringsnummer.
      * @param registrationNumber Är fordonets registreringsnummer och används 

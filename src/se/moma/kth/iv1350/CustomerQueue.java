@@ -21,7 +21,6 @@ class CustomerQueue {
     List<Customer> customerList; //instansvariabel av typ lista.
     /**
      * Skapar en ny instans.
-     * 
      */
     public CustomerQueue() {
        customerList = new ArrayList<>();
@@ -38,7 +37,7 @@ class CustomerQueue {
      * Skriver ut nästa könummer för kund till en display.
      */
     public void nextCustomer() {
-        System.out.println("Next customernumber:  "+customerList.get(queue++).getCustomerNumber());
+        System.out.println("Next customer number:  "+customerList.get(queue++).getCustomerNumber());
         
     }
 }

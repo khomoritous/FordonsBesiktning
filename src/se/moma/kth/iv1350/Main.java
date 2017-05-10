@@ -22,6 +22,7 @@ public class Main {
        customerQueue.customerTakeQueueNumber();
        customerQueue.nextCustomer();
        garage.openGarage();
+       garage.closeGarage();
        
        
        
