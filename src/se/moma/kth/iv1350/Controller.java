@@ -19,17 +19,13 @@ public class Controller {
     
     
     /**
-     * Skapar en ny instans.
-     * @param garage Är en instans av klassen <code>Garage</code>.
-     * @param customerQueue Är en instans av klassen <code>CustomerQueue</code>.
-     * 
+     * Skapar en ny instans. 
+     * @param vehicle Är en instans av klassen <code>Vehicle</code> som hjälper
+     * till att hämta fordon för besiktning.
      */
-    public Controller(Garage garage,CustomerQueue customerQueue) {
-       this.garage = garage;
-       this.customerQueue = customerQueue;
-        
+    public Controller(Vehicle vehicle) {
+      this.vehicle = vehicle;
     }
-    
     
     
     /**
@@ -54,10 +50,15 @@ public class Controller {
      *
      * @return Kostnaden för inspektion av fordonet.
      */
-   /* public int registerNumber(int registrationNumber) {
-        
-        return vehicle.getVehicleInspectionCost();
-    } */
+    public int registerNumber(int registrationNumber) {
+        int cost = 0;
+        if((vehicle.getVehicle().getVehicleNumber() == registrationNumber) && ((vehicle.getVehicle().getVehicleInspection()) != null)) {
+            cost = vehicle.getVehicleInspectionCost();
+        } else {
+            System.out.println("No vehicle with that number.");
+        }
+        return cost;
+    } 
     
    /* public Receipt pay(CreditCardInformation creditCard) {
         Receipt receipt = null;

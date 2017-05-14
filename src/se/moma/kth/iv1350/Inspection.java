@@ -13,16 +13,24 @@ class Inspection {
     
     private int cost;
     private String result;
+    private Vehicle vehicle;
     
     public Inspection(int cost) {
         this.cost  = cost;
        // this.result = result;
     }
-    
+    /**
+     * Metod av typ getter.
+     * @return Kostnaden för en inspektion.
+     */
     public int getInspectionCost() {
         return cost;
     }
-    
+    /**
+     * Metod av typ getter.
+     * @return En instans av klassen <code>Inspection</code> som hör till
+     * ett fordon.
+     */
     public Inspection getInspection() {
         return this;
     }

@@ -25,18 +25,32 @@ class Vehicle {
         this.inspection  = inspection;
     }
     /**
-     * Används vid besiktning för att hämta en inspektion som hör till ett 
-     * fordon
-     * @return inspektionen som hör till fordonet
+     * Används vid besiktning för att hämta kostnad för en inspektion 
+     * som hör till ett fordon.
+     * @return Kostnaden för fordonet.
      */
     public int getVehicleInspectionCost() {
         return inspection.getInspectionCost();
     }
-    
-    public int getVehicle() {
+    /**
+     * Metod av typ getter-
+     * @return En instans av klassen <code>Vehicle</code>.
+     */
+    public Vehicle getVehicle() {
+        return this;
+    }
+    /**
+     * Metod av typ getter-
+     * @return fordonets registreringsnummer.
+     */
+    public int getVehicleNumber() {
         return vehicleRegistrationNumber;
     }
-    
+    /**
+     * Används för att hämta en inspektion som hör till ett fordon.
+     * @return En instans av klassen <code> Inspection</code> som 
+     * hör till fordonet.
+     */
     public Inspection getVehicleInspection() {
        return inspection.getInspection();
     }

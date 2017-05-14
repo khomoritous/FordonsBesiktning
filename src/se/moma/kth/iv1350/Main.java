@@ -24,6 +24,12 @@ public class Main {
        garage.openGarage();
        garage.closeGarage();
        
+       Vehicle vehicle = new Vehicle(10,new Inspection(100));
+       Controller controller = new Controller(vehicle); 
+      
+       System.out.println("Inspection cost for Vehicle: "+ controller.registerNumber(10));
+       
+       
        
        
     }
