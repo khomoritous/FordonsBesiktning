@@ -6,22 +6,28 @@
 package se.moma.kth.iv1350;
 
 /**
- *
+ * Skapar ett kvitto.
  * @author monde
  */
 class Receipt {
     
-    //private String printOut;
-    
+    private int amount;
+    /**
+     * Skapar en ny instans.
+     */
     public Receipt() {
+       
     }
-    
+    /**
+     * Getter
+     * @return Ett kvitto.
+     */
     public Receipt getReceipt() {
         return this;
     }
     
     @Override
     public String toString() {
-        return "Du har betalat: ....";
+        return "You have payed: ....";
     }
 }

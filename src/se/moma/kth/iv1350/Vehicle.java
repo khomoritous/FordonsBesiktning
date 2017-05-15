@@ -6,7 +6,7 @@
 package se.moma.kth.iv1350;
 
 /**
- *
+ * Skapar ett fordon med registreringsnummer och inspektion.
  * @author monde
  */
 class Vehicle {

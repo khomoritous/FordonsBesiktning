@@ -12,15 +12,31 @@ package se.moma.kth.iv1350;
 class ExternalPaymentAuthorizationSystem {
     
     
-      //private PaymentAuthorizationRequest request;    
+      private PaymentAuthorizationRequest request;    
       //private boolean paymentApproval;
-      
-      public ExternalPaymentAuthorizationSystem() {
+      private Receipt receipt;
+      /**
+       * Skapar en ny instans.
+       * @param request Är en instans av klassen <code>PaymentAuthorizationRequest</code>
+       * som används vid betalning mot externt system.
+       */
+      public ExternalPaymentAuthorizationSystem(PaymentAuthorizationRequest request) {
+         this.request = request;
       }
-      
+      /**
+       * 
+       * @return Ja eller nej om betalning går igenom.
+       */
       public boolean isValid() {
           return true;
-              
+      }
+      /**
+       * Getter
+       * @return kvitto på betalning.
+       */
+      public Receipt getReceipt() {
+          receipt = new Receipt();
+          return receipt.getReceipt();
       }
     
 }

@@ -15,6 +15,7 @@ public class Controller {
     private CustomerQueue customerQueue;//instansvariabel
     private Garage garage; //instansvariabel
     private Vehicle vehicle; //instansvariabel
+    private PaymentAuthorizationRequest request;//instansvariabel
    
     
     
@@ -25,6 +26,7 @@ public class Controller {
      */
     public Controller(Vehicle vehicle) {
       this.vehicle = vehicle;
+      
     }
     
     
@@ -59,15 +61,21 @@ public class Controller {
         }
         return cost;
     } 
-    
-   /* public Receipt pay(CreditCardInformation creditCard) {
+    /**
+     * Används för att betala för en besiktning.
+     * @param amount Beloppet som ska betalas.
+     * @param creditCard Är en instans av klassen <code>CreditCardInformation</code>
+     * och används för att göra en kreditkortsbetalning.
+     * @return Kvitto på betalningen.
+     */
+    public Receipt pay(int amount, CreditCardInformation creditCard) {
         Receipt receipt = null;
-        PaymentAuthorizationRequest payRequest = new PaymentAuthorizationRequest(10,creditCard);
-        if(payRequest.isApproved()) {
-          receipt = payRequest.getCustomerReceipt();
+        request = new PaymentAuthorizationRequest(amount,creditCard);
+        if(request.isApproved()) {
+          receipt = request.getCustomerReceipt();
         }
         return receipt;
-    }*/
+    }
     
    /* public Inspection inspectVehicle() {
       return vehicle.getVehicleInspection();

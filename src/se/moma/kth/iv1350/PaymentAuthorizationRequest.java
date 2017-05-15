@@ -14,25 +14,35 @@ class PaymentAuthorizationRequest {
    
     private int amount;
     private CreditCardInformation creditCard;
+    private ExternalPaymentAuthorizationSystem payment;
+    private Receipt receipt;
     
     
+    /**
+     * Skapar en ny instans.
+     * @param amount Belopp att betala.
+     * @param creditCard Är en instans av klassen <code>CreditCardInformation</code>
+     * som används vid betalning.
+     */
     
-    
-    public PaymentAuthorizationRequest(int amount, CreditCardInformation creditCard ) {
+    public PaymentAuthorizationRequest(int amount, CreditCardInformation creditCard) {
         this.amount = amount;
         this.creditCard = creditCard;
-       
-        
     }
-    
+    /**
+     * 
+     * @return Om betalningen godkänds.
+     */
     public boolean isApproved() {
-        ExternalPaymentAuthorizationSystem paymentSystem = new ExternalPaymentAuthorizationSystem();
-        return paymentSystem.isValid();
+          payment = new ExternalPaymentAuthorizationSystem(this);
+          return payment.isValid();
     }
-    
+    /**
+     * 
+     * @return Kvitto på betalning.
+     */
     public Receipt getCustomerReceipt() {
-        Receipt receipt = new Receipt();
-        return receipt.getReceipt();
+        return payment.getReceipt();
     }
     
     

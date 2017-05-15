@@ -6,17 +6,22 @@
 package se.moma.kth.iv1350;
 
 /**
- *
+ * Skapar ett kreditkort.
  * @author monde
  */
 class CreditCardInformation {
     
    
-    
+    /**
+     * Skapar en ny instans.
+     */
     public CreditCardInformation() {
     }
     
-    
+    /**
+     * Getter
+     * @return Ett kreditkort.
+     */
     public CreditCardInformation getCreditCard() {
         return this;
     }

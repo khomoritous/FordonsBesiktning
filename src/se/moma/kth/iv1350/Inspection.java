@@ -6,7 +6,7 @@
 package se.moma.kth.iv1350;
 
 /**
- *
+ * Skapar en inspektion med tillhörande kostnad.
  * @author monde
  */
 class Inspection {
@@ -14,6 +14,11 @@ class Inspection {
     private int cost;
     private String result;
     private Vehicle vehicle;
+    
+    /**
+     * Skapar en ny instans.
+     * @param cost En inspektions kostnad.
+     */
     
     public Inspection(int cost) {
         this.cost  = cost;
