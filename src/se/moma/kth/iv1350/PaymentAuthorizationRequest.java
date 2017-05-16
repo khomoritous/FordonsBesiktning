@@ -39,10 +39,10 @@ class PaymentAuthorizationRequest {
     }
     /**
      * 
-     * @return Kvitto på betalning.
+     * @return En instans av klassen <code>Receipt</code> som kvitto på betalning.
      */
     public Receipt getCustomerReceipt() {
-        return payment.getReceipt();
+        return payment.getReceipt(amount);
     }
     
     

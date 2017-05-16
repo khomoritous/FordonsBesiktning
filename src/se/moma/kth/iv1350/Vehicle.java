@@ -54,6 +54,9 @@ class Vehicle {
     public Inspection getVehicleInspection() {
        return inspection.getInspection();
     }
+    public void printVehicleInspectionResult() {
+        inspection.printInspectionResult();
+    }
     
     public void resultOfInspection(String result) {
        inspection.setResultOfInspection(result);

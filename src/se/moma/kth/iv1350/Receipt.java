@@ -15,12 +15,12 @@ class Receipt {
     /**
      * Skapar en ny instans.
      */
-    public Receipt() {
-       
+    public Receipt(int amount) {
+       this.amount = amount;
     }
     /**
-     * Getter
-     * @return Ett kvitto.
+     * Getter som används som kvitto vid en transaktion.
+     * @return En instans av klassen <code>Receipt</code> 
      */
     public Receipt getReceipt() {
         return this;
@@ -28,6 +28,6 @@ class Receipt {
     
     @Override
     public String toString() {
-        return "You have payed: ....";
+        return "You have payed: "+ amount;
     }
 }

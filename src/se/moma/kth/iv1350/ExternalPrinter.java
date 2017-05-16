@@ -6,18 +6,26 @@
 package se.moma.kth.iv1350;
 
 /**
- *
+ * Skapar en skrivare för utskrift.
  * @author monde
  */
 class ExternalPrinter {
     
+    private Inspection inspection;//instansvariabel
     
-    
-    public ExternalPrinter() {
+    /**
+     * Skapar en ny instans.
+     * @param inspection En instans av klassen <code>Inspection</code> 
+     * som skrivs ut.
+     */
+    public ExternalPrinter(Inspection inspection) {
+        this.inspection = inspection;
     }
-    
-    public void print(String result) {
-        System.out.println(": "+result);
+    /**
+     * Gör en utskrift.
+     */
+    public void print() {
+        System.out.println("The result of the inspection: " + inspection.getResult());
     }
     
     

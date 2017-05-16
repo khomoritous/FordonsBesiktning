@@ -34,8 +34,8 @@ class ExternalPaymentAuthorizationSystem {
        * Getter
        * @return kvitto på betalning.
        */
-      public Receipt getReceipt() {
-          receipt = new Receipt();
+      public Receipt getReceipt(int amount) {
+          receipt = new Receipt(amount);
           return receipt.getReceipt();
       }
     

@@ -13,7 +13,7 @@ class Inspection {
     
     private int cost;
     private String result;
-    private Vehicle vehicle;
+    
     
     /**
      * Skapar en ny instans.
@@ -46,9 +46,14 @@ class Inspection {
         return result;
     }
     
+    public void printInspectionResult() {
+        ExternalPrinter printer = new ExternalPrinter(this);
+        printer.print();
+    }
+    
     @Override
     public String toString() {
-        return "Inspektioner att utföra....";
+        return "Inspections to perform....";
     }
     
 }

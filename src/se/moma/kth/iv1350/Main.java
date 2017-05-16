@@ -26,11 +26,21 @@ public class Main {
        
        Vehicle vehicle = new Vehicle(10,new Inspection(100));
        
-       Controller controller = new Controller(vehicle); 
+       Controller controller = new Controller(vehicle);
       
        System.out.println("Inspection cost for Vehicle: "+ controller.registerNumber(10));
        
        System.out.println("Receipt from transaction: "+ controller.pay(100,new CreditCardInformation()));
+       
+       System.out.println("Inspection for the vehicle: " + controller.inspectVehicle());
+       
+       controller.enterResultOfInspection("Pass");
+       
+       controller.printResult();
+       
+       garage.openGarage();
+       garage.closeGarage();
+       
        
       
        

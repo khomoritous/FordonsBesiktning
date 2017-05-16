@@ -76,20 +76,32 @@ public class Controller {
         }
         return receipt;
     }
+    /**
+     * Används för att besikta fordonet. 
+     * @return Instans av klassen <code>Inspection</code> som visar vad på fordonet
+     * som behöver besiktas.
+     */
+    public Inspection inspectVehicle() {
+        Inspection inspection = null;
+        if(vehicle.getVehicleInspection() != null)
+            inspection = vehicle.getVehicleInspection();
+        return inspection;
+    } 
     
-   /* public Inspection inspectVehicle() {
-      return vehicle.getVehicleInspection();
-    } */
     
-   /* public void enterResultOfInspection(String result) {
+   /**
+    * Skriver resultatet vid inspektion av besiktning.
+    * @param result Textsträng som visar "pass" eller "fail" på en fordonsbesiktning.
+    */
+   public void enterResultOfInspection(String result) {
         vehicle.resultOfInspection(result);
-    }*/
-    
-  /*  public void printResult(String result) {
-        ExternalPrinter printer = new ExternalPrinter();
-        printer.print(result);
-        
-    }*/
+   }
+    /**
+     * GÖr en utskrift på resultatet vid fordonsbesiktningen.
+     */
+   public void printResult() {
+        vehicle.printVehicleInspectionResult();
+   }
     
     
 }
