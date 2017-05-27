@@ -18,8 +18,10 @@ import static org.junit.Assert.*;
  */
 public class ExternalPaymentAuthorizationSystemTest {
     
-    public ExternalPaymentAuthorizationSystemTest() {
-    }
+    private static final int AMOUNT = 100;
+    private CreditCardInformation creditCard = null;
+    private PaymentAuthorizationRequest request = null;
+    private ExternalPaymentAuthorizationSystem instance = null;
     
     @BeforeClass
     public static void setUpClass() {
@@ -31,6 +33,9 @@ public class ExternalPaymentAuthorizationSystemTest {
     
     @Before
     public void setUp() {
+        creditCard = new CreditCardInformation();
+        request = new PaymentAuthorizationRequest(AMOUNT,creditCard);
+        instance = new ExternalPaymentAuthorizationSystem(request);
     }
     
     @After
@@ -39,25 +44,19 @@ public class ExternalPaymentAuthorizationSystemTest {
 
     @Test
     public void testIsValid() {
-        System.out.println("isValid");
-        ExternalPaymentAuthorizationSystem instance = null;
-        boolean expResult = false;
         boolean result = instance.isValid();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertTrue("Not true",result);
+        
     }
 
     @Test
     public void testGetReceipt() {
-        System.out.println("getReceipt");
-        int amount = 0;
-        ExternalPaymentAuthorizationSystem instance = null;
-        Receipt expResult = null;
-        Receipt result = instance.getReceipt(amount);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Receipt result = null;
+        String expResult = "You have payed: "+ AMOUNT;
+        result = instance.getReceipt(AMOUNT);
+        
+        assertEquals(expResult, result.toString());
+        
     }
     
 }

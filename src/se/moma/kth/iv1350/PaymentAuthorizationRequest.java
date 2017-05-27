@@ -45,7 +45,4 @@ class PaymentAuthorizationRequest {
         return payment.getReceipt(amount);
     }
     
-    
-    
-    
 }

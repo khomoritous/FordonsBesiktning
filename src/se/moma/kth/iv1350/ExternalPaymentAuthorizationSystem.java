@@ -25,7 +25,7 @@ class ExternalPaymentAuthorizationSystem {
       }
       /**
        * 
-       * @return Ja eller nej om betalning går igenom.
+       * @return "True" eller "false", om betalning går igenom.
        */
       public boolean isValid() {
           return true;
