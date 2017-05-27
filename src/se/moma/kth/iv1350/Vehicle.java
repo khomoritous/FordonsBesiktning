@@ -54,10 +54,16 @@ class Vehicle {
     public Inspection getVehicleInspection() {
        return inspection.getInspection();
     }
+    /**
+     * Gör en utskrift av resultatet från fordonsbesiktningen.
+     */
     public void printVehicleInspectionResult() {
         inspection.printInspectionResult();
     }
-    
+    /**
+     * 
+     * @param result Anger "pass" eller "fail".
+     */
     public void resultOfInspection(String result) {
        inspection.setResultOfInspection(result);
     }

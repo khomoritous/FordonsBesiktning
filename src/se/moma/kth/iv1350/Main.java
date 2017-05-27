@@ -17,7 +17,7 @@ public class Main {
      */
     public static void main(String[] args) {
 
-           GarageDoor garageDoor = new GarageDoor();
+            GarageDoor garageDoor = new GarageDoor();
             Garage garage = new Garage(garageDoor);
             CustomerQueue customerQueue = new CustomerQueue();
             customerQueue.customerTakeQueueNumber();
