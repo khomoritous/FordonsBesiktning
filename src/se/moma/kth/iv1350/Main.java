@@ -46,11 +46,7 @@ public class Main {
             garage.openGarage();
             garage.closeGarage();
        
-   
- 
-       
-       
-    }
+   }
 }
        
 
