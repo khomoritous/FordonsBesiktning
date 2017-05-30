@@ -1,4 +1,10 @@
-package se.moma.kth.iv1350;
+package se.moma.kth.iv1350.startup;
+
+import se.moma.kth.iv1350.model.Vehicle;
+import se.moma.kth.iv1350.model.CreditCardInformation;
+import se.moma.kth.iv1350.model.Inspection;
+import se.moma.kth.iv1350.controller.Controller;
+import se.moma.kth.iv1350.view.View;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -16,8 +22,13 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        
+            View view = new View();
+            
+            view.beginInspection();
+            
 
-            GarageDoor garageDoor = new GarageDoor();
+            /*GarageDoor garageDoor = new GarageDoor();
             Garage garage = new Garage(garageDoor);
             CustomerQueue customerQueue = new CustomerQueue();
             customerQueue.customerTakeQueueNumber();
@@ -44,7 +55,7 @@ public class Main {
         
       
             garage.openGarage();
-            garage.closeGarage();
+            garage.closeGarage();*/
        
    }
 }

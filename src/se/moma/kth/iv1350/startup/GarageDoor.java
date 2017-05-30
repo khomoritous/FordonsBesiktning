@@ -1,4 +1,4 @@
-package se.moma.kth.iv1350;
+package se.moma.kth.iv1350.startup;
 
 /*
  * To change this license header, choose License Headers in Project Properties.

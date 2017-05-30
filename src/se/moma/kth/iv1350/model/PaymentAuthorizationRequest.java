@@ -3,13 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package se.moma.kth.iv1350;
+package se.moma.kth.iv1350.model;
+
+import se.moma.kth.iv1350.model.CreditCardInformation;
+import se.moma.kth.iv1350.model.ExternalPaymentAuthorizationSystem;
+import se.moma.kth.iv1350.model.Receipt;
 
 /**
  *
  * @author monde
  */
-class PaymentAuthorizationRequest {
+public class PaymentAuthorizationRequest {
     
    
     private int amount;

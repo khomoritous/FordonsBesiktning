@@ -1,4 +1,13 @@
-package se.moma.kth.iv1350;
+package se.moma.kth.iv1350.controller;
+
+import se.moma.kth.iv1350.db.VehicleRegistry;
+import se.moma.kth.iv1350.model.CreditCardInformation;
+import se.moma.kth.iv1350.startup.CustomerQueue;
+import se.moma.kth.iv1350.startup.Garage;
+import se.moma.kth.iv1350.model.Inspection;
+import se.moma.kth.iv1350.model.PaymentAuthorizationRequest;
+import se.moma.kth.iv1350.model.Receipt;
+import se.moma.kth.iv1350.model.Vehicle;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -12,52 +21,56 @@ package se.moma.kth.iv1350;
  */
 public class Controller {
     
-    private CustomerQueue customerQueue;//instansvariabel
-    private Garage garage; //instansvariabel
-    private Vehicle vehicle; //instansvariabel
-    private PaymentAuthorizationRequest request;//instansvariabel
    
+    private PaymentAuthorizationRequest request = null;
+    private Vehicle vehicle = null;
     
     
     /**
      * Skapar en ny instans. 
-     * @param vehicle Är en instans av klassen <code>Vehicle</code> som hjälper
-     * till att hämta fordon för besiktning.
+     * 
      */
-    public Controller(Vehicle vehicle) {
-      this.vehicle = vehicle;
+    public Controller() {
       
     }
     
     
     /**
      * Skapar en ny fordonsbesiktning.
+     * @param customerQueue Instans av klassen <code>CustomerQueue</code>
+     * som hjälper till att hålla reda på turodning för kunder.
+     * @param garage Instans av klassen <code>Garage</code> som kontrollerar 
+     * garaget.
      */
-    public void inspectNewVehicle() {
+    public void inspectNewVehicle(CustomerQueue customerQueue,Garage garage) {
      customerQueue.nextCustomer();
      garage.openGarage();
     } 
     
     /**
      * Stänger garaget.
+     * @param garage Instans av klassen <code>Garage</code> som kontrollerar
+     * garaget.
      */
-    public void closeDoor() {
+    public void closeDoor(Garage garage) {
         garage.closeGarage();    
     }
     
     /**
      * Försöker hitta fordonets registreringsnummer.
      * @param registrationNumber Är fordonets registreringsnummer och används 
-     * för hitta fordonet. 
+     * för hitta fordonet i fordonsregistret. 
      *
      * @return Kostnaden för inspektion av fordonet.
      */
     public int registerNumber(int registrationNumber) {
+        VehicleRegistry vehicleRegistry = new VehicleRegistry();
         int cost = 0;
-        if((vehicle.getVehicle().getVehicleNumber() == registrationNumber) && ((vehicle.getVehicle().getVehicleInspection()) != null)) {
-            cost = vehicle.getVehicleInspectionCost();
-        } else {
-            System.out.println("No vehicle with that number.");
+        for(int index = 0; index < vehicleRegistry.sizeOfVehicleRegistry(); index++) {
+            if((vehicleRegistry.getVehicle(index).getVehicleNumber()) == registrationNumber) {
+                vehicle = vehicleRegistry.getVehicle(index);
+                cost = vehicle.getVehicleInspectionCost();
+            } 
         }
         return cost;
     } 

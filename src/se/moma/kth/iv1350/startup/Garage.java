@@ -1,7 +1,7 @@
-package se.moma.kth.iv1350;
+package se.moma.kth.iv1350.startup;
 
 
-import se.moma.kth.iv1350.GarageDoor;
+import se.moma.kth.iv1350.startup.GarageDoor;
 
 /*
  * To change this license header, choose License Headers in Project Properties.

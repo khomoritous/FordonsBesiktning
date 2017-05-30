@@ -5,6 +5,10 @@
  */
 package se.moma.kth.iv1350;
 
+import se.moma.kth.iv1350.model.PaymentAuthorizationRequest;
+import se.moma.kth.iv1350.model.CreditCardInformation;
+import se.moma.kth.iv1350.model.ExternalPaymentAuthorizationSystem;
+import se.moma.kth.iv1350.model.Receipt;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;

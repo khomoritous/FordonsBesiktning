@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package se.moma.kth.iv1350;
+package se.moma.kth.iv1350.model;
 
 /**
  * Skapar en inspektion med tillhörande kostnad.
  * @author monde
  */
-class Inspection {
+public class Inspection {
     
     private int cost;
     private String result;

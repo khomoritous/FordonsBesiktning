@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package se.moma.kth.iv1350;
+package se.moma.kth.iv1350.startup;
 
+import se.moma.kth.iv1350.model.Customer;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,7 +13,7 @@ import java.util.List;
  * Skapar en kö för kunder. 
  * @author monde
  */
-class CustomerQueue {
+public class CustomerQueue {
     
     private int queueNumber = 1;//instansvariabel för nummerlapp.
     private int queue = 0; //instansvariabler för könummer.
