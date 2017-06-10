@@ -31,12 +31,12 @@ public class Garage {
      * Stänger garaget.
      */
     public void closeGarage() {
-        garageDoor.close();
+        garageDoor.closeDoor();
     }
     /**
      * Oppnar garaget.
      */
     public void openGarage() {
-        garageDoor.open();
+        garageDoor.openDoor();
     }
 }

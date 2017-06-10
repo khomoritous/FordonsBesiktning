@@ -21,14 +21,14 @@ public class GarageDoor {
     /**
      * Stänger dörren till garaget.
      */
-    public void close() {
+    public void closeDoor() {
         System.out.println("Closing garage door....");
     }
     
     /**
      * Öppnar dörren till garaget.
      */
-    public void open() {
+    public void openDoor() {
         System.out.println("Opening garage door....");   
     }
     

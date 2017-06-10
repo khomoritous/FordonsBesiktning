@@ -42,8 +42,8 @@ public class Vehicle {
         return this;
     }
     /**
-     * Metod av typ getter-
-     * @return fordonets registreringsnummer.
+     * 
+     * @return Fordonets registreringsnummer.
      */
     public int getVehicleNumber() {
         return vehicleRegistrationNumber;

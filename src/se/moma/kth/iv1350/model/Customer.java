@@ -24,9 +24,8 @@ public class Customer {
     }
     
     /**
-     * Metod av typ getter.
-     * @return Returnerar kundens könummer.
      * 
+     * @return Returnerar kundens könummer.
      */
     public int getCustomerNumber() {
         return customerQueueNumber;

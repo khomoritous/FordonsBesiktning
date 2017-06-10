@@ -49,10 +49,9 @@ public class Controller {
     
     /**
      * Stänger garaget.
-     * @param garage Instans av klassen <code>Garage</code> som kontrollerar
-     * garaget.
+     * @param garage Instans av klassen <code>Garage</code>-
      */
-    public void closeDoor(Garage garage) {
+    public void closeGarage(Garage garage) {
         garage.closeGarage();    
     }
     
@@ -74,6 +73,7 @@ public class Controller {
         }
         return cost;
     } 
+    
     /**
      * Används för att betala för en besiktning.
      * @param amount Beloppet som ska betalas.
@@ -89,6 +89,7 @@ public class Controller {
         }
         return receipt;
     }
+    
     /**
      * Används för att besikta fordonet. 
      * @return Instans av klassen <code>Inspection</code> som visar vad på fordonet

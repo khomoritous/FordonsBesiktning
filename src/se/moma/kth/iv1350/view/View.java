@@ -41,7 +41,7 @@ public class View {
         customerQueue.customerTakeQueueNumber();
        
         controller.inspectNewVehicle(customerQueue,garage);
-        controller.closeDoor(garage);
+        controller.closeGarage(garage);
         
         if((cost = controller.registerNumber(10)) == 0) {
             System.out.println("No vehicle with that number.");

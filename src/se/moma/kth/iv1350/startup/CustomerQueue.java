@@ -16,10 +16,10 @@ import java.util.List;
 public class CustomerQueue {
     
     private int queueNumber = 1;//instansvariabel för nummerlapp.
-    private int queue = 0; //instansvariabler för könummer.
+    private int queue = 0; //instansvariabel för könummer.
    
-    
     List<Customer> customerList; //instansvariabel av typ lista.
+    
     /**
      * Skapar en ny instans.
      */
