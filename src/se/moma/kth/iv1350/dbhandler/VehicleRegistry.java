@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package se.moma.kth.iv1350.db;
+package se.moma.kth.iv1350.dbhandler;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,23 +29,24 @@ public class VehicleRegistry {
     }
     /**
      * 
-     * @param vehicle Lägger till en instans av klassen <code>Vehicle</code>.
+     * @param vehicle Lägger till en instans av klassen <code>Vehicle</code>
+     * till registret.
      * 
      */
     public void addVehicle(Vehicle vehicle) {
         vehicleRegistry.add(vehicle);
     }
     /**
-     * Hämtar instans av klassen <code>Vehicle</code> från register.
+     * Hämtar instans av klassen <code>Vehicle</code> från registret.
      * @param index int som hjälper till att hämta ett fordon.
-     * @return ett fordon.
+     * @return Ett fordon.
      */
     public Vehicle getVehicle(int index) {
         return vehicleRegistry.get(index);
     }
     /**
      * 
-     * @return antal fordon i registret.
+     * @return Antal fordon i registret.
      */
     public int sizeOfVehicleRegistry() {
        return vehicleRegistry.size();

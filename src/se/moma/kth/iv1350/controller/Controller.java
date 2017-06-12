@@ -1,6 +1,6 @@
 package se.moma.kth.iv1350.controller;
 
-import se.moma.kth.iv1350.db.VehicleRegistry;
+import se.moma.kth.iv1350.dbhandler.VehicleRegistry;
 import se.moma.kth.iv1350.model.CreditCardInformation;
 import se.moma.kth.iv1350.startup.CustomerQueue;
 import se.moma.kth.iv1350.startup.Garage;
@@ -66,7 +66,7 @@ public class Controller {
         VehicleRegistry vehicleRegistry = new VehicleRegistry();
         int cost = 0;
         for(int index = 0; index < vehicleRegistry.sizeOfVehicleRegistry(); index++) {
-            if((vehicleRegistry.getVehicle(index).getVehicleNumber()) == registrationNumber) {
+            if(vehicleRegistry.getVehicle(index).getVehicleNumber() == registrationNumber && vehicleRegistry.getVehicle(index).getVehicleInspection() != null) {
                 vehicle = vehicleRegistry.getVehicle(index);
                 cost = vehicle.getVehicleInspectionCost();
             } 
