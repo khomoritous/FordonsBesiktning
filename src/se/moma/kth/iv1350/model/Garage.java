@@ -13,7 +13,7 @@ package se.moma.kth.iv1350.model;
 public class Garage {
     
    
-    private GarageDoor garageDoor; //instansvariabel
+    private GarageDoor garageDoor = null; //instansvariabel
     
     /**
      * Skapar en ny instans.

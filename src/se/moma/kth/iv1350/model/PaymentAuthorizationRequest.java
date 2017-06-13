@@ -17,8 +17,8 @@ public class PaymentAuthorizationRequest {
     
    
     private int amount;
-    private CreditCardInformationDTO creditCard;
-    private ExternalPaymentSystem payment;
+    private CreditCardInformationDTO creditCard = null;
+    private ExternalPaymentSystem payment = null;
   
     
     

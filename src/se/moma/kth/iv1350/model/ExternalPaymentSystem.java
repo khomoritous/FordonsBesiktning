@@ -14,8 +14,8 @@ import se.moma.kth.iv1350.model.Receipt;
 public class ExternalPaymentSystem {
     
     
-      private PaymentAuthorizationRequest request;    
-      private Receipt receipt;
+      private PaymentAuthorizationRequest request = null;   
+      private Receipt receipt = null;
       
       /**
        * Skapar en ny instans.
