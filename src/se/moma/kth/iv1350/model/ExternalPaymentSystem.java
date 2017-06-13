@@ -8,23 +8,24 @@ package se.moma.kth.iv1350.model;
 import se.moma.kth.iv1350.model.Receipt;
 
 /**
- *
+ * Skapar ett externt betalningsystem.
  * @author monde
  */
-public class ExternalPaymentAuthorizationSystem {
+public class ExternalPaymentSystem {
     
     
       private PaymentAuthorizationRequest request;    
-      //private boolean paymentApproval;
       private Receipt receipt;
+      
       /**
        * Skapar en ny instans.
        * @param request Är en instans av klassen <code>PaymentAuthorizationRequest</code>
        * som används vid betalning mot externt system.
        */
-      public ExternalPaymentAuthorizationSystem(PaymentAuthorizationRequest request) {
+      public ExternalPaymentSystem(PaymentAuthorizationRequest request) {
          this.request = request;
       }
+      
       /**
        * 
        * @return "True" eller "false", om betalning går igenom.
@@ -32,8 +33,8 @@ public class ExternalPaymentAuthorizationSystem {
       public boolean isValid() {
           return true;
       }
+      
       /**
-       * Getter
        * @return kvitto på betalning.
        */
       public Receipt getReceipt(int amount) {

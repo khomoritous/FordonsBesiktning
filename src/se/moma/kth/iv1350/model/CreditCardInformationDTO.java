@@ -9,20 +9,19 @@ package se.moma.kth.iv1350.model;
  * Skapar ett kreditkort.
  * @author monde
  */
-public class CreditCardInformation {
+public class CreditCardInformationDTO {
     
    
     /**
      * Skapar en ny instans.
      */
-    public CreditCardInformation() {
+    public CreditCardInformationDTO() {
     }
     
     /**
-     * Getter
-     * @return Ett kreditkort.
+     * @return Ett kreditkort av instansen <code>CreditCardInformationDTO</code>.
      */
-    public CreditCardInformation getCreditCard() {
+    public CreditCardInformationDTO getCreditCard() {
         return this;
     }
     

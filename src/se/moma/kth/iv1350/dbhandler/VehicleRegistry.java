@@ -45,7 +45,6 @@ public class VehicleRegistry {
         return vehicleRegistry.get(index);
     }
     /**
-     * 
      * @return Antal fordon i registret.
      */
     public int sizeOfVehicleRegistry() {

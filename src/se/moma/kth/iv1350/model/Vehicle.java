@@ -17,7 +17,7 @@ public class Vehicle {
     private Inspection inspection;//instansvariabel
     
     /**
-     * Skapar en instans av klassen <code>Vehicle</code>.
+     * Skapar en ny instans.
      * @param vehicleRegistrationNumber registreringsnummer för fordonet.
      * @param inspection inspektionen som ska utföras på fordonet vid besiktning.
      */
@@ -27,29 +27,24 @@ public class Vehicle {
         this.inspection  = inspection;
     }
     /**
-     * Används vid besiktning för att hämta kostnad för en inspektion 
-     * som hör till ett fordon.
-     * @return Kostnaden för fordonet.
+     * @return Kostnaden för inspektion som hör till fordonet.
      */
     public int getVehicleInspectionCost() {
         return inspection.getInspectionCost();
     }
     /**
-     * Metod av typ getter-
      * @return En instans av klassen <code>Vehicle</code>.
      */
     public Vehicle getVehicle() {
         return this;
     }
     /**
-     * 
      * @return Fordonets registreringsnummer.
      */
     public int getVehicleNumber() {
         return vehicleRegistrationNumber;
     }
     /**
-     * Används för att hämta en inspektion som hör till ett fordon.
      * @return En instans av klassen <code> Inspection</code> som 
      * hör till fordonet.
      */
@@ -63,8 +58,7 @@ public class Vehicle {
         inspection.printInspectionResult();
     }
     /**
-     * 
-     * @param result Anger "pass" eller "fail".
+     * @param result Textsträng som anger resultat från besiktning av fordonet.
      */
     public void resultOfInspection(String result) {
        inspection.setResultOfInspection(result);

@@ -25,14 +25,12 @@ public class Inspection {
        // this.result = result;
     }
     /**
-     * Metod av typ getter.
      * @return Kostnaden för en inspektion.
      */
     public int getInspectionCost() {
         return cost;
     }
     /**
-     * Metod av typ getter.
      * @return En instans av klassen <code>Inspection</code> som hör till
      * ett fordon.
      */

@@ -1,9 +1,9 @@
 package se.moma.kth.iv1350.controller;
 
 import se.moma.kth.iv1350.dbhandler.VehicleRegistry;
-import se.moma.kth.iv1350.model.CreditCardInformation;
-import se.moma.kth.iv1350.startup.CustomerQueue;
-import se.moma.kth.iv1350.startup.Garage;
+import se.moma.kth.iv1350.model.CreditCardInformationDTO;
+import se.moma.kth.iv1350.model.CustomerQueue;
+import se.moma.kth.iv1350.model.Garage;
 import se.moma.kth.iv1350.model.Inspection;
 import se.moma.kth.iv1350.model.PaymentAuthorizationRequest;
 import se.moma.kth.iv1350.model.Receipt;
@@ -22,21 +22,21 @@ import se.moma.kth.iv1350.model.Vehicle;
 public class Controller {
     
    
-    private PaymentAuthorizationRequest request = null;
+    
     private Vehicle vehicle = null;
+    private VehicleRegistry vehicleRegistry = null;
     
     
     /**
      * Skapar en ny instans. 
-     * 
      */
     public Controller() {
-      
+       vehicleRegistry = new VehicleRegistry();
     }
     
     
     /**
-     * Skapar en ny fordonsbesiktning.
+     * Sätter igång en ny fordonsbesiktning.
      * @param customerQueue Instans av klassen <code>CustomerQueue</code>
      * som hjälper till att hålla reda på turodning för kunder.
      * @param garage Instans av klassen <code>Garage</code> som kontrollerar 
@@ -59,11 +59,9 @@ public class Controller {
      * Försöker hitta fordonets registreringsnummer.
      * @param registrationNumber Är fordonets registreringsnummer och används 
      * för hitta fordonet i fordonsregistret. 
-     *
      * @return Kostnaden för inspektion av fordonet.
      */
     public int registerNumber(int registrationNumber) {
-        VehicleRegistry vehicleRegistry = new VehicleRegistry();
         int cost = 0;
         for(int index = 0; index < vehicleRegistry.sizeOfVehicleRegistry(); index++) {
             if(vehicleRegistry.getVehicle(index).getVehicleNumber() == registrationNumber && vehicleRegistry.getVehicle(index).getVehicleInspection() != null) {
@@ -76,14 +74,14 @@ public class Controller {
     
     /**
      * Används för att betala för en besiktning.
-     * @param amount Beloppet som ska betalas.
-     * @param creditCard Är en instans av klassen <code>CreditCardInformation</code>
+     * @param amount Beloppet som betalas.
+     * @param creditCard Är en instans av klassen <code>CreditCardInformationDTO</code>
      * och används för att göra en kreditkortsbetalning.
      * @return Kvitto på betalningen.
      */
-    public Receipt pay(int amount, CreditCardInformation creditCard) {
+    public Receipt pay(int amount, CreditCardInformationDTO creditCard) {
         Receipt receipt = null;
-        request = new PaymentAuthorizationRequest(amount,creditCard);
+        PaymentAuthorizationRequest request = new PaymentAuthorizationRequest(amount,creditCard);
         if(request.isApproved()) {
           receipt = request.getCustomerReceipt();
         }
@@ -97,15 +95,15 @@ public class Controller {
      */
     public Inspection inspectVehicle() {
         Inspection inspection = null;
-        if(vehicle.getVehicleInspection() != null)
+        if(vehicle.getVehicleInspection() != null) {
             inspection = vehicle.getVehicleInspection();
+        }
         return inspection;
     } 
     
-    
    /**
     * Skriver resultatet vid inspektion av besiktning.
-    * @param result Textsträng som visar "pass" eller "fail" på en fordonsbesiktning.
+    * @param result Textsträng som visar resultat på en fordonsbesiktning.
     */
    public void enterResultOfInspection(String result) {
         vehicle.resultOfInspection(result);
@@ -116,7 +114,15 @@ public class Controller {
    public void printResult() {
         vehicle.printVehicleInspectionResult();
    }
-    
+   /**
+    * Stänger garaget.
+    * @param garage En instans av klassen <code>Garage</code>.
+    */
+   public void openGarage(Garage garage) {
+       garage.openGarage();
+   }
+   
+   
     
 }
     

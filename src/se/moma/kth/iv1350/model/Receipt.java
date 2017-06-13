@@ -6,7 +6,7 @@
 package se.moma.kth.iv1350.model;
 
 /**
- * Skapar ett kvitto.
+ * Skapar ett kvitto på en transaktion.
  * @author monde
  */
 public class Receipt {
@@ -14,18 +14,22 @@ public class Receipt {
     private int amount;
     /**
      * Skapar en ny instans.
+     * @param amount Betald summa.
      */
     public Receipt(int amount) {
        this.amount = amount;
     }
     /**
-     * Getter som används som kvitto vid en transaktion.
-     * @return En instans av klassen <code>Receipt</code> 
+     * @return En instans av klassen <code>Receipt</code> som används som kvitto
+     * vid en transaktion.
      */
     public Receipt getReceipt() {
         return this;
     }
-    
+    /**
+     * 
+     * @return En textsträngrepresentation av instansen.
+     */
     @Override
     public String toString() {
         return "You have payed: "+ amount;

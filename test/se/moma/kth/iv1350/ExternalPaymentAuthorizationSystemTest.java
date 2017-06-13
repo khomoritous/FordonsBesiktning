@@ -6,8 +6,8 @@
 package se.moma.kth.iv1350;
 
 import se.moma.kth.iv1350.model.PaymentAuthorizationRequest;
-import se.moma.kth.iv1350.model.CreditCardInformation;
-import se.moma.kth.iv1350.model.ExternalPaymentAuthorizationSystem;
+import se.moma.kth.iv1350.model.CreditCardInformationDTO;
+import se.moma.kth.iv1350.model.ExternalPaymentSystem;
 import se.moma.kth.iv1350.model.Receipt;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -23,9 +23,9 @@ import static org.junit.Assert.*;
 public class ExternalPaymentAuthorizationSystemTest {
     
     private static final int AMOUNT = 100;
-    private CreditCardInformation creditCard = null;
+    private CreditCardInformationDTO creditCard = null;
     private PaymentAuthorizationRequest request = null;
-    private ExternalPaymentAuthorizationSystem instance = null;
+    private ExternalPaymentSystem instance = null;
     
     @BeforeClass
     public static void setUpClass() {
@@ -37,9 +37,9 @@ public class ExternalPaymentAuthorizationSystemTest {
     
     @Before
     public void setUp() {
-        creditCard = new CreditCardInformation();
+        creditCard = new CreditCardInformationDTO();
         request = new PaymentAuthorizationRequest(AMOUNT,creditCard);
-        instance = new ExternalPaymentAuthorizationSystem(request);
+        instance = new ExternalPaymentSystem(request);
     }
     
     @After

@@ -5,8 +5,8 @@
  */
 package se.moma.kth.iv1350.model;
 
-import se.moma.kth.iv1350.model.CreditCardInformation;
-import se.moma.kth.iv1350.model.ExternalPaymentAuthorizationSystem;
+import se.moma.kth.iv1350.model.CreditCardInformationDTO;
+import se.moma.kth.iv1350.model.ExternalPaymentSystem;
 import se.moma.kth.iv1350.model.Receipt;
 
 /**
@@ -17,19 +17,19 @@ public class PaymentAuthorizationRequest {
     
    
     private int amount;
-    private CreditCardInformation creditCard;
-    private ExternalPaymentAuthorizationSystem payment;
-    private Receipt receipt;
+    private CreditCardInformationDTO creditCard;
+    private ExternalPaymentSystem payment;
+  
     
     
     /**
      * Skapar en ny instans.
      * @param amount Belopp att betala.
-     * @param creditCard Är en instans av klassen <code>CreditCardInformation</code>
+     * @param creditCard Är en instans av klassen <code>CreditCardInformationDTO</code>
      * som används vid betalning.
      */
     
-    public PaymentAuthorizationRequest(int amount, CreditCardInformation creditCard) {
+    public PaymentAuthorizationRequest(int amount, CreditCardInformationDTO creditCard) {
         this.amount = amount;
         this.creditCard = creditCard;
     }
@@ -38,7 +38,7 @@ public class PaymentAuthorizationRequest {
      * @return Om betalningen godkänds.
      */
     public boolean isApproved() {
-          payment = new ExternalPaymentAuthorizationSystem(this);
+          payment = new ExternalPaymentSystem(this);
           return payment.isValid();
     }
     /**

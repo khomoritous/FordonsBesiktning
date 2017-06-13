@@ -1,7 +1,7 @@
 package se.moma.kth.iv1350.startup;
 
 import se.moma.kth.iv1350.model.Vehicle;
-import se.moma.kth.iv1350.model.CreditCardInformation;
+import se.moma.kth.iv1350.model.CreditCardInformationDTO;
 import se.moma.kth.iv1350.model.Inspection;
 import se.moma.kth.iv1350.controller.Controller;
 import se.moma.kth.iv1350.view.View;
@@ -17,7 +17,7 @@ import se.moma.kth.iv1350.view.View;
  * @author monde
  */
 public class Main {
-
+ 
     /**
      * @param args the command line arguments
      */
@@ -45,7 +45,7 @@ public class Main {
 
             System.out.println("Inspection cost for Vehicle: "+ controller.registerNumber(10));
 
-            System.out.println("Receipt from transaction: "+ controller.pay(100,new CreditCardInformation()));
+            System.out.println("Receipt from transaction: "+ controller.pay(100,new CreditCardInformationDTO()));
 
             System.out.println("Inspection for the vehicle: " + controller.inspectVehicle());
 
