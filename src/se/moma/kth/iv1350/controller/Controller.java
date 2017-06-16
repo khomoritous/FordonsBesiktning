@@ -4,6 +4,7 @@ import se.moma.kth.iv1350.dbhandler.VehicleRegistry;
 import se.moma.kth.iv1350.model.CreditCardInformationDTO;
 import se.moma.kth.iv1350.model.CustomerQueue;
 import se.moma.kth.iv1350.model.Garage;
+import se.moma.kth.iv1350.model.GarageDoor;
 import se.moma.kth.iv1350.model.Inspection;
 import se.moma.kth.iv1350.model.PaymentAuthorizationRequest;
 import se.moma.kth.iv1350.model.Receipt;
@@ -25,6 +26,9 @@ public class Controller {
     
     private Vehicle vehicle = null;
     private VehicleRegistry vehicleRegistry = null;
+    private Garage garage = null;
+    private GarageDoor garageDoor = null;
+    private CustomerQueue customerQueue = null;
     
     
     /**
@@ -32,6 +36,10 @@ public class Controller {
      */
     public Controller() {
        vehicleRegistry = new VehicleRegistry();
+       garageDoor = new GarageDoor();
+       garage = new Garage(garageDoor);
+       customerQueue = new CustomerQueue();
+
     }
     
     
@@ -42,7 +50,7 @@ public class Controller {
      * @param garage Instans av klassen <code>Garage</code> som kontrollerar 
      * garaget.
      */
-    public void inspectNewVehicle(CustomerQueue customerQueue,Garage garage) {
+    public void inspectNewVehicle(CustomerQueue customerQueue) {
      customerQueue.nextCustomer();
      garage.openGarage();
     } 
@@ -51,7 +59,7 @@ public class Controller {
      * Stänger garaget.
      * @param garage Instans av klassen <code>Garage</code>-
      */
-    public void closeGarage(Garage garage) {
+    public void closeGarage() {
         garage.closeGarage();    
     }
     
@@ -118,7 +126,7 @@ public class Controller {
     * Stänger garaget.
     * @param garage En instans av klassen <code>Garage</code>.
     */
-   public void openGarage(Garage garage) {
+   public void openGarage() {
        garage.openGarage();
    }
    

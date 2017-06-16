@@ -27,14 +27,14 @@ public class ExternalPaymentSystem {
       }
       
       /**
-       * 
-       * @return "True" eller "false", om betalning går igenom.
+       * @return true, om betalning går igenom.
        */
       public boolean isValid() {
           return true;
       }
       
       /**
+       * @param amount Belopp som betalas.
        * @return kvitto på betalning.
        */
       public Receipt getReceipt(int amount) {

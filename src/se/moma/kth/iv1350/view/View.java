@@ -18,7 +18,7 @@ import se.moma.kth.iv1350.model.GarageDoor;
 public class View {
     
    
-    Garage garage = null;
+   // Garage garage = null;
     CustomerQueue customerQueue = null;
     Controller controller = null;
    
@@ -28,7 +28,7 @@ public class View {
      * Skapar en ny instans.
      */
     public View()  {
-        garage = new Garage(new GarageDoor());
+       // garage = new Garage(new GarageDoor());
         customerQueue = new CustomerQueue();
         controller = new Controller();
         
@@ -39,10 +39,10 @@ public class View {
      */
     public void beginInspection() {
         int cost;
+        
         customerQueue.customerTakeQueueNumber();
-       
-        controller.inspectNewVehicle(customerQueue,garage);
-        controller.closeGarage(garage);
+        controller.inspectNewVehicle(customerQueue);
+        controller.closeGarage();
         
         if((cost = controller.registerNumber(10)) == 0) {
             System.out.println("No vehicle with that number.");
@@ -58,8 +58,8 @@ public class View {
         controller.enterResultOfInspection("Pass");
 
         controller.printResult();
-        controller.openGarage(garage);
-        controller.closeGarage(garage);
+        controller.openGarage();
+        controller.closeGarage();
         
     }
     
