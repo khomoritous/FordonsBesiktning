@@ -1,4 +1,4 @@
-package se.moma.kth.iv1350.model;
+package se.moma.kth.iv1350.model.external;
 
 /*
  * To change this license header, choose License Headers in Project Properties.

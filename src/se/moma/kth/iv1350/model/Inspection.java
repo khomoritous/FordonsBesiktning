@@ -5,6 +5,8 @@
  */
 package se.moma.kth.iv1350.model;
 
+import se.moma.kth.iv1350.model.external.ExternalPrinter;
+
 /**
  * Skapar en inspektion med tillhörande kostnad.
  * @author monde

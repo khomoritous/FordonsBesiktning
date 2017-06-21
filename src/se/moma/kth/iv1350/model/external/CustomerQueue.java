@@ -3,11 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package se.moma.kth.iv1350.model;
+package se.moma.kth.iv1350.model.external;
 
 import se.moma.kth.iv1350.model.Customer;
 import java.util.ArrayList;
 import java.util.List;
+import se.moma.kth.iv1350.model.Customer;
 
 /**
  * Skapar en kö för kunder. 

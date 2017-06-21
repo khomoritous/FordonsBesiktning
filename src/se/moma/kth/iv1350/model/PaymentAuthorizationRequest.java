@@ -6,7 +6,7 @@
 package se.moma.kth.iv1350.model;
 
 import se.moma.kth.iv1350.model.CreditCardInformationDTO;
-import se.moma.kth.iv1350.model.ExternalPaymentSystem;
+import se.moma.kth.iv1350.model.external.ExternalPaymentSystem;
 import se.moma.kth.iv1350.model.Receipt;
 
 /**

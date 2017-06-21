@@ -28,7 +28,6 @@ public class VehicleRegistry {
        vehicleRegistry.add(new Vehicle(VEHICLE_NUMBER,new Inspection(INSPECTION_COST)));
     }
     /**
-     * 
      * @param vehicle Lägger till en instans av klassen <code>Vehicle</code>
      * till registret.
      * 
@@ -37,9 +36,8 @@ public class VehicleRegistry {
         vehicleRegistry.add(vehicle);
     }
     /**
-     * Hämtar instans av klassen <code>Vehicle</code> från registret.
      * @param index int som hjälper till att hämta ett fordon.
-     * @return Ett fordon.
+     * @return En fordonsinstans av klassen <code>Vehicle</code>.
      */
     public Vehicle getVehicle(int index) {
         return vehicleRegistry.get(index);
@@ -50,6 +48,10 @@ public class VehicleRegistry {
     public int sizeOfVehicleRegistry() {
        return vehicleRegistry.size();
     }
-    
+    /*
+    public boolean isVehicleFound(String registrationNumber) {
+        return vehicleRegistry.contains(registrationNumber);
+    }
+    */
     
 }

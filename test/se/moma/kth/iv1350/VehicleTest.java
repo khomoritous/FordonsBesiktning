@@ -6,7 +6,7 @@
 package se.moma.kth.iv1350;
 
 import se.moma.kth.iv1350.model.Vehicle;
-import se.moma.kth.iv1350.model.ExternalPrinter;
+import se.moma.kth.iv1350.model.external.ExternalPrinter;
 import se.moma.kth.iv1350.model.Inspection;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;

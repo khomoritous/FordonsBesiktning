@@ -7,7 +7,7 @@ package se.moma.kth.iv1350;
 
 import se.moma.kth.iv1350.model.PaymentAuthorizationRequest;
 import se.moma.kth.iv1350.model.CreditCardInformationDTO;
-import se.moma.kth.iv1350.model.ExternalPaymentSystem;
+import se.moma.kth.iv1350.model.external.ExternalPaymentSystem;
 import se.moma.kth.iv1350.model.Receipt;
 import org.junit.After;
 import org.junit.AfterClass;

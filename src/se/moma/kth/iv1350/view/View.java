@@ -7,9 +7,9 @@ package se.moma.kth.iv1350.view;
 
 import se.moma.kth.iv1350.controller.Controller;
 import se.moma.kth.iv1350.model.CreditCardInformationDTO;
-import se.moma.kth.iv1350.model.CustomerQueue;
-import se.moma.kth.iv1350.model.Garage;
-import se.moma.kth.iv1350.model.GarageDoor;
+import se.moma.kth.iv1350.model.external.CustomerQueue;
+import se.moma.kth.iv1350.model.external.Garage;
+import se.moma.kth.iv1350.model.external.GarageDoor;
 
 /**
  * Skapar ett användargränssnitt.

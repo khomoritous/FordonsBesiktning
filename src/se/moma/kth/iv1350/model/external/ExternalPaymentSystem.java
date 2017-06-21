@@ -3,8 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package se.moma.kth.iv1350.model;
+package se.moma.kth.iv1350.model.external;
 
+import se.moma.kth.iv1350.model.PaymentAuthorizationRequest;
+import se.moma.kth.iv1350.model.Receipt;
 import se.moma.kth.iv1350.model.Receipt;
 
 /**
