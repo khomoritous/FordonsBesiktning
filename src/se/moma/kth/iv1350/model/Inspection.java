@@ -39,6 +39,9 @@ public class Inspection {
     public Inspection getInspection() {
         return this;
     }
+    /**
+     * @param result Textsträng som används för resultat av inspektion.
+     */
     public void setResultOfInspection(String result) {
         this.result = result;
     }

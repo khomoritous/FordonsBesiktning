@@ -27,7 +27,6 @@ public class Receipt {
         return this;
     }
     /**
-     * 
      * @return En textsträngrepresentation av instansen.
      */
     @Override

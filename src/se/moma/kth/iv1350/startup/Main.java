@@ -13,7 +13,7 @@ import se.moma.kth.iv1350.view.View;
  */
 
 /**
- *
+ * 
  * @author monde
  */
 public class Main {
@@ -23,41 +23,8 @@ public class Main {
      */
     public static void main(String[] args) {
         
-            View view = new View();
-            
-            view.beginInspection();
-            
-
-            /*GarageDoor garageDoor = new GarageDoor();
-            Garage garage = new Garage(garageDoor);
-            CustomerQueue customerQueue = new CustomerQueue();
-            customerQueue.customerTakeQueueNumber();
-            customerQueue.nextCustomer();
-            garage.openGarage();
-            garage.closeGarage(); 
-
-            
-      
-            
-            Vehicle vehicle = new Vehicle(10,new Inspection(100));
-
-            Controller controller = new Controller(vehicle);
-
-            System.out.println("Inspection cost for Vehicle: "+ controller.registerNumber(10));
-
-            System.out.println("Receipt from transaction: "+ controller.pay(100,new CreditCardInformationDTO()));
-
-            System.out.println("Inspection for the vehicle: " + controller.inspectVehicle());
-
-            controller.enterResultOfInspection("Pass");
-
-            controller.printResult();
-        
-      
-            garage.openGarage();
-            garage.closeGarage();*/
-       
-   }
+            new View().beginInspection();
+    }
 }
        
 

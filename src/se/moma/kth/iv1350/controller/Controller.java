@@ -38,7 +38,7 @@ public class Controller {
        vehicleRegistry = new VehicleRegistry();
        garageDoor = new GarageDoor();
        garage = new Garage(garageDoor);
-       customerQueue = new CustomerQueue();
+       //customerQueue = new CustomerQueue();
 
     }
     
@@ -47,8 +47,6 @@ public class Controller {
      * Sätter igång en ny fordonsbesiktning.
      * @param customerQueue Instans av klassen <code>CustomerQueue</code>
      * som hjälper till att hålla reda på turodning för kunder.
-     * @param garage Instans av klassen <code>Garage</code> som kontrollerar 
-     * garaget.
      */
     public void inspectNewVehicle(CustomerQueue customerQueue) {
      customerQueue.nextCustomer();
@@ -57,7 +55,6 @@ public class Controller {
     
     /**
      * Stänger garaget.
-     * @param garage Instans av klassen <code>Garage</code>-
      */
     public void closeGarage() {
         garage.closeGarage();    
@@ -124,7 +121,6 @@ public class Controller {
    }
    /**
     * Stänger garaget.
-    * @param garage En instans av klassen <code>Garage</code>.
     */
    public void openGarage() {
        garage.openGarage();

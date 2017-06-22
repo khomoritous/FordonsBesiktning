@@ -21,7 +21,6 @@ public class Vehicle {
      * @param vehicleRegistrationNumber registreringsnummer för fordonet.
      * @param inspection inspektionen som ska utföras på fordonet vid besiktning.
      */
-    
     public Vehicle(int vehicleRegistrationNumber, Inspection inspection) {
         this.vehicleRegistrationNumber  = vehicleRegistrationNumber;
         this.inspection  = inspection;
