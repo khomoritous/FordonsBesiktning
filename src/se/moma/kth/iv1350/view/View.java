@@ -29,7 +29,7 @@ public class View {
      */
     public View()  {
        // garage = new Garage(new GarageDoor());
-        customerQueue = new CustomerQueue();
+        //customerQueue = new CustomerQueue();
         controller = new Controller();
         
     }
@@ -39,9 +39,8 @@ public class View {
      */
     public void beginInspection() {
         int cost;
-        
-        customerQueue.customerTakeQueueNumber();
-        controller.inspectNewVehicle(customerQueue);
+       
+        controller.inspectNewVehicle();
         controller.closeGarage();
         
         if((cost = controller.registerNumber(10)) == 0) {

@@ -45,13 +45,16 @@ public class Controller {
     
     /**
      * Sätter igång en ny fordonsbesiktning.
-     * @param customerQueue Instans av klassen <code>CustomerQueue</code>
-     * som hjälper till att hålla reda på turodning för kunder.
      */
-    public void inspectNewVehicle(CustomerQueue customerQueue) {
-     customerQueue.nextCustomer();
-     garage.openGarage();
+    public void inspectNewVehicle() {
+        customerQueueHandling();
+        garage.openGarage();
     } 
+
+    private void customerQueueHandling() {
+        garage.customerTakeNumber();
+        garage.nextCustomerInQueue();
+    }
     
     /**
      * Stänger garaget.

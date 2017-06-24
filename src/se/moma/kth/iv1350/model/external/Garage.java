@@ -14,6 +14,7 @@ public class Garage {
     
    
     private GarageDoor garageDoor = null; //instansvariabel
+    private CustomerQueue customerQueue = null;
     
     /**
      * Skapar en ny instans.
@@ -22,6 +23,7 @@ public class Garage {
      */
     public Garage(GarageDoor garageDoor) {
         this.garageDoor = garageDoor;
+        customerQueue = new CustomerQueue();
     }
     
     /**
@@ -35,5 +37,17 @@ public class Garage {
      */
     public void openGarage() {
         garageDoor.openDoor();
+    }
+    /**
+     * Kund tar en nummerlapp.
+     */
+    public void customerTakeNumber() {
+        customerQueue.customerTakeQueueNumber();
+    }
+    /**
+     * Trycker fram nästa kund i kön.
+     */
+    public void nextCustomerInQueue() {
+        customerQueue.nextCustomer();
     }
 }
