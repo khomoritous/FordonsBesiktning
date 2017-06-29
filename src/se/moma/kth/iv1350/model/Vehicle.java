@@ -13,7 +13,7 @@ import se.moma.kth.iv1350.model.Inspection;
  */
 public class Vehicle {
     
-    private int vehicleRegistrationNumber;//instansvariabel
+    private final int vehicleRegistrationNumber;//instansvariabel
     private Inspection inspection = null;//instansvariabel
     
     /**

@@ -5,6 +5,9 @@
  */
 package se.moma.kth.iv1350.view;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import se.moma.kth.iv1350.controller.Controller;
 import se.moma.kth.iv1350.model.CreditCardInformationDTO;
 import se.moma.kth.iv1350.model.external.CustomerQueue;
@@ -21,7 +24,8 @@ public class View {
    // Garage garage = null;
     CustomerQueue customerQueue = null;
     Controller controller = null;
-   
+    LocalDate dnow = LocalDate.now();
+    LocalTime tnow = LocalTime.now();
     
     
     /**
@@ -37,7 +41,7 @@ public class View {
     /**
      * Startar en ny fordonsbesiktning.
      */
-    public void beginInspection() {
+    public void sampleExecution() {
         int cost;
        
         controller.inspectNewVehicle();
@@ -49,6 +53,8 @@ public class View {
              System.out.println("Inspection cost for Vehicle: "+ cost);
         }
         System.out.println("-----Begin receipt-----");
+        System.out.println("Date: "+dnow);
+        System.out.println("Time: "+tnow);
         System.out.println("Transaction: "+ controller.pay(100,new CreditCardInformationDTO()));
         System.out.println("-----End receipt-----");
 

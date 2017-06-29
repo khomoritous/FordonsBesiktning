@@ -38,7 +38,7 @@ public class Controller {
        vehicleRegistry = new VehicleRegistry();
        garageDoor = new GarageDoor();
        garage = new Garage(garageDoor);
-       //customerQueue = new CustomerQueue();
+       
 
     }
     
@@ -71,6 +71,11 @@ public class Controller {
      */
     public int registerNumber(int registrationNumber) {
         int cost = 0;
+        cost = matches(registrationNumber, cost);
+        return cost;
+    } 
+
+    private int matches(int registrationNumber, int cost) {
         for(int index = 0; index < vehicleRegistry.sizeOfVehicleRegistry(); index++) {
             if(vehicleRegistry.getVehicle(index).getVehicleNumber() == registrationNumber && vehicleRegistry.getVehicle(index).getVehicleInspection() != null) {
                 vehicle = vehicleRegistry.getVehicle(index);
@@ -123,7 +128,7 @@ public class Controller {
         vehicle.printVehicleInspectionResult();
    }
    /**
-    * Stänger garaget.
+    * Öppnar garaget.
     */
    public void openGarage() {
        garage.openGarage();

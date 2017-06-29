@@ -9,7 +9,7 @@ package se.moma.kth.iv1350.model;
  * Skapar ett kreditkort.
  * @author monde
  */
-public class CreditCardInformationDTO {
+public final class CreditCardInformationDTO {
     
    
     /**

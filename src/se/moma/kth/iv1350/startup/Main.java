@@ -1,9 +1,5 @@
 package se.moma.kth.iv1350.startup;
 
-import se.moma.kth.iv1350.model.Vehicle;
-import se.moma.kth.iv1350.model.CreditCardInformationDTO;
-import se.moma.kth.iv1350.model.Inspection;
-import se.moma.kth.iv1350.controller.Controller;
 import se.moma.kth.iv1350.view.View;
 
 /*
@@ -23,7 +19,7 @@ public class Main {
      */
     public static void main(String[] args) {
         
-            new View().beginInspection();
+            new View().sampleExecution();
     }
 }
        
