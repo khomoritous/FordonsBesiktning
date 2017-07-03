@@ -5,6 +5,7 @@
  */
 package se.moma.kth.iv1350.model;
 
+import se.moma.kth.iv1350.model.exceptions.IllegalLicenseNumber;
 import se.moma.kth.iv1350.model.external.ExternalPrinter;
 
 /**
@@ -26,6 +27,7 @@ public class Inspection {
         this.cost  = cost;
        // this.result = result;
     }
+    
     /**
      * @return Kostnaden för en inspektion.
      */
@@ -36,7 +38,8 @@ public class Inspection {
      * @return En instans av klassen <code>Inspection</code> som hör till
      * ett fordon.
      */
-    public Inspection getInspection() {
+    public Inspection getInspection()  {
+      
         return this;
     }
     /**

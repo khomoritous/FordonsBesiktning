@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import se.moma.kth.iv1350.model.Inspection;
 import se.moma.kth.iv1350.model.Vehicle;
+import se.moma.kth.iv1350.model.exceptions.IllegalLicenseNumber;
 
 /**
  * Skapar ett fordonsregister.
@@ -17,7 +18,10 @@ import se.moma.kth.iv1350.model.Vehicle;
 public class VehicleRegistry {
     
     private List<Vehicle> vehicleRegistry = null;
-    private static final int VEHICLE_NUMBER = 10;
+    private static final int VEHICLE_NUMBER_1 = 10;
+    private static final int VEHICLE_NUMBER_2 = 15;
+    private static final int VEHICLE_NUMBER_3 = 20;
+    
     private static final int INSPECTION_COST = 100;
     
     
@@ -26,7 +30,11 @@ public class VehicleRegistry {
     */
     public VehicleRegistry() {
        vehicleRegistry = new ArrayList<>();
-       vehicleRegistry.add(new Vehicle(VEHICLE_NUMBER,new Inspection(INSPECTION_COST)));
+       
+       vehicleRegistry.add(new Vehicle(VEHICLE_NUMBER_1,new Inspection(INSPECTION_COST)));
+       vehicleRegistry.add(new Vehicle(VEHICLE_NUMBER_3));
+       vehicleRegistry.add(new Vehicle(VEHICLE_NUMBER_2, null));
+       
        
     }
     
@@ -53,7 +61,13 @@ public class VehicleRegistry {
        return vehicleRegistry.size();
     }
     
+    /*public boolean findVehicleInspection(int index,int registrationNumber) {
+       return 
+    }*/
     
+    public boolean findVehicleByNo(int index, int registrationNumber) {
+        return vehicleRegistry.get(index).getVehicleNumber() == registrationNumber;
+    }
    
     
 }

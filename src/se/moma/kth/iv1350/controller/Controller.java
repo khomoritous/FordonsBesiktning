@@ -1,11 +1,14 @@
 package se.moma.kth.iv1350.controller;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import se.moma.kth.iv1350.dbhandler.VehicleRegistry;
 import se.moma.kth.iv1350.model.CreditCardInformationDTO;
 import se.moma.kth.iv1350.model.external.CustomerQueue;
 import se.moma.kth.iv1350.model.external.Garage;
 import se.moma.kth.iv1350.model.external.GarageDoor;
 import se.moma.kth.iv1350.model.Inspection;
+import se.moma.kth.iv1350.model.exceptions.IllegalLicenseNumber;
 import se.moma.kth.iv1350.model.PaymentAuthorizationRequest;
 import se.moma.kth.iv1350.model.Receipt;
 import se.moma.kth.iv1350.model.Vehicle;
@@ -68,6 +71,7 @@ public class Controller {
      * @param registrationNumber Är fordonets registreringsnummer och används 
      * för hitta fordonet i fordonsregistret. 
      * @return Kostnaden för inspektion av fordonet.
+     * @throws se.moma.kth.iv1350.model.exceptions.IllegalLicenseNumber
      */
     public int registerNumber(int registrationNumber) {
         int cost = 0;
@@ -77,13 +81,13 @@ public class Controller {
 
     private int matches(int registrationNumber, int cost) {
         for(int index = 0; index < vehicleRegistry.sizeOfVehicleRegistry(); index++) {
-            if(vehicleRegistry.getVehicle(index).getVehicleNumber() == registrationNumber && vehicleRegistry.getVehicle(index).getVehicleInspection() != null) {
-                vehicle = vehicleRegistry.getVehicle(index);
-                cost = vehicle.getVehicleInspectionCost();
-            } 
-        }
+            if(vehicleRegistry.findVehicleByNo(index, registrationNumber) && (vehicleRegistry.getVehicle(index).getVehicleInspection() != null)) {
+                    vehicle = vehicleRegistry.getVehicle(index);               
+                    return vehicle.getVehicleInspectionCost();
+                }
+            }            
         return cost;
-    } 
+    }
     
     /**
      * Används för att betala för en besiktning.

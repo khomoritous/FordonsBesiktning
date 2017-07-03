@@ -5,7 +5,7 @@
  */
 package se.moma.kth.iv1350.model;
 
-import se.moma.kth.iv1350.model.Inspection;
+import se.moma.kth.iv1350.model.exceptions.IllegalLicenseNumber;
 
 /**
  * Skapar ett fordon med registreringsnummer och inspektion.
@@ -14,7 +14,7 @@ import se.moma.kth.iv1350.model.Inspection;
 public class Vehicle {
     
     private final int vehicleRegistrationNumber;//instansvariabel
-    private Inspection inspection = null;//instansvariabel
+    private Inspection inspection; //null;//instansvariabel
     
     /**
      * Skapar en ny instans.
@@ -25,6 +25,11 @@ public class Vehicle {
         this.vehicleRegistrationNumber  = vehicleRegistrationNumber;
         this.inspection  = inspection;
     }
+    
+    public Vehicle(int vehicleRegistrationNumber) {
+        this.vehicleRegistrationNumber  = vehicleRegistrationNumber;
+    }
+    
     /**
      * @return Kostnaden för inspektion som hör till fordonet.
      */
@@ -48,7 +53,8 @@ public class Vehicle {
      * hör till fordonet.
      */
     public Inspection getVehicleInspection() {
-       return inspection.getInspection();
+        
+            return inspection.getInspection();
     }
     /**
      * Gör en utskrift av resultatet från fordonsbesiktningen.
