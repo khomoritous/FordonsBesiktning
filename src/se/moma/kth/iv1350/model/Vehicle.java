@@ -5,7 +5,9 @@
  */
 package se.moma.kth.iv1350.model;
 
-import se.moma.kth.iv1350.model.exceptions.IllegalLicenseNumber;
+import java.util.ArrayList;
+import java.util.List;
+import se.moma.kth.iv1350.dbhandler.exceptions.VehicleRegistryException;
 
 /**
  * Skapar ett fordon med registreringsnummer och inspektion.
@@ -15,19 +17,16 @@ public class Vehicle {
     
     private final int vehicleRegistrationNumber;//instansvariabel
     private Inspection inspection; //null;//instansvariabel
+   
     
     /**
      * Skapar en ny instans.
-     * @param vehicleRegistrationNumber registreringsnummer för fordonet.
-     * @param inspection inspektionen som ska utföras på fordonet vid besiktning.
+     * @param vehicleRegistrationNumber Registreringsnummer för fordonet.
+     * @param inspection Instans av klassen <code>Inspection</code> som hör till fordonet.
      */
     public Vehicle(int vehicleRegistrationNumber, Inspection inspection) {
         this.vehicleRegistrationNumber  = vehicleRegistrationNumber;
         this.inspection  = inspection;
-    }
-    
-    public Vehicle(int vehicleRegistrationNumber) {
-        this.vehicleRegistrationNumber  = vehicleRegistrationNumber;
     }
     
     /**
@@ -53,7 +52,9 @@ public class Vehicle {
      * hör till fordonet.
      */
     public Inspection getVehicleInspection() {
-        
+        if(inspection == null)
+            throw new VehicleRegistryException("No inspections found.");
+        else 
             return inspection.getInspection();
     }
     /**

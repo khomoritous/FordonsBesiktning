@@ -11,7 +11,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import se.moma.kth.iv1350.controller.Controller;
 import se.moma.kth.iv1350.model.CreditCardInformationDTO;
-import se.moma.kth.iv1350.model.exceptions.IllegalLicenseNumber;
+import se.moma.kth.iv1350.model.exceptions.InspectionNotFoundException;
 
 /**
  * Skapar ett användargränssnitt.
@@ -25,7 +25,6 @@ public class View {
     private LocalDate dnow = LocalDate.now();
     private LocalTime tnow = LocalTime.now();
     private final static int VEHICLE_NUMBER = 10;
-    private final static int VEHICLE_NUMBER_1 = 20;
     private final static int VEHICLE_NUMBER_WITH_NO_INSPECTION = 15;
     
     private final static int AMOUNT = 100;
@@ -53,7 +52,7 @@ public class View {
             controller.closeGarage();
             
             
-            System.out.println("Inspection cost for Vehicle: "+ controller.registerNumber(VEHICLE_NUMBER));
+            System.out.println("Inspection cost for Vehicle: "+ controller.registerNumber(VEHICLE_NUMBER_WITH_NO_INSPECTION));
             System.out.println("-----Begin receipt-----");
             System.out.println("Date: "+dnow);
             System.out.println("Time: "+tnow);

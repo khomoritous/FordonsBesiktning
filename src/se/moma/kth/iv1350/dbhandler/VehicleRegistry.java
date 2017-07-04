@@ -7,9 +7,10 @@ package se.moma.kth.iv1350.dbhandler;
 
 import java.util.ArrayList;
 import java.util.List;
+import se.moma.kth.iv1350.dbhandler.exceptions.VehicleRegistryException;
 import se.moma.kth.iv1350.model.Inspection;
 import se.moma.kth.iv1350.model.Vehicle;
-import se.moma.kth.iv1350.model.exceptions.IllegalLicenseNumber;
+import se.moma.kth.iv1350.model.exceptions.InspectionNotFoundException;
 
 /**
  * Skapar ett fordonsregister.
@@ -20,7 +21,6 @@ public class VehicleRegistry {
     private List<Vehicle> vehicleRegistry = null;
     private static final int VEHICLE_NUMBER_1 = 10;
     private static final int VEHICLE_NUMBER_2 = 15;
-    private static final int VEHICLE_NUMBER_3 = 20;
     
     private static final int INSPECTION_COST = 100;
     
@@ -30,10 +30,9 @@ public class VehicleRegistry {
     */
     public VehicleRegistry() {
        vehicleRegistry = new ArrayList<>();
-       
        vehicleRegistry.add(new Vehicle(VEHICLE_NUMBER_1,new Inspection(INSPECTION_COST)));
-       vehicleRegistry.add(new Vehicle(VEHICLE_NUMBER_3));
-       vehicleRegistry.add(new Vehicle(VEHICLE_NUMBER_2, null));
+        vehicleRegistry.add(new Vehicle(VEHICLE_NUMBER_2, null));
+       
        
        
     }
@@ -54,6 +53,7 @@ public class VehicleRegistry {
     public Vehicle getVehicle(int index) {
         return vehicleRegistry.get(index);
     }
+    
     /**
      * @return Antal fordon i registret.
      */
@@ -61,9 +61,13 @@ public class VehicleRegistry {
        return vehicleRegistry.size();
     }
     
-    /*public boolean findVehicleInspection(int index,int registrationNumber) {
-       return 
-    }*/
+    public int findVehicleInspection(Vehicle vehicle) {
+      if(vehicle.getVehicleInspection()==null) {
+          throw new VehicleRegistryException("Invalid registration number");
+      } else {
+          return vehicle.getVehicleInspection().getInspectionCost();
+      }
+    }
     
     public boolean findVehicleByNo(int index, int registrationNumber) {
         return vehicleRegistry.get(index).getVehicleNumber() == registrationNumber;

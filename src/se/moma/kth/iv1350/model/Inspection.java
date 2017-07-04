@@ -5,7 +5,7 @@
  */
 package se.moma.kth.iv1350.model;
 
-import se.moma.kth.iv1350.model.exceptions.IllegalLicenseNumber;
+import se.moma.kth.iv1350.model.exceptions.InspectionNotFoundException;
 import se.moma.kth.iv1350.model.external.ExternalPrinter;
 
 /**

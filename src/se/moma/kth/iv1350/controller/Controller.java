@@ -1,14 +1,11 @@
 package se.moma.kth.iv1350.controller;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import se.moma.kth.iv1350.dbhandler.VehicleRegistry;
 import se.moma.kth.iv1350.model.CreditCardInformationDTO;
 import se.moma.kth.iv1350.model.external.CustomerQueue;
 import se.moma.kth.iv1350.model.external.Garage;
 import se.moma.kth.iv1350.model.external.GarageDoor;
 import se.moma.kth.iv1350.model.Inspection;
-import se.moma.kth.iv1350.model.exceptions.IllegalLicenseNumber;
 import se.moma.kth.iv1350.model.PaymentAuthorizationRequest;
 import se.moma.kth.iv1350.model.Receipt;
 import se.moma.kth.iv1350.model.Vehicle;
@@ -81,11 +78,11 @@ public class Controller {
 
     private int matches(int registrationNumber, int cost) {
         for(int index = 0; index < vehicleRegistry.sizeOfVehicleRegistry(); index++) {
-            if(vehicleRegistry.findVehicleByNo(index, registrationNumber) && (vehicleRegistry.getVehicle(index).getVehicleInspection() != null)) {
-                    vehicle = vehicleRegistry.getVehicle(index);               
-                    return vehicle.getVehicleInspectionCost();
-                }
-            }            
+            if(vehicleRegistry.findVehicleByNo(index, registrationNumber)) {
+                   vehicle = vehicleRegistry.getVehicle(index); 
+                   return vehicleRegistry.findVehicleInspection(vehicle);
+            }
+        }            
         return cost;
     }
     
