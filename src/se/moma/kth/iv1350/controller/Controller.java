@@ -1,6 +1,8 @@
 package se.moma.kth.iv1350.controller;
 
+import se.moma.kth.iv1350.dbhandler.exceptions.OperationFailedException;
 import se.moma.kth.iv1350.dbhandler.VehicleRegistry;
+import se.moma.kth.iv1350.dbhandler.exceptions.VehicleRegistryException;
 import se.moma.kth.iv1350.model.CreditCardInformationDTO;
 import se.moma.kth.iv1350.model.external.CustomerQueue;
 import se.moma.kth.iv1350.model.external.Garage;
@@ -9,6 +11,7 @@ import se.moma.kth.iv1350.model.Inspection;
 import se.moma.kth.iv1350.model.PaymentAuthorizationRequest;
 import se.moma.kth.iv1350.model.Receipt;
 import se.moma.kth.iv1350.model.Vehicle;
+import se.moma.kth.iv1350.model.exceptions.InspectionNotFoundException;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -68,21 +71,29 @@ public class Controller {
      * @param registrationNumber Är fordonets registreringsnummer och används 
      * för hitta fordonet i fordonsregistret. 
      * @return Kostnaden för inspektion av fordonet.
-     * @throws se.moma.kth.iv1350.model.exceptions.IllegalLicenseNumber
+     * @throws se.moma.kth.iv1350.model.exceptions.InspectionNotFoundException 
+     * Kastas då inga inspektioner hittas.
+     * @throws se.moma.kth.iv1350.dbhandler.exceptions.OperationFailedException 
+     * Kastas vid nekad åtkomst till <code>VehicleRegistry</code>.
      */
-    public int registerNumber(int registrationNumber) {
-        int cost = 0;
-        cost = matches(registrationNumber, cost);
-        return cost;
-    } 
+    public int registerNumber(int registrationNumber) throws InspectionNotFoundException, OperationFailedException {
+        try {
+            int cost = 0;
+            cost = getCost(registrationNumber, cost);
+            return cost;
+        } catch(VehicleRegistryException vre) {
+            throw new OperationFailedException("Could not access vehicle",vre);
+        }
+    }
+        
 
-    private int matches(int registrationNumber, int cost) {
+    private int getCost(int registrationNumber, int cost) throws InspectionNotFoundException,OperationFailedException {
         for(int index = 0; index < vehicleRegistry.sizeOfVehicleRegistry(); index++) {
             if(vehicleRegistry.findVehicleByNo(index, registrationNumber)) {
                    vehicle = vehicleRegistry.getVehicle(index); 
                    return vehicleRegistry.findVehicleInspection(vehicle);
             }
-        }            
+        } 
         return cost;
     }
     
@@ -106,8 +117,10 @@ public class Controller {
      * Används för att besikta fordonet. 
      * @return Instans av klassen <code>Inspection</code> som visar vad på fordonet
      * som behöver besiktas.
+     * @throws se.moma.kth.iv1350.model.exceptions.InspectionNotFoundException Kastas 
+     * då inga inspektioner hittas.
      */
-    public Inspection inspectVehicle() {
+    public Inspection inspectVehicle() throws InspectionNotFoundException {
         Inspection inspection = null;
         if(vehicle.getVehicleInspection() != null) {
             inspection = vehicle.getVehicleInspection();

@@ -29,18 +29,14 @@ public class VehicleRegistry {
     * Skapar en ny instans.
     */
     public VehicleRegistry() {
-       vehicleRegistry = new ArrayList<>();
-       vehicleRegistry.add(new Vehicle(VEHICLE_NUMBER_1,new Inspection(INSPECTION_COST)));
-        vehicleRegistry.add(new Vehicle(VEHICLE_NUMBER_2, null));
-       
-       
-       
+      vehicleRegistry = new ArrayList<>();
+      vehicleRegistry.add(new Vehicle(VEHICLE_NUMBER_1,new Inspection(INSPECTION_COST)));
+      vehicleRegistry.add(new Vehicle(VEHICLE_NUMBER_2, null));
     }
     
     /**
      * @param vehicle Lägger till en instans av klassen <code>Vehicle</code>
      * till registret.
-     * 
      */
     public void addVehicle(Vehicle vehicle) {
         vehicleRegistry.add(vehicle);
@@ -57,20 +53,26 @@ public class VehicleRegistry {
     /**
      * @return Antal fordon i registret.
      */
-    public int sizeOfVehicleRegistry() {
-       return vehicleRegistry.size();
+    public int sizeOfVehicleRegistry() throws VehicleRegistryException {
+        if(vehicleRegistry == null)
+            throw new VehicleRegistryException("Could not access registry.");
+        return vehicleRegistry.size();
     }
-    
-    public int findVehicleInspection(Vehicle vehicle) {
-      if(vehicle.getVehicleInspection()==null) {
-          throw new VehicleRegistryException("Invalid registration number");
-      } else {
-          return vehicle.getVehicleInspection().getInspectionCost();
-      }
+    /**
+     * @param vehicle Instans av klassen <code>Vehicle</code> som har inspektioner.
+     * @return Kostnad för inspektion.
+     * @throws InspectionNotFoundException Kastas då inga inspektioner hittas.
+     */
+    public int findVehicleInspection(Vehicle vehicle) throws InspectionNotFoundException {
+      return vehicle.getVehicleInspection().getInspectionCost();
     }
-    
+    /**
+     * @param index För att hitta i fordonsregistret.
+     * @param registrationNumber Nummer på fordon i fordonsregistret.
+     * @return true, om fordonet hittas.
+     */
     public boolean findVehicleByNo(int index, int registrationNumber) {
-        return vehicleRegistry.get(index).getVehicleNumber() == registrationNumber;
+         return vehicleRegistry.get(index).getVehicleNumber() == registrationNumber;
     }
    
     

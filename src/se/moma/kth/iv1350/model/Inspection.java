@@ -5,7 +5,6 @@
  */
 package se.moma.kth.iv1350.model;
 
-import se.moma.kth.iv1350.model.exceptions.InspectionNotFoundException;
 import se.moma.kth.iv1350.model.external.ExternalPrinter;
 
 /**
@@ -39,8 +38,7 @@ public class Inspection {
      * ett fordon.
      */
     public Inspection getInspection()  {
-      
-        return this;
+      return this;
     }
     /**
      * @param result Textsträng som används för resultat av inspektion.
@@ -48,10 +46,16 @@ public class Inspection {
     public void setResultOfInspection(String result) {
         this.result = result;
     }
+    /**
+     * 
+     * @return Resultat från besiktning.
+     */
     public String getResult() {
         return result;
     }
-    
+    /**
+     * Gör en utskrift av resultat från inspektion.
+     */
     public void printInspectionResult() {
         ExternalPrinter printer = new ExternalPrinter(this);
         printer.print();

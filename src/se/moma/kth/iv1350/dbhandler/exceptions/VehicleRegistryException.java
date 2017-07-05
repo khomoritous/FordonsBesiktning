@@ -6,11 +6,14 @@
 package se.moma.kth.iv1350.dbhandler.exceptions;
 
 /**
- *
+ * Kastas vid nekad åtkomst till <code>VehicleRegistry</code>.
  * @author monde
  */
 public class VehicleRegistryException extends RuntimeException {
-
+    /**
+     * Skapar en ny instans.
+     * @param message Felmeddelande vid undantag.
+     */
     public VehicleRegistryException(String message) {
         super(message);
     }

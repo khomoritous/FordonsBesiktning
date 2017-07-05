@@ -9,7 +9,7 @@ import se.moma.kth.iv1350.view.View;
  */
 
 /**
- * 
+ * Sätter igång körning av programmet.
  * @author monde
  */
 public class Main {

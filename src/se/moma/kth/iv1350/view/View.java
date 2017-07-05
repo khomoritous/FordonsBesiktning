@@ -7,9 +7,8 @@ package se.moma.kth.iv1350.view;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import se.moma.kth.iv1350.controller.Controller;
+import se.moma.kth.iv1350.dbhandler.exceptions.OperationFailedException;
 import se.moma.kth.iv1350.model.CreditCardInformationDTO;
 import se.moma.kth.iv1350.model.exceptions.InspectionNotFoundException;
 
@@ -35,10 +34,7 @@ public class View {
      * Skapar en ny instans.
      */
     public View()  {
-       // garage = new Garage(new GarageDoor());
-        //customerQueue = new CustomerQueue();
-        controller = new Controller();
-        
+       controller = new Controller();
     }
     
     /**
@@ -46,13 +42,12 @@ public class View {
      */
     public void sampleExecution() {
         
-            
-        
+        try {
             controller.inspectNewVehicle();
             controller.closeGarage();
             
             
-            System.out.println("Inspection cost for Vehicle: "+ controller.registerNumber(VEHICLE_NUMBER_WITH_NO_INSPECTION));
+            System.out.println("Inspection cost for Vehicle: "+ controller.registerNumber(VEHICLE_NUMBER));
             System.out.println("-----Begin receipt-----");
             System.out.println("Date: "+dnow);
             System.out.println("Time: "+tnow);
@@ -68,7 +63,12 @@ public class View {
             controller.printResult();
             controller.openGarage();
             controller.closeGarage();
+        }catch (OperationFailedException ex) {
+            ex.printStackTrace();
+        }catch (InspectionNotFoundException ex) {
+           ex.printStackTrace();
         } 
+    } 
                
                 
         

@@ -5,9 +5,7 @@
  */
 package se.moma.kth.iv1350.model;
 
-import java.util.ArrayList;
-import java.util.List;
-import se.moma.kth.iv1350.dbhandler.exceptions.VehicleRegistryException;
+import se.moma.kth.iv1350.model.exceptions.InspectionNotFoundException;
 
 /**
  * Skapar ett fordon med registreringsnummer och inspektion.
@@ -16,7 +14,7 @@ import se.moma.kth.iv1350.dbhandler.exceptions.VehicleRegistryException;
 public class Vehicle {
     
     private final int vehicleRegistrationNumber;//instansvariabel
-    private Inspection inspection; //null;//instansvariabel
+    private final Inspection inspection; //null;//instansvariabel
    
     
     /**
@@ -50,10 +48,12 @@ public class Vehicle {
     /**
      * @return En instans av klassen <code> Inspection</code> som 
      * hör till fordonet.
+     * @throws se.moma.kth.iv1350.model.exceptions.InspectionNotFoundException
+     * Kastas då inga inspektioner hittas.
      */
-    public Inspection getVehicleInspection() {
+    public Inspection getVehicleInspection() throws InspectionNotFoundException {
         if(inspection == null)
-            throw new VehicleRegistryException("No inspections found.");
+            throw new InspectionNotFoundException(this);
         else 
             return inspection.getInspection();
     }
