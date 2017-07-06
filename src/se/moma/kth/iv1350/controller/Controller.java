@@ -94,6 +94,7 @@ public class Controller {
                    return vehicleRegistry.findVehicleInspection(vehicle);
             }
         } 
+        
         return cost;
     }
     

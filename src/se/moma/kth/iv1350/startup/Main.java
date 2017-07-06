@@ -1,5 +1,6 @@
 package se.moma.kth.iv1350.startup;
 
+import java.io.IOException;
 import se.moma.kth.iv1350.view.View;
 
 /*
@@ -9,7 +10,7 @@ import se.moma.kth.iv1350.view.View;
  */
 
 /**
- * Sätter igång körning av programmet.
+ * Skapar en exempelkörning av programmet.
  * @author monde
  */
 public class Main {
@@ -19,7 +20,11 @@ public class Main {
      */
     public static void main(String[] args) {
         
+        try {
             new View().sampleExecution();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
     }
 }
        

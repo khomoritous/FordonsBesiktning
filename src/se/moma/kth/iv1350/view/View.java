@@ -5,8 +5,13 @@
  */
 package se.moma.kth.iv1350.view;
 
+import java.io.IOException;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import moma.se.kth.iv1350.util.ErrorMessageHandler;
+import moma.se.kth.iv1350.util.LogHandler;
 import se.moma.kth.iv1350.controller.Controller;
 import se.moma.kth.iv1350.dbhandler.exceptions.OperationFailedException;
 import se.moma.kth.iv1350.model.CreditCardInformationDTO;
@@ -25,16 +30,21 @@ public class View {
     private LocalTime tnow = LocalTime.now();
     private final static int VEHICLE_NUMBER = 10;
     private final static int VEHICLE_NUMBER_WITH_NO_INSPECTION = 15;
+    private ErrorMessageHandler errorMsgHandler = new ErrorMessageHandler();
     
     private final static int AMOUNT = 100;
+    private LogHandler logger = null;
     
     
     
     /**
      * Skapar en ny instans.
+     * @throws java.io.IOException Kastas då det inte går att 
+     * skriva på in- och utströmmar.
      */
-    public View()  {
+    public View() throws IOException  {
        controller = new Controller();
+       logger = new LogHandler();
     }
     
     /**
@@ -43,6 +53,7 @@ public class View {
     public void sampleExecution() {
         
         try {
+            
             controller.inspectNewVehicle();
             controller.closeGarage();
             
@@ -63,12 +74,21 @@ public class View {
             controller.printResult();
             controller.openGarage();
             controller.closeGarage();
-        }catch (OperationFailedException ex) {
+        }catch (OperationFailedException ofe) {
+            handleException("Access to vehicleRegistry denied.",ofe);
+        }catch (InspectionNotFoundException ife) {
+            handleException("No inspections found for vehicle number: ", ife);
+        }catch(Exception ex) {
             ex.printStackTrace();
-        }catch (InspectionNotFoundException ex) {
-           ex.printStackTrace();
-        } 
+        }
+        
+       
     } 
+    
+    private void handleException(String uiMsg, Exception exc) {
+        errorMsgHandler.showErrorMsg(uiMsg);
+        logger.logException(exc);
+    }
                
                 
         
