@@ -5,6 +5,7 @@
  */
 package moma.se.kth.iv1350.util;
 
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -28,7 +29,7 @@ public class LogHandler {
      * @throws IOException Om öppnande till in-och outpuströmmar misslyckades.
      */
     public LogHandler() throws IOException {
-        logFile = new PrintWriter(new FileWriter(LOG_FILE_NAME), true);
+        logFile = new PrintWriter(new FileWriter(new File(LOG_FILE_NAME)), true);
     }
     
     /**
