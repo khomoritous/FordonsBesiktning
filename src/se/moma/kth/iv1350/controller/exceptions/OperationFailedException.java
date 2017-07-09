@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package se.moma.kth.iv1350.dbhandler.exceptions;
+package se.moma.kth.iv1350.controller.exceptions;
 
 /**
  * Kastas vid nekad åtkomst till <code>VehicleRegistry</code> av någon anledning.

@@ -5,7 +5,6 @@
  */
 package se.moma.kth.iv1350.model.external;
 
-import se.moma.kth.iv1350.model.Customer;
 import java.util.ArrayList;
 import java.util.List;
 import se.moma.kth.iv1350.model.Customer;

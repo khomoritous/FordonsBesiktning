@@ -1,9 +1,11 @@
+package se.moma.kth.iv1350;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package se.moma.kth.iv1350;
+
 
 import se.moma.kth.iv1350.model.Vehicle;
 import se.moma.kth.iv1350.model.external.ExternalPrinter;
@@ -16,6 +18,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import se.moma.kth.iv1350.model.exceptions.InspectionNotFoundException;
 
 /**
  *
@@ -73,12 +76,12 @@ public class VehicleTest {
     }
 
     @Test
-    public void testGetVehicleInspection() {
+    public void testGetVehicleInspection() throws InspectionNotFoundException {
          assertNotNull(vehicle.getVehicleInspection());
     }
   
     @Test
-    public void testPrintVehicleInspectionResult() {
+    public void testPrintVehicleInspectionResult() throws InspectionNotFoundException {
         outContent = new ByteArrayOutputStream();
         originalSysOut = System.out;
         
@@ -95,7 +98,7 @@ public class VehicleTest {
     }
     
     @Test
-    public void testResultOfInspection() {
+    public void testResultOfInspection() throws InspectionNotFoundException {
         vehicle.resultOfInspection("Pass");
         String expResult = "Pass";
         String result = vehicle.getVehicleInspection().getResult();

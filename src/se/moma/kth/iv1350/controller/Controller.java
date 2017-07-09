@@ -1,6 +1,6 @@
 package se.moma.kth.iv1350.controller;
 
-import se.moma.kth.iv1350.dbhandler.exceptions.OperationFailedException;
+import se.moma.kth.iv1350.controller.exceptions.OperationFailedException;
 import se.moma.kth.iv1350.dbhandler.VehicleRegistry;
 import se.moma.kth.iv1350.dbhandler.exceptions.VehicleRegistryException;
 import se.moma.kth.iv1350.model.CreditCardInformationDTO;
@@ -31,7 +31,7 @@ public class Controller {
     private VehicleRegistry vehicleRegistry = null;
     private Garage garage = null;
     private GarageDoor garageDoor = null;
-    private CustomerQueue customerQueue = null;
+  
     
     
     /**
@@ -73,7 +73,7 @@ public class Controller {
      * @return Kostnaden för inspektion av fordonet.
      * @throws se.moma.kth.iv1350.model.exceptions.InspectionNotFoundException 
      * Kastas då inga inspektioner hittas.
-     * @throws se.moma.kth.iv1350.dbhandler.exceptions.OperationFailedException 
+     * @throws se.moma.kth.iv1350.controller.exceptions.OperationFailedException 
      * Kastas vid nekad åtkomst till <code>VehicleRegistry</code>.
      */
     public int registerNumber(int registrationNumber) throws InspectionNotFoundException, OperationFailedException {
@@ -88,14 +88,13 @@ public class Controller {
         
 
     private int getCost(int registrationNumber, int cost) throws InspectionNotFoundException,OperationFailedException {
-        for(int index = 0; index < vehicleRegistry.sizeOfVehicleRegistry(); index++) {
+        for(int index = 0; index < vehicleRegistry.size(); index++) {
             if(vehicleRegistry.findVehicleByNo(index, registrationNumber)) {
                    vehicle = vehicleRegistry.getVehicle(index); 
                    return vehicleRegistry.findVehicleInspection(vehicle);
             }
         } 
-        
-        return cost;
+       return cost;
     }
     
     /**

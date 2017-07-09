@@ -5,6 +5,9 @@
  */
 package se.moma.kth.iv1350.model;
 
+import se.moma.kth.iv1350.model.interfaces.VehicleObserver;
+import java.util.ArrayList;
+import java.util.List;
 import se.moma.kth.iv1350.model.external.ExternalPrinter;
 
 /**
@@ -12,14 +15,15 @@ import se.moma.kth.iv1350.model.external.ExternalPrinter;
  * @author monde
  */
 public class Inspection {
-    
+   
+    private List<VehicleObserver> vehicleObservers = new ArrayList<>();
     private int cost;
     private String result;
     
     
     /**
      * Skapar en ny instans.
-     * @param cost En inspektions kostnad.
+     * @param cost Kostnaden för en inspektion.
      */
     
     public Inspection(int cost) {
@@ -45,10 +49,11 @@ public class Inspection {
      */
     public void setResultOfInspection(String result) {
         this.result = result;
+        notifyObservers();
     }
     /**
      * 
-     * @return Resultat från besiktning.
+     * @return Resultat från en utförd inspektion.
      */
     public String getResult() {
         return result;
@@ -64,6 +69,19 @@ public class Inspection {
     @Override
     public String toString() {
         return "Inspections to perform....";
+    }
+    
+    /**
+     * Lägger till objekt av klasser som är intresserade av utförda inspektioner.
+     * @param obs Instans av <code>VehicleObserver</code> som läggs till listan.
+     */
+    public void addObservers(VehicleObserver obs) {
+        vehicleObservers.add(obs);
+    }
+    private void notifyObservers() {
+        for(VehicleObserver obs: vehicleObservers) {
+            obs.newInspection(this);
+        }
     }
     
 }

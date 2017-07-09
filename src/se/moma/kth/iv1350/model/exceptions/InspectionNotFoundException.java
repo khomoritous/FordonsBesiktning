@@ -17,12 +17,12 @@ public class InspectionNotFoundException extends Exception  {
     
     /**
      * Skapar en ny instans.
-     * @param vehicleNumberWithNoInspection Instans av klassen <code>Vehicle</code>
+     * @param vehicleWithNoInspection Instans av klassen <code>Vehicle</code>
      * som inte har någon inspektion.
      */
-   public InspectionNotFoundException(Vehicle vehicleNumberWithNoInspection) {
-        super("No inspections for vehicle number: "+ vehicleNumberWithNoInspection.getVehicleNumber());
-        this.vehicleWithNoInspections = vehicleNumberWithNoInspection;
+   public InspectionNotFoundException(Vehicle vehicleWithNoInspection) {
+        super("No inspections for vehicle number: "+ vehicleWithNoInspection.getVehicleNumber());
+        this.vehicleWithNoInspections = vehicleWithNoInspection;
     }
    
     /**

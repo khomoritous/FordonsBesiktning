@@ -7,7 +7,6 @@ package se.moma.kth.iv1350.model.external;
 
 import se.moma.kth.iv1350.model.PaymentAuthorizationRequest;
 import se.moma.kth.iv1350.model.Receipt;
-import se.moma.kth.iv1350.model.Receipt;
 
 /**
  * Skapar ett externt betalningsystem.
@@ -29,7 +28,7 @@ public class ExternalPaymentSystem {
       }
       
       /**
-       * @return true, om betalning går igenom.
+       * @return <code>true</code>, om betalning går igenom, annars <code>false</code>.
        */
       public boolean isValid() {
           return true;
@@ -37,7 +36,7 @@ public class ExternalPaymentSystem {
       
       /**
        * @param amount Belopp som betalas.
-       * @return kvitto på betalning.
+       * @return Kvittoinstans på betalning av klass <code>Receipt</code>.
        */
       public Receipt getReceipt(int amount) {
           receipt = new Receipt(amount);

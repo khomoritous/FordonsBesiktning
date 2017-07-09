@@ -44,7 +44,7 @@ public class VehicleRegistry {
     
     /**
      * @param index int som hjälper till att hämta ett fordon.
-     * @return En fordonsinstans av klassen <code>Vehicle</code>.
+     * @return En instans av klassen <code>Vehicle</code>.
      */
     public Vehicle getVehicle(int index) {
         return vehicleRegistry.get(index);
@@ -53,7 +53,7 @@ public class VehicleRegistry {
     /**
      * @return Antal fordon i registret.
      */
-    public int sizeOfVehicleRegistry() throws VehicleRegistryException {
+    public int size() throws VehicleRegistryException {
         if(vehicleRegistry == null)
             throw new VehicleRegistryException("Could not access registry.");
         return vehicleRegistry.size();
