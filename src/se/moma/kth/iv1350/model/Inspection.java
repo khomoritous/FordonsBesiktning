@@ -75,9 +75,10 @@ public class Inspection {
      * Lägger till objekt av klasser som är intresserade av utförda inspektioner.
      * @param obs Instans av <code>VehicleObserver</code> som läggs till listan.
      */
-    public void addObservers(VehicleObserver obs) {
+    public void addVehicleObserver(VehicleObserver obs) {
         vehicleObservers.add(obs);
     }
+    
     private void notifyObservers() {
         for(VehicleObserver obs: vehicleObservers) {
             obs.newInspection(this);

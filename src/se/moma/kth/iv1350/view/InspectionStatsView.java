@@ -5,20 +5,52 @@
  */
 package se.moma.kth.iv1350.view;
 
+import java.util.ArrayList;
+import java.util.List;
 import se.moma.kth.iv1350.model.Inspection;
 import se.moma.kth.iv1350.model.interfaces.VehicleObserver;
 
 /**
- * Skapar en display som visar antal <code>Inspection</code>
+ * Skapar en display som visar antal <code>Inspection</code> som är utförda.
  * @author monde
  */
 public class InspectionStatsView implements VehicleObserver {
-
     
+    private List<String> passedInspections = null;
+    private List<String> failedInspections = null;
+    
+    /**
+     * Skapar en ny instans.
+     */
+    public InspectionStatsView() {
+        passedInspections = new ArrayList<>();
+        failedInspections = new ArrayList<>();
+    }
     
     @Override
     public void newInspection(Inspection inspection) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if(inspection.getResult().equals("Pass")) {
+            addNewPassedInspection(inspection);
+        }else {
+            addNewFailedInspection(inspection);
+        }
+     printCurrenState();
     }
+    
+    private void addNewPassedInspection(Inspection inspection) {
+      passedInspections.add(inspection.getResult());
+    }
+    private void addNewFailedInspection(Inspection inspection) {
+        failedInspections.add(inspection.getResult());
+    }
+    
+    private void printCurrenState() {
+        System.out.println("###We have now completed ###");
+        System.out.print(passedInspections.size()+ " passed inspections ");
+        System.out.println("and "+failedInspections.size()+ "failed inspections.");
+       
+        
+    }
+
     
 }
