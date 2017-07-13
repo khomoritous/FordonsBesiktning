@@ -4,7 +4,6 @@ import se.moma.kth.iv1350.controller.exceptions.OperationFailedException;
 import se.moma.kth.iv1350.dbhandler.VehicleRegistry;
 import se.moma.kth.iv1350.dbhandler.exceptions.VehicleRegistryException;
 import se.moma.kth.iv1350.model.CreditCardInformationDTO;
-import se.moma.kth.iv1350.model.external.CustomerQueue;
 import se.moma.kth.iv1350.model.external.Garage;
 import se.moma.kth.iv1350.model.external.GarageDoor;
 import se.moma.kth.iv1350.model.Inspection;
@@ -13,11 +12,6 @@ import se.moma.kth.iv1350.model.Receipt;
 import se.moma.kth.iv1350.model.Vehicle;
 import se.moma.kth.iv1350.model.exceptions.InspectionNotFoundException;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
 /**
  * Skapar en controller.
@@ -72,15 +66,15 @@ public class Controller {
      * för hitta fordonet i fordonsregistret. 
      * @return Kostnaden för inspektion av fordonet.
      * @throws se.moma.kth.iv1350.model.exceptions.InspectionNotFoundException 
-     * Kastas då inga inspektioner hittas.
+     * Kastas då inga instanser av <code>Inspection</code> hittas.
      * @throws se.moma.kth.iv1350.controller.exceptions.OperationFailedException 
      * Kastas vid nekad åtkomst till <code>VehicleRegistry</code>.
      */
     public int registerNumber(int registrationNumber) throws InspectionNotFoundException, OperationFailedException {
         try {
             int cost = 0;
-            cost = getCost(registrationNumber, cost);
-            return cost;
+            return getCost(registrationNumber, cost);
+        
         } catch(VehicleRegistryException vre) {
             throw new OperationFailedException("Could not access vehicle",vre);
         }

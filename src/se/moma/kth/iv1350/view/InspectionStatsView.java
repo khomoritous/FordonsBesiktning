@@ -48,6 +48,7 @@ public class InspectionStatsView implements VehicleObserver {
         System.out.println("###We have now completed ###");
         System.out.print(passedInspections.size()+ " passed inspections ");
         System.out.println("and "+failedInspections.size()+ "failed inspections.");
+        System.out.println("######################################################");
        
         
     }

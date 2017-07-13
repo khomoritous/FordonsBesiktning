@@ -16,7 +16,7 @@ import se.moma.kth.iv1350.model.external.ExternalPrinter;
  */
 public class Inspection {
    
-    private List<VehicleObserver> vehicleObservers = new ArrayList<>();
+    private List<VehicleObserver> vehicleObservers = new ArrayList<>(); //Lista med objekt som observerar den här klassen.
     private int cost;
     private String result;
     
