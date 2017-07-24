@@ -5,16 +5,17 @@
  */
 package se.moma.kth.iv1350.model;
 
-import se.moma.kth.iv1350.model.interfaces.VehicleObserver;
+import moma.se.kth.iv1350.util.VehicleObserver;
 import java.util.ArrayList;
 import java.util.List;
+import moma.se.kth.iv1350.util.VehicleObserved;
 import se.moma.kth.iv1350.model.external.ExternalPrinter;
 
 /**
  * Skapar en inspektion med tillhörande kostnad.
  * @author monde
  */
-public class Inspection {
+public class Inspection implements VehicleObserved {
    
     private List<VehicleObserver> vehicleObservers = new ArrayList<>(); //Lista med objekt som observerar den här klassen.
     private int cost;
@@ -53,8 +54,9 @@ public class Inspection {
     }
     /**
      * 
-     * @return Resultat från en utförd inspektion.
+     * @return Resultat från en utförd <code>Inspection</code>.
      */
+    @Override
     public String getResult() {
         return result;
     }
@@ -79,9 +81,18 @@ public class Inspection {
         vehicleObservers.add(obs);
     }
     
+    /**
+     * Lägger till en lista av <code>VehicleObserver</code> till en lista.
+     * @param obs Lista av <code>VehicleObserver</code> 
+     */
+    public void addVehicleObservers(List<VehicleObserver> obs) {
+        vehicleObservers.addAll(obs);
+        
+    }
+    
     private void notifyObservers() {
-        for(VehicleObserver obs: vehicleObservers) {
-            obs.newInspection(this);
+        for(VehicleObserver vehicleObserver: vehicleObservers) {
+            vehicleObserver.newInspection(this);
         }
     }
     

@@ -7,7 +7,10 @@ package se.moma.kth.iv1350.view;
 
 import java.io.IOException;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
 import moma.se.kth.iv1350.util.ErrorMessageHandler;
 import moma.se.kth.iv1350.util.LogHandler;
 import se.moma.kth.iv1350.controller.Controller;
@@ -24,8 +27,9 @@ public class View {
    
    
     private Controller controller = null;
-    private LocalDate dnow = LocalDate.now();
-    private LocalTime tnow = LocalTime.now();
+    
+    private LocalDateTime now = LocalDateTime.now();
+    private DateTimeFormatter formatter = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM);
     private final static int VEHICLE_NUMBER = 10;
     private final static int VEHICLE_NUMBER_WITH_NO_INSPECTION = 15;
     private ErrorMessageHandler errorMsgHandler = new ErrorMessageHandler();
@@ -42,6 +46,7 @@ public class View {
      */
     public View() throws IOException  {
        controller = new Controller();
+       controller.addVehicleObserver(new InspectionStatsView());
        logger = new LogHandler();
     }
     
@@ -58,8 +63,9 @@ public class View {
             
             System.out.println("Inspection cost for Vehicle: "+ controller.registerNumber(VEHICLE_NUMBER));
             System.out.println("-----Begin receipt-----");
-            System.out.println("Date: "+dnow);
-            System.out.println("Time: "+tnow);
+           
+            
+            System.out.println("Date/Time: "+ now.format(formatter));
             System.out.println("Transaction: "+ controller.pay(AMOUNT,new CreditCardInformationDTO()));
             System.out.println("-----End receipt-----");
             
@@ -70,6 +76,7 @@ public class View {
             controller.enterResultOfInspection("Pass");
             
             controller.printResult();
+            
             controller.openGarage();
             controller.closeGarage();
         }catch (OperationFailedException ofe) {

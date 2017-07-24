@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package se.moma.kth.iv1350.model.interfaces;
+package moma.se.kth.iv1350.util;
 
 import se.moma.kth.iv1350.model.Inspection;
 

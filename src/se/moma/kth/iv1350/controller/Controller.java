@@ -1,5 +1,7 @@
 package se.moma.kth.iv1350.controller;
 
+import java.util.ArrayList;
+import java.util.List;
 import se.moma.kth.iv1350.controller.exceptions.OperationFailedException;
 import se.moma.kth.iv1350.dbhandler.VehicleRegistry;
 import se.moma.kth.iv1350.dbhandler.exceptions.VehicleRegistryException;
@@ -11,6 +13,7 @@ import se.moma.kth.iv1350.model.PaymentAuthorizationRequest;
 import se.moma.kth.iv1350.model.Receipt;
 import se.moma.kth.iv1350.model.Vehicle;
 import se.moma.kth.iv1350.model.exceptions.InspectionNotFoundException;
+import moma.se.kth.iv1350.util.VehicleObserver;
 
 
 /**
@@ -25,6 +28,8 @@ public class Controller {
     private VehicleRegistry vehicleRegistry = null;
     private Garage garage = null;
     private GarageDoor garageDoor = null;
+    private List<VehicleObserver> vehicleObservers = new ArrayList<>();
+   // private Inspection inspection = null;
   
     
     
@@ -73,6 +78,7 @@ public class Controller {
     public int registerNumber(int registrationNumber) throws InspectionNotFoundException, OperationFailedException {
         try {
             int cost = 0;
+           
             return getCost(registrationNumber, cost);
         
         } catch(VehicleRegistryException vre) {
@@ -109,21 +115,22 @@ public class Controller {
     
     /**
      * Används för att besikta fordonet. 
-     * @return Instans av klassen <code>Inspection</code> som visar vad på fordonet
+     * @return Instans av <code>Inspection</code> som visar vad på fordonet
      * som behöver besiktas.
      * @throws se.moma.kth.iv1350.model.exceptions.InspectionNotFoundException Kastas 
-     * då inga inspektioner hittas.
+     * då inga instanser av <code>Inspection</code> hittas.
      */
     public Inspection inspectVehicle() throws InspectionNotFoundException {
         Inspection inspection = null;
         if(vehicle.getVehicleInspection() != null) {
             inspection = vehicle.getVehicleInspection();
+            inspection.addVehicleObservers(vehicleObservers);
         }
         return inspection;
     } 
     
    /**
-    * Skriver resultatet vid inspektion av besiktning.
+    * Skriver resultatet av en <code>Inspection</code>.
     * @param result Textsträng som visar resultat på en fordonsbesiktning.
     */
    public void enterResultOfInspection(String result) {
@@ -140,6 +147,13 @@ public class Controller {
     */
    public void openGarage() {
        garage.openGarage();
+   }
+   /**
+    * 
+    * @param obs Instans av <code>VehiclObserver</code> som läggs till listan
+    */
+   public void addVehicleObserver(VehicleObserver obs) {
+       vehicleObservers.add(obs);
    }
    
    
