@@ -5,11 +5,9 @@
  */
 package moma.se.kth.iv1350.util;
 
-import se.moma.kth.iv1350.model.Inspection;
-
 /**
- * Ett lyssnarinterface som implementeras av klasser intresserade av färdiga inspektioner.
- * Objekt av den klassen registrerar sig med <code>addVehicleObserver</code>. När en inspektion har uförts anropas
+ * Ett interface som implementeras av klasser intresserade av att bevaka färdiga <code>Inspection</code>.
+ * Objekt av den klassen registrerar sig med <code>addVehicleObserver</code>. När en <code>Inspection</code> har uförts anropas
  * objektets <code>newInspection</code> metod.
  * 
  * @author monde
@@ -18,7 +16,7 @@ public interface VehicleObserver {
     
     /**
      * Anropas när en inspektion har utförts.
-     * @param inspection Instans av <code>Inspection</code> som är inspekterad.
+     * @param inspectionResult Resultat av en <code>Inspection</code>.
      */
-    void newInspection(Inspection inspection); // Skickar en inspektion men kan bryta inkapsling och kan behöva skicka endast en textsträng.
+    void newInspection(String inspectionResult); 
 }

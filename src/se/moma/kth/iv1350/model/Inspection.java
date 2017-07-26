@@ -8,14 +8,13 @@ package se.moma.kth.iv1350.model;
 import moma.se.kth.iv1350.util.VehicleObserver;
 import java.util.ArrayList;
 import java.util.List;
-import moma.se.kth.iv1350.util.VehicleObserved;
 import se.moma.kth.iv1350.model.external.ExternalPrinter;
 
 /**
  * Skapar en inspektion med tillhörande kostnad.
  * @author monde
  */
-public class Inspection implements VehicleObserved {
+public class Inspection  {
    
     private List<VehicleObserver> vehicleObservers = new ArrayList<>(); //Lista med objekt som observerar den här klassen.
     private int cost;
@@ -24,50 +23,51 @@ public class Inspection implements VehicleObserved {
     
     /**
      * Skapar en ny instans.
-     * @param cost Kostnaden för en inspektion.
+     * @param cost Kostnaden för en <code>Inspection</code>.
      */
     
     public Inspection(int cost) {
         this.cost  = cost;
-       // this.result = result;
+       
     }
     
     /**
-     * @return Kostnaden för en inspektion.
+     * @return Kostnad för en <code>Inspection</code>.
      */
     public int getInspectionCost() {
         return cost;
     }
     /**
-     * @return En instans av klassen <code>Inspection</code> som hör till
-     * ett fordon.
+     * @return En <code>Inspection</code>.
      */
-    public Inspection getInspection()  {
-      return this;
+    public Inspection getInspection() {
+        return this;
     }
+    
     /**
-     * @param result Textsträng som används för resultat av inspektion.
+     * @param result Textsträng som används för resultat av en <code>Inspection</code>.
      */
     public void setResultOfInspection(String result) {
         this.result = result;
         notifyObservers();
     }
     /**
-     * 
      * @return Resultat från en utförd <code>Inspection</code>.
      */
-    @Override
     public String getResult() {
         return result;
     }
+    
     /**
-     * Gör en utskrift av resultat från inspektion.
+     * Gör en utskrift av resultat från en <code>Inspection</code>.
      */
     public void printInspectionResult() {
         ExternalPrinter printer = new ExternalPrinter(this);
         printer.print();
     }
-    
+    /**
+     * @return Typ av <code>Inspection</code>.
+     */
     @Override
     public String toString() {
         return "Inspections to perform....";
@@ -92,7 +92,7 @@ public class Inspection implements VehicleObserved {
     
     private void notifyObservers() {
         for(VehicleObserver vehicleObserver: vehicleObservers) {
-            vehicleObserver.newInspection(this);
+            vehicleObserver.newInspection(this.getResult());
         }
     }
     

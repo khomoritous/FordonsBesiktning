@@ -29,7 +29,7 @@ public class Controller {
     private Garage garage = null;
     private GarageDoor garageDoor = null;
     private List<VehicleObserver> vehicleObservers = new ArrayList<>();
-   // private Inspection inspection = null;
+    
   
     
     
@@ -66,10 +66,10 @@ public class Controller {
     }
     
     /**
-     * Försöker hitta fordonets registreringsnummer.
-     * @param registrationNumber Är fordonets registreringsnummer och används 
-     * för hitta fordonet i fordonsregistret. 
-     * @return Kostnaden för inspektion av fordonet.
+     * Försöker hitta <code>Vehicle</code> registreringsnummer.
+     * @param registrationNumber Är <code>Vehicle</code> registreringsnummer och används 
+     * för hitta <code>Vehicle</code> i <code>VehicleRegistry</code>. 
+     * @return Kostnaden för <code>Inspection</code> av fordonet.
      * @throws se.moma.kth.iv1350.model.exceptions.InspectionNotFoundException 
      * Kastas då inga instanser av <code>Inspection</code> hittas.
      * @throws se.moma.kth.iv1350.controller.exceptions.OperationFailedException 
@@ -98,11 +98,11 @@ public class Controller {
     }
     
     /**
-     * Används för att betala för en besiktning.
+     * Används för att betala för en <code>Inspection</code>.
      * @param amount Beloppet som betalas.
-     * @param creditCard Är en instans av klassen <code>CreditCardInformationDTO</code>
+     * @param creditCard Är en <code>CreditCardInformationDTO</code>
      * och används för att göra en kreditkortsbetalning.
-     * @return Kvitto på betalningen.
+     * @return <code>Receipt</code> på betalningen.
      */
     public Receipt pay(int amount, CreditCardInformationDTO creditCard) {
         Receipt receipt = null;
@@ -114,11 +114,11 @@ public class Controller {
     }
     
     /**
-     * Används för att besikta fordonet. 
-     * @return Instans av <code>Inspection</code> som visar vad på fordonet
+     * Används för att besikta <code>Vehicle</code>. 
+     * @return <code>Inspection</code> som visar vad på <code>Vehicle</code>
      * som behöver besiktas.
      * @throws se.moma.kth.iv1350.model.exceptions.InspectionNotFoundException Kastas 
-     * då inga instanser av <code>Inspection</code> hittas.
+     * då inga <code>Inspection</code> hittas.
      */
     public Inspection inspectVehicle() throws InspectionNotFoundException {
         Inspection inspection = null;
@@ -131,26 +131,28 @@ public class Controller {
     
    /**
     * Skriver resultatet av en <code>Inspection</code>.
-    * @param result Textsträng som visar resultat på en fordonsbesiktning.
+    * @param result Textsträng som visar resultat på en <code>Inspection</code>.
     */
    public void enterResultOfInspection(String result) {
         vehicle.resultOfInspection(result);
    }
-    /**
+   
+   /**
      * GÖr en utskrift på resultatet vid fordonsbesiktningen.
      */
    public void printResult() {
         vehicle.printVehicleInspectionResult();
    }
+   
    /**
     * Öppnar garaget.
     */
    public void openGarage() {
        garage.openGarage();
    }
+   
    /**
-    * 
-    * @param obs Instans av <code>VehiclObserver</code> som läggs till listan
+    * @param obs <code>VehiclObserver</code> som läggs till <code>vehicleObservers</code>.
     */
    public void addVehicleObserver(VehicleObserver obs) {
        vehicleObservers.add(obs);

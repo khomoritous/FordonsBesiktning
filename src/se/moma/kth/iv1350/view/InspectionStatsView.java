@@ -7,15 +7,14 @@ package se.moma.kth.iv1350.view;
 
 import java.util.ArrayList;
 import java.util.List;
-import se.moma.kth.iv1350.model.Inspection;
 import moma.se.kth.iv1350.util.VehicleObserver;
+
 
 /**
  * Skapar en display som visar antal <code>Inspection</code> som är utförda.
  * @author monde
  */
 public class InspectionStatsView implements VehicleObserver {
-    
     
     private List<String> passedInspections = null;
     private List<String> failedInspections = null;
@@ -29,21 +28,22 @@ public class InspectionStatsView implements VehicleObserver {
     }
     
     @Override
-    public void newInspection(Inspection inspection) {
-        if(inspection.getResult().equals("Pass")) {
-            addNewPassedInspection(inspection);
-        }else {
-            addNewFailedInspection(inspection);
-        }
+    public void newInspection(String inspectionResult) {
         
+        if(inspectionResult.equals("Pass")) {
+            addNewPassedInspection(inspectionResult);
+        } else {
+            addNewFailedInspection(inspectionResult);
+        }
      printCurrenState();
     }
     
-    private void addNewPassedInspection(Inspection inspection) {
-      passedInspections.add(inspection.getResult());
+    private void addNewPassedInspection(String passedInspection) {
+      passedInspections.add(passedInspection);
     }
-    private void addNewFailedInspection(Inspection inspection) {
-        failedInspections.add(inspection.getResult());
+    
+    private void addNewFailedInspection(String failedInspection) {
+      failedInspections.add(failedInspection);
     }
     
     private void printCurrenState() {
