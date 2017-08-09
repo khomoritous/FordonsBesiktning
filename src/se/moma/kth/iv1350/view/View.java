@@ -6,9 +6,7 @@
 package se.moma.kth.iv1350.view;
 
 import java.io.IOException;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
 import moma.se.kth.iv1350.util.ErrorMessageHandler;
@@ -80,11 +78,11 @@ public class View {
             controller.openGarage();
             controller.closeGarage();
         }catch (OperationFailedException ofe) {
-            handleException("Access to vehicleRegistry denied.",ofe);
+            handleException("Access to VehicleRegistry denied. ",ofe);
         }catch (InspectionNotFoundException ife) {
             handleException("Inspection not found ", ife);
         }
-        
+         
        
     } 
     

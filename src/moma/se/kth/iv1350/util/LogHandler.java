@@ -26,10 +26,10 @@ public class LogHandler {
     /**
      * Skapar en ny instans.
      * Sköter in- och outputströmmar.
-     * @throws IOException Om öppnande till in-och outpuströmmar misslyckades.
+     * @throws <code>IOException</code>, om öppnande till in- och outpuströmmar misslyckades.
      */
     public LogHandler() throws IOException {
-        logFile = new PrintWriter(new FileWriter(new File(LOG_FILE_NAME)), true);
+        logFile = new PrintWriter(new FileWriter(new File(LOG_FILE_NAME),true),true);
     }
     
     /**

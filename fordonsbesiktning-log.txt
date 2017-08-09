@@ -1,0 +1,28 @@
+2017-aug-09 20:23:42,Exception was thrown: Could not access vehicle
+se.moma.kth.iv1350.controller.exceptions.OperationFailedException: Could not access vehicle
+	at se.moma.kth.iv1350.controller.Controller.registerNumber(Controller.java:85)
+	at se.moma.kth.iv1350.view.View.sampleExecution(View.java:62)
+	at se.moma.kth.iv1350.startup.Main.main(Main.java:24)
+Caused by: se.moma.kth.iv1350.dbhandler.exceptions.VehicleRegistryException: Could not access registry.
+	at se.moma.kth.iv1350.dbhandler.VehicleRegistry.size(VehicleRegistry.java:58)
+	at se.moma.kth.iv1350.controller.Controller.getCost(Controller.java:91)
+	at se.moma.kth.iv1350.controller.Controller.registerNumber(Controller.java:82)
+	... 2 more
+2017-aug-09 20:49:59,Exception was thrown: Could not access vehicle
+se.moma.kth.iv1350.controller.exceptions.OperationFailedException: Could not access vehicle
+	at se.moma.kth.iv1350.controller.Controller.registerNumber(Controller.java:85)
+	at se.moma.kth.iv1350.view.View.sampleExecution(View.java:62)
+	at se.moma.kth.iv1350.startup.Main.main(Main.java:24)
+Caused by: se.moma.kth.iv1350.dbhandler.exceptions.VehicleRegistryException: Could not access registry.
+	at se.moma.kth.iv1350.dbhandler.VehicleRegistry.size(VehicleRegistry.java:58)
+	at se.moma.kth.iv1350.controller.Controller.getCost(Controller.java:91)
+	at se.moma.kth.iv1350.controller.Controller.registerNumber(Controller.java:82)
+	... 2 more
+2017-aug-09 20:51:12,Exception was thrown: No inspections for vehicle number: 15
+se.moma.kth.iv1350.model.exceptions.InspectionNotFoundException: No inspections for vehicle number: 15
+	at se.moma.kth.iv1350.model.Vehicle.getVehicleInspection(Vehicle.java:56)
+	at se.moma.kth.iv1350.dbhandler.VehicleRegistry.findVehicleInspection(VehicleRegistry.java:67)
+	at se.moma.kth.iv1350.controller.Controller.getCost(Controller.java:94)
+	at se.moma.kth.iv1350.controller.Controller.registerNumber(Controller.java:82)
+	at se.moma.kth.iv1350.view.View.sampleExecution(View.java:62)
+	at se.moma.kth.iv1350.startup.Main.main(Main.java:24)

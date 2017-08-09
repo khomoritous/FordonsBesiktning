@@ -29,9 +29,9 @@ public class VehicleRegistry {
     * Skapar en ny instans.
     */
     public VehicleRegistry() {
-      vehicleRegistry = new ArrayList<>();
-      vehicleRegistry.add(new Vehicle(VEHICLE_NUMBER_1,new Inspection(INSPECTION_COST)));
-      vehicleRegistry.add(new Vehicle(VEHICLE_NUMBER_2, null));
+     vehicleRegistry = new ArrayList<>();
+     vehicleRegistry.add(new Vehicle(VEHICLE_NUMBER_1,new Inspection(INSPECTION_COST)));
+     vehicleRegistry.add(new Vehicle(VEHICLE_NUMBER_2, null));
     }
     
     /**
@@ -43,15 +43,15 @@ public class VehicleRegistry {
     }
     
     /**
-     * @param index int som hjälper till att hämta ett fordon.
-     * @return En instans av klassen <code>Vehicle</code>.
+     * @param index int som hjälper till att hämta ett <code>Vehicle</code>.
+     * @return En instans av <code>Vehicle</code>.
      */
     public Vehicle getVehicle(int index) {
         return vehicleRegistry.get(index);
     }
     
     /**
-     * @return Antal fordon i registret.
+     * @return Antal <code>Vehicle</code> i registret.
      */
     public int size() throws VehicleRegistryException {
         if(vehicleRegistry == null)
@@ -59,17 +59,18 @@ public class VehicleRegistry {
         return vehicleRegistry.size();
     }
     /**
-     * @param vehicle Instans av klassen <code>Vehicle</code> som har inspektioner.
-     * @return Kostnad för inspektion.
-     * @throws InspectionNotFoundException Kastas då inga inspektioner hittas.
+     * @param vehicle Instans av <code>Vehicle</code> som har <code>Inspection</code>.
+     * @return Kostnad för <code>Inspection</code>.
+     * @throws InspectionNotFoundException Kastas då inga <code>Inspection</code> hittas.
      */
     public int findVehicleInspection(Vehicle vehicle) throws InspectionNotFoundException {
       return vehicle.getVehicleInspection().getInspectionCost();
     }
+    
     /**
-     * @param index För att hitta i fordonsregistret.
-     * @param registrationNumber Nummer på fordon i fordonsregistret.
-     * @return true, om fordonet hittas.
+     * @param index För att hitta i <code>vehicleRegistry</code>.
+     * @param registrationNumber Registreringsnummer på <code>Vehicle</code> i <code>vehicleRegistry</code>.
+     * @return <code>true</code>, om <code>Vehicle</code> hittas.
      */
     public boolean findVehicleByNo(int index, int registrationNumber) {
          return vehicleRegistry.get(index).getVehicleNumber() == registrationNumber;

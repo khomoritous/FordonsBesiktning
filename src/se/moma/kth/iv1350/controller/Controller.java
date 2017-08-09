@@ -46,7 +46,7 @@ public class Controller {
     
     
     /**
-     * Sätter igång en ny fordonsbesiktning.
+     * Nytt fordon för besiktning.
      */
     public void inspectNewVehicle() {
         customerQueueHandling();
@@ -152,7 +152,7 @@ public class Controller {
    }
    
    /**
-    * @param obs <code>VehiclObserver</code> som läggs till <code>vehicleObservers</code>.
+    * @param obs <code>VehicleObserver</code> som läggs till <code>vehicleObservers</code>.
     */
    public void addVehicleObserver(VehicleObserver obs) {
        vehicleObservers.add(obs);

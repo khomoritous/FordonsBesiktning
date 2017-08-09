@@ -24,7 +24,6 @@ public class ErrorMessageHandler {
         errorMsgBuilder.append(createTime());
         errorMsgBuilder.append(",ERROR: ");
         errorMsgBuilder.append(msg);
-        errorMsgBuilder.append(msg);
         System.out.println(errorMsgBuilder);
     } 
     

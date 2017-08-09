@@ -8,7 +8,7 @@ package se.moma.kth.iv1350.model.exceptions;
 import se.moma.kth.iv1350.model.Vehicle;
 
 /**
- * Kastas då ett fordon inte har några inspektioner.
+ * Kastas då ett <code>Vehicle</code> inte har några <code>Inspection</code>.
  * @author monde
  */
 public class InspectionNotFoundException extends Exception  {
@@ -17,8 +17,8 @@ public class InspectionNotFoundException extends Exception  {
     
     /**
      * Skapar en ny instans.
-     * @param vehicleWithNoInspection Instans av klassen <code>Vehicle</code>
-     * som inte har någon inspektion.
+     * @param vehicleWithNoInspection Instans av <code>Vehicle</code>
+     * som inte har någon <code>Inspection</code>.
      */
    public InspectionNotFoundException(Vehicle vehicleWithNoInspection) {
         super("No inspections for vehicle number: "+ vehicleWithNoInspection.getVehicleNumber());
@@ -26,8 +26,7 @@ public class InspectionNotFoundException extends Exception  {
     }
    
     /**
-    * 
-    * @return Fordonets registernummer.
+    * @return </code>vehicleWithNoInspections</code> registernummer.
     */
   public Vehicle getVehicleWithNoInspections() {
         return vehicleWithNoInspections;
