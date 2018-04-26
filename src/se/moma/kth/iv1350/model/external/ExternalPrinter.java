@@ -6,7 +6,6 @@
 package se.moma.kth.iv1350.model.external;
 
 import se.moma.kth.iv1350.model.Inspection;
-import se.moma.kth.iv1350.model.Inspection;
 
 /**
  * Skapar en skrivare för utskrift.

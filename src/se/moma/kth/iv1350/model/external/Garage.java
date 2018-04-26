@@ -13,13 +13,13 @@ package se.moma.kth.iv1350.model.external;
 public class Garage {
     
    
-    private GarageDoor garageDoor = null; //instansvariabel
-    private CustomerQueue customerQueue = null;
+    private GarageDoor garageDoor = null; 
+    private CustomerQueue customerQueue = null; 
     
     /**
      * Skapar en ny instans.
-     * @param garageDoor Är en instans av klassen <code>GarageDoor</code> som
-     * hjälper till att öppna och stänga garaget.
+     * @param garageDoor Är en instans av <code>GarageDoor</code> som
+     * hjälper till att öppna och stänga <code>Garage</code>.
      */
     public Garage(GarageDoor garageDoor) {
         this.garageDoor = garageDoor;
@@ -27,25 +27,25 @@ public class Garage {
     }
     
     /**
-     * Stänger garaget.
+     * Stänger <code>Garage</code>.
      */
     public void closeGarage() {
         garageDoor.closeDoor();
     }
     /**
-     * Oppnar garaget.
+     * Öppnar <code>Garage</code>.
      */
     public void openGarage() {
         garageDoor.openDoor();
     }
     /**
-     * Kund tar en nummerlapp.
+     * <code>Customer</code> tar en nummerlapp.
      */
     public void customerTakeNumber() {
         customerQueue.customerTakeQueueNumber();
     }
     /**
-     * Trycker fram nästa kund i kön.
+     * Nästa <code>Customer</code> i <code>CustomerQueue</code>.
      */
     public void nextCustomerInQueue() {
         customerQueue.nextCustomer();

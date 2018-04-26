@@ -19,14 +19,14 @@ public class GarageDoor {
     }
     
     /**
-     * Stänger dörren till garaget.
+     * Stänger dörren till <code>Garage</code>.
      */
     public void closeDoor() {
         System.out.println("Closing garage door....");
     }
     
     /**
-     * Öppnar dörren till garaget.
+     * Öppnar dörren till <code>Garage</code>.
      */
     public void openDoor() {
         System.out.println("Opening garage door....");   

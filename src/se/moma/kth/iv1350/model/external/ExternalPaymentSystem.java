@@ -7,7 +7,6 @@ package se.moma.kth.iv1350.model.external;
 
 import se.moma.kth.iv1350.model.PaymentAuthorizationRequest;
 import se.moma.kth.iv1350.model.Receipt;
-import se.moma.kth.iv1350.model.Receipt;
 
 /**
  * Skapar ett externt betalningsystem.
