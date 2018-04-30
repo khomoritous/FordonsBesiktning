@@ -5,8 +5,6 @@
  */
 package se.moma.kth.iv1350.model;
 
-import se.moma.kth.iv1350.model.Inspection;
-
 /**
  * Skapar ett fordon med registreringsnummer och inspektion.
  * @author monde
@@ -18,46 +16,46 @@ public class Vehicle {
     
     /**
      * Skapar en ny instans.
-     * @param vehicleRegistrationNumber registreringsnummer för fordonet.
-     * @param inspection inspektionen som ska utföras på fordonet vid besiktning.
+     * @param vehicleRegistrationNumber registreringsnummer för <code>Vehicle</code>.
+     * @param inspection <code>Inspection</code> som ska utföras på <code>Vehicle</code>.
      */
     public Vehicle(int vehicleRegistrationNumber, Inspection inspection) {
         this.vehicleRegistrationNumber  = vehicleRegistrationNumber;
         this.inspection  = inspection;
     }
     /**
-     * @return Kostnaden för inspektion som hör till fordonet.
+     * @return Kostnad för <code>Inspection</code> som hör till <code>Vehicle</code>.
      */
     public int getVehicleInspectionCost() {
         return inspection.getInspectionCost();
     }
     /**
-     * @return En instans av klassen <code>Vehicle</code>.
+     * @return En instans av <code>Vehicle</code>.
      */
     public Vehicle getVehicle() {
         return this;
     }
     /**
-     * @return Fordonets registreringsnummer.
+     * @return <code>Vehicle</code> registreringsnummer.
      */
     public int getVehicleNumber() {
         return vehicleRegistrationNumber;
     }
     /**
-     * @return En instans av klassen <code> Inspection</code> som 
-     * hör till fordonet.
+     * @return En instans av <code> Inspection</code> som 
+     * hör till <code>Vehicle</code>.
      */
     public Inspection getVehicleInspection() {
        return inspection.getInspection();
     }
     /**
-     * Gör en utskrift av resultatet från fordonsbesiktningen.
+     * Utskrift av resultat vid <code>Inspection</code> av <code>Vehicle</code>.
      */
     public void printVehicleInspectionResult() {
         inspection.printInspectionResult();
     }
     /**
-     * @param result Textsträng som anger resultat från besiktning av fordonet.
+     * @param result Ange resultat vid <code>Inspection</code> av <code>Vehicle</code>.
      */
     public void resultOfInspection(String result) {
        inspection.setResultOfInspection(result);

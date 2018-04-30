@@ -29,33 +29,27 @@ public class GarageDoorTest {
         outContent = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outContent));
         garageDoor = new GarageDoor();
-        
     }
      
     @After
     public void cleanUpStreams() {
        outContent = null;
-        
-
     }
     
     @Test
     public void testCloseDoor() {
-        
         garageDoor.closeDoor();
         expResult = "Closing garage door...";
         result = outContent.toString();
-        assertTrue("Garage Door not closing",result.contains(expResult));
-        
+        assertTrue("Garage door not closing",result.contains(expResult));
     }
 
     @Test
     public void testOpenDoor() {
-        
         garageDoor.openDoor();
         expResult = "Opening garage door...";
         result = outContent.toString();
-        assertTrue("Garage Door not opening",result.contains(expResult));
+        assertTrue("Garage door not opening",result.contains(expResult));
     }
     
 }

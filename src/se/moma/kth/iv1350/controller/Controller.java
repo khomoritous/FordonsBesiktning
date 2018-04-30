@@ -51,10 +51,7 @@ public class Controller {
         garage.openGarage();
     } 
 
-    private void customerQueueHandling() {
-        garage.customerTakeNumber();
-        garage.nextCustomerInQueue();
-    }
+    
     
     /**
      * Stänger garaget.
@@ -132,6 +129,11 @@ public class Controller {
     */
    public void openGarage() {
        garage.openGarage();
+   }
+   
+   private void customerQueueHandling() {
+        garage.customerTakeNumber();
+        garage.nextCustomerInQueue();
    }
    
    

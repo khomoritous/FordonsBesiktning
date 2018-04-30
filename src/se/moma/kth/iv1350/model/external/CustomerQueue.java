@@ -28,14 +28,14 @@ public class CustomerQueue {
     }
     
     /**
-     * Lägger till en kund till kön.
+     * Lägger till <code>Customer</code> till <code>CustomerQueue</code>.
      */
     public void customerTakeQueueNumber() {
         customerList.add(new Customer(queueNumber++));
     }
     
     /**
-     * Skriver ut nästa könummer för kund till en display.
+     * Skriver ut könummer för <code>Customer</code> till en display.
      */
     public void nextCustomer() {
         System.out.println("Next customer number:  "+customerList.get(queue++).getCustomerNumber());

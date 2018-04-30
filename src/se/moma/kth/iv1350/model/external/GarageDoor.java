@@ -7,7 +7,7 @@ package se.moma.kth.iv1350.model.external;
  */
 
 /**
- * Skapar en garagedörr till en instans av klassen <code>Garage</code>
+ * Skapar en garagedörr till en instans av <code>Garage</code>.
  * @author monde
  */
 public class GarageDoor {
