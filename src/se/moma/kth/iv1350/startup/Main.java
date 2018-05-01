@@ -1,5 +1,10 @@
 package se.moma.kth.iv1350.startup;
 
+import se.moma.kth.iv1350.controller.Controller;
+import se.moma.kth.iv1350.dbhandler.VehicleRegistry;
+import se.moma.kth.iv1350.model.external.CustomerQueue;
+import se.moma.kth.iv1350.model.external.Garage;
+import se.moma.kth.iv1350.model.external.GarageDoor;
 import se.moma.kth.iv1350.view.View;
 
 /*
@@ -19,7 +24,7 @@ public class Main {
      */
     public static void main(String[] args) {
         
-            new View().sampleExecution();
+            new View(new Controller(new Garage(new GarageDoor(), new CustomerQueue()),new VehicleRegistry())).sampleExecution();
     }
 }
        

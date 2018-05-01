@@ -27,24 +27,23 @@ public class Controller {
     private Vehicle vehicle = null;
     private VehicleRegistry vehicleRegistry = null;
     private Garage garage = null;
-    private GarageDoor garageDoor = null;
-    private CustomerQueue customerQueue = null;
+    // private GarageDoor garageDoor = null;
+    //private CustomerQueue customerQueue = null;
     
     
     /**
-     * Skapar en ny instans. 
+     * Skapar ny instans.
+     * @param garage Instans av <code>Garage</code>.
+     * @param vehicleRegistry Instans av <code>VehicleRegistry</code>.
      */
-    public Controller() {
-       vehicleRegistry = new VehicleRegistry();
-       garageDoor = new GarageDoor();
-       garage = new Garage(garageDoor);
-       
-
+    public Controller(Garage garage, VehicleRegistry vehicleRegistry) {
+       this.vehicleRegistry = vehicleRegistry;
+       this.garage = garage;
     }
     
     
     /**
-     * Sätter igång en ny fordonsbesiktning.
+     *  Ny besiktning.
      */
     public void inspectNewVehicle() {
         customerQueueHandling();
@@ -54,17 +53,17 @@ public class Controller {
     
     
     /**
-     * Stänger garaget.
+     * Stänger <code>Garage</code>.
      */
     public void closeGarage() {
         garage.closeGarage();    
     }
     
     /**
-     * Försöker hitta fordonets registreringsnummer.
-     * @param registrationNumber Är fordonets registreringsnummer och används 
-     * för hitta fordonet i fordonsregistret. 
-     * @return Kostnaden för inspektion av fordonet.
+     *  Hitta <code>Vehicle</code> registreringsnummer.
+     * @param registrationNumber Är <code>Vehicle</code> registreringsnummer och används 
+     * för hitta <code>Vehicle</code> i <code>VehicleRegistry</code>. 
+     * @return Kostnaden för <code>Inspection</code> av <code>Vehicle</code>.
      */
     public int registerNumber(int registrationNumber) {
         int cost = 0;
@@ -85,7 +84,7 @@ public class Controller {
     /**
      * Används för att betala för en besiktning.
      * @param amount Beloppet som betalas.
-     * @param creditCard Är en instans av klassen <code>CreditCardInformationDTO</code>
+     * @param creditCard Är en instans av <code>CreditCardInformationDTO</code>
      * och används för att göra en kreditkortsbetalning.
      * @return Kvitto på betalningen.
      */

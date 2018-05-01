@@ -18,7 +18,7 @@ public class CustomerQueue {
     private int queueNumber = 1;//instansvariabel för nummerlapp.
     private int queue = 0; //instansvariabel för könummer.
    
-    List<Customer> customerList = null; //instansvariabel av typ lista.
+    private List<Customer> customerList = null; //instansvariabel av typ lista.
     
     /**
      * Skapar en ny instans.
@@ -35,7 +35,7 @@ public class CustomerQueue {
     }
     
     /**
-     * Skriver ut könummer för <code>Customer</code> till en display.
+     * Skriver ut könummer för <code>Customer</code>.
      */
     public void nextCustomer() {
         System.out.println("Next customer number:  "+customerList.get(queue++).getCustomerNumber());

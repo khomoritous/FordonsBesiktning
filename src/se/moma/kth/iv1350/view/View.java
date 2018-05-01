@@ -31,10 +31,11 @@ public class View {
     /**
      * Skapar en ny instans.
      */
-    public View()  {
+    public View(Controller controller)  {
        // garage = new Garage(new GarageDoor());
         //customerQueue = new CustomerQueue();
-        controller = new Controller();
+       // controller = new Controller();
+       this.controller = controller;
         
     }
     

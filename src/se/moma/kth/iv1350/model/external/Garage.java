@@ -20,10 +20,12 @@ public class Garage {
      * Skapar en ny instans.
      * @param garageDoor Är en instans av <code>GarageDoor</code> som
      * hjälper till att öppna och stänga <code>Garage</code>.
+     * @param customerQueue Är en instans av <code>CustomerQueue</code> som
+     * <code>Customer</code> väntar i turordning.
      */
-    public Garage(GarageDoor garageDoor) {
+    public Garage(GarageDoor garageDoor, CustomerQueue customerQueue) {
         this.garageDoor = garageDoor;
-        customerQueue = new CustomerQueue();
+        this.customerQueue = customerQueue;
     }
     
     /**

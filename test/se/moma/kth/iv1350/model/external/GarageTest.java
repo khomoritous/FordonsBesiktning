@@ -22,7 +22,7 @@ public class GarageTest {
     
    private ByteArrayOutputStream outContent = null;
    private Garage garage = null;
-   private GarageDoor garageDoor = null;
+   //private GarageDoor garageDoor = null;
    private String result = null;
    private String expResult = null;
    private static final int CUSTOMER_NUMBER = 1;
@@ -32,8 +32,8 @@ public class GarageTest {
     public void setUp() {
         outContent =  new ByteArrayOutputStream();
         System.setOut(new PrintStream(outContent));
-        garageDoor = new GarageDoor();
-        garage = new Garage(garageDoor);
+        //garageDoor = new GarageDoor();
+        garage = new Garage(new GarageDoor(),new CustomerQueue());
     }
     
     @Test
@@ -58,10 +58,8 @@ public class GarageTest {
 
     @Test
     public void testCustomerTakeNumber() {
-        List<Customer> customerList = new ArrayList<>();
-        customerList.add(new Customer(CUSTOMER_NUMBER));
-        CustomerQueue customerQueue = new CustomerQueue();
-        customerQueue.customerTakeQueueNumber();
+        
+        
         
     }
 
