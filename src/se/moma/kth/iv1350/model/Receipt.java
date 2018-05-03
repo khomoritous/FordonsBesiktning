@@ -11,7 +11,7 @@ package se.moma.kth.iv1350.model;
  */
 public class Receipt {
     
-    private int amount;
+    private final int amount;
     /**
      * Skapar en ny instans.
      * @param amount Betald summa.
@@ -20,14 +20,14 @@ public class Receipt {
        this.amount = amount;
     }
     /**
-     * @return En instans av klassen <code>Receipt</code> som används som kvitto
+     * @return En instans av <code>Receipt</code> som används 
      * vid en transaktion.
      */
     public Receipt getReceipt() {
         return this;
     }
     /**
-     * @return En textsträngrepresentation av instansen.
+     * @return En textsträngrepresentation av instansen <code>Receipt</code>.
      */
     @Override
     public String toString() {

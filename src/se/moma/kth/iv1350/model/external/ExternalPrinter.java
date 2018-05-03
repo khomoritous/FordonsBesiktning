@@ -13,11 +13,11 @@ import se.moma.kth.iv1350.model.Inspection;
  */
 public class ExternalPrinter {
     
-    private Inspection inspection = null;//instansvariabel
+    private Inspection inspection = null;
     
     /**
      * Skapar en ny instans.
-     * @param inspection En instans av klassen <code>Inspection</code> 
+     * @param inspection En instans av <code>Inspection</code> 
      * som skrivs ut.
      */
     public ExternalPrinter(Inspection inspection) {

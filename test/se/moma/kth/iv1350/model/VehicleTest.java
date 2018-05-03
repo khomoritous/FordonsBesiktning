@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package se.moma.kth.iv1350;
+package se.moma.kth.iv1350.model;
 
 import se.moma.kth.iv1350.model.Vehicle;
 import se.moma.kth.iv1350.model.external.ExternalPrinter;

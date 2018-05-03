@@ -15,19 +15,23 @@ import static org.junit.Assert.*;
  */
 public class ReceiptTest {
     
-    public ReceiptTest() {
-    }
+     private Receipt receipt = null;
+     private static final int AMOUNT = 100;
     
     @Before
     public void setUp() {
+        receipt = new Receipt(AMOUNT);
     }
 
     @Test
     public void testGetReceipt() {
+        assertNotNull("No receipt created!",receipt.getReceipt());
     }
 
     @Test
     public void testToString() {
+        String expResult = "You have payed: " + AMOUNT;
+        assertEquals(expResult, receipt.toString());
     }
     
 }

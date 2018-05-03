@@ -13,50 +13,65 @@ import se.moma.kth.iv1350.model.external.ExternalPrinter;
  */
 public class Inspection {
     
-    private int cost;
+    private final int cost;
     private String result;
     
     
     /**
      * Skapar en ny instans.
-     * @param cost En inspektions kostnad.
+     * @param cost Kostnad för en <code>Inspection</code>.
      */
     
     public Inspection(int cost) {
         this.cost  = cost;
        // this.result = result;
     }
+    
     /**
-     * @return Kostnaden för en inspektion.
+     * @return Kostnad för en <code>Inspection</code>.
      */
     public int getInspectionCost() {
         return cost;
     }
+    
     /**
-     * @return En instans av klassen <code>Inspection</code> som hör till
-     * ett fordon.
+     * @return En instans av <code>Inspection</code>.
      */
     public Inspection getInspection() {
         return this;
     }
+    
     /**
-     * @param result Textsträng som används för resultat av inspektion.
+     * @param result Anger resultat vid <code>Inspection</code>.
      */
     public void setResultOfInspection(String result) {
         this.result = result;
     }
+    
+    /**
+     * @return Resultat av en <code>Inspection</code>. 
+     */
     public String getResult() {
         return result;
     }
     
+    /**
+     * Skriver ut resultat av <code>Inspection</code>.
+     */
     public void printInspectionResult() {
-        ExternalPrinter printer = new ExternalPrinter(this);
-        printer.print();
+       createInstanceOfPrinter().print();
     }
     
+    /**
+     * @return Textrepresentation av <code>Inspection</code>.  
+     */
     @Override
     public String toString() {
         return "Inspections to perform....";
     }
+    
+    private ExternalPrinter createInstanceOfPrinter() {
+       return new ExternalPrinter(this);
+    } 
     
 }

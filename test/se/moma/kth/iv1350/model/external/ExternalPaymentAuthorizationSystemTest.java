@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package se.moma.kth.iv1350;
+package se.moma.kth.iv1350.model.external;
 
 import se.moma.kth.iv1350.model.PaymentAuthorizationRequest;
 import se.moma.kth.iv1350.model.CreditCardInformationDTO;
@@ -37,7 +37,7 @@ public class ExternalPaymentAuthorizationSystemTest {
     @Test
     public void testIsValid() {
         boolean result = externalPaymentSystem.isValid();
-        assertTrue("Not true",result);
+        assertTrue("Not valid",result);
         
     }
 
