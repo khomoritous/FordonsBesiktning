@@ -16,11 +16,11 @@ public class ExternalPaymentSystem {
     
     
       private PaymentAuthorizationRequest request = null;   
-      private Receipt receipt = null;
+      private final Receipt receipt = null;
       
       /**
        * Skapar en ny instans.
-       * @param request Är en instans av klassen <code>PaymentAuthorizationRequest</code>
+       * @param request Är en instans av <code>PaymentAuthorizationRequest</code>
        * som används vid betalning mot externt system.
        */
       public ExternalPaymentSystem(PaymentAuthorizationRequest request) {
@@ -28,7 +28,7 @@ public class ExternalPaymentSystem {
       }
       
       /**
-       * @return true, om betalning går igenom.
+       * @return <code>True</code>, om betalning går igenom, annars <code>False</code>.
        */
       public boolean isValid() {
           return true;
@@ -36,11 +36,14 @@ public class ExternalPaymentSystem {
       
       /**
        * @param amount Belopp som betalas.
-       * @return kvitto på betalning.
+       * @return <code>Receipt</code> på betalning.
        */
       public Receipt getReceipt(int amount) {
-          receipt = new Receipt(amount);
-          return receipt.getReceipt();
+          return createReceiptInstance(amount).getReceipt();
+      }
+
+      private Receipt createReceiptInstance(int amount) {
+        return new Receipt(amount);
       }
     
 }

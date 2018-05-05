@@ -25,8 +25,8 @@ public class PaymentAuthorizationRequest {
     /**
      * Skapar en ny instans.
      * @param amount Belopp att betala.
-     * @param creditCard Är en instans av klassen <code>CreditCardInformationDTO</code>
-     * som används vid betalning med kreditkort.
+     * @param creditCard Är en instans av <code>CreditCardInformationDTO</code>
+     * som används vid betalning.
      */
     
     public PaymentAuthorizationRequest(int amount, CreditCardInformationDTO creditCard) {
@@ -34,14 +34,17 @@ public class PaymentAuthorizationRequest {
         this.creditCard = creditCard;
     }
     /**
-     * @return Om betalningen godkänds.
+     * @return <code>True</code> ,om betalningen godkänds, annars <code>false</code>.
      */
     public boolean isApproved() {
-          payment = new ExternalPaymentSystem(this);
-          return payment.isValid();
+        return createExternalPaymentRequestInstance().isValid();
+    }
+
+    private ExternalPaymentSystem createExternalPaymentRequestInstance() {
+        return new ExternalPaymentSystem(this);
     }
     /** 
-     * @return En instans av klassen <code>Receipt</code> som kvitto på betalning.
+     * @return En instans av <code>Receipt</code> som kvitto på betalning.
      */
     public Receipt getCustomerReceipt() {
         return payment.getReceipt(amount);

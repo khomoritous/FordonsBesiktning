@@ -27,8 +27,6 @@ public class Controller {
     private Vehicle vehicle = null;
     private VehicleRegistry vehicleRegistry = null;
     private Garage garage = null;
-    // private GarageDoor garageDoor = null;
-    //private CustomerQueue customerQueue = null;
     
     
     /**

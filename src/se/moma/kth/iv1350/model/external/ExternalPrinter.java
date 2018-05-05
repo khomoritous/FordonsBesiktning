@@ -17,14 +17,13 @@ public class ExternalPrinter {
     
     /**
      * Skapar en ny instans.
-     * @param inspection En instans av <code>Inspection</code> 
-     * som skrivs ut.
+     * @param inspection En instans av <code>Inspection</code>.
      */
     public ExternalPrinter(Inspection inspection) {
         this.inspection = inspection;
     }
     /**
-     * Gör en utskrift.
+     * Gör en utskrift av <code>Inspection</code> resultat.
      */
     public void print() {
         System.out.println("The result of the inspection: " + inspection.getResult());

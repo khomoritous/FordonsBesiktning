@@ -26,7 +26,7 @@ public class VehicleRegistry {
     */
     public VehicleRegistry() {
        vehicleRegistry = new ArrayList<>();
-       vehicleRegistry.add(new Vehicle(VEHICLE_NUMBER,new Inspection(INSPECTION_COST)));
+       vehicleRegistry.add(new Vehicle(VEHICLE_NUMBER, new Inspection(INSPECTION_COST)));
        
     }
     

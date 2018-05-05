@@ -24,6 +24,8 @@ public class ExternalPaymentAuthorizationSystemTest {
     private PaymentAuthorizationRequest request = null;
     private ExternalPaymentSystem externalPaymentSystem = null;
     private Receipt receipt = null;
+    private String expResult = null;
+    
     
     
     @Before
@@ -36,17 +38,16 @@ public class ExternalPaymentAuthorizationSystemTest {
     
     @Test
     public void testIsValid() {
-        boolean result = externalPaymentSystem.isValid();
-        assertTrue("Not valid",result);
+        assertTrue("Not valid!", externalPaymentSystem.isValid());
         
     }
 
     @Test
     public void testGetReceipt() {
-        String result = "You have payed: "+ AMOUNT;
+        expResult = "You have payed: "+ AMOUNT;
         receipt = externalPaymentSystem.getReceipt(AMOUNT);
         
-        assertEquals(result, receipt.toString());
+        assertEquals(expResult, receipt.toString());
     }
     
 }
