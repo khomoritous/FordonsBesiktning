@@ -37,17 +37,19 @@ public class PaymentAuthorizationRequest {
      * @return <code>True</code> ,om betalningen godkänds, annars <code>false</code>.
      */
     public boolean isApproved() {
-        return createExternalPaymentRequestInstance().isValid();
+        payment = createExternalPaymentRequestInstance();
+        return payment.isValid();
     }
 
-    private ExternalPaymentSystem createExternalPaymentRequestInstance() {
-        return new ExternalPaymentSystem(this);
-    }
     /** 
      * @return En instans av <code>Receipt</code> som kvitto på betalning.
      */
     public Receipt getCustomerReceipt() {
         return payment.getReceipt(amount);
+    }
+    
+    private ExternalPaymentSystem createExternalPaymentRequestInstance() {
+        return new ExternalPaymentSystem(this);
     }
     
 }

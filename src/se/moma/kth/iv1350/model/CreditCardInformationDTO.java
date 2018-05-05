@@ -35,7 +35,7 @@ public final class CreditCardInformationDTO {
     }
     /**
      * 
-     * @return En textsträngrepresentation av <code>CreditCardDTO</code>.
+     * @return En textsträngrepresentation av <code>CreditCardInformationDTO</code>.
      */
    @Override
     public String toString() {
