@@ -6,13 +6,9 @@
 package se.moma.kth.iv1350.view;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.LocalTime;
 import se.moma.kth.iv1350.controller.Controller;
 import se.moma.kth.iv1350.model.CreditCardInformationDTO;
-import se.moma.kth.iv1350.model.external.CustomerQueue;
-import se.moma.kth.iv1350.model.external.Garage;
-import se.moma.kth.iv1350.model.external.GarageDoor;
 
 /**
  * Skapar ett användargränssnitt.
@@ -21,29 +17,26 @@ import se.moma.kth.iv1350.model.external.GarageDoor;
 public class View {
     
    
-   // Garage garage = null;
-    CustomerQueue customerQueue = null;
+  
     Controller controller = null;
     LocalDate dnow = LocalDate.now();
     LocalTime tnow = LocalTime.now();
+   
     
     
     /**
      * Skapar en ny instans.
+     * @param controller En instans av <code>Controller</code>.
      */
     public View(Controller controller)  {
-       // garage = new Garage(new GarageDoor());
-        //customerQueue = new CustomerQueue();
-       // controller = new Controller();
        this.controller = controller;
-        
     }
     
     /**
      * Startar en ny fordonsbesiktning.
      */
     public void sampleExecution() {
-        int cost;
+        int cost = 0;
        
         controller.inspectNewVehicle();
         controller.closeGarage();
@@ -56,12 +49,12 @@ public class View {
         System.out.println("-----Begin receipt-----");
         System.out.println("Date: "+dnow);
         System.out.println("Time: "+tnow);
-        System.out.println("Transaction: "+ controller.pay(100,new CreditCardInformationDTO()));
+        System.out.println("Transaction: "+ controller.pay(cost, new CreditCardInformationDTO()));
         System.out.println("-----End receipt-----");
 
         System.out.println("Inspection for the vehicle: " + controller.inspectVehicle());
 
-        controller.enterResultOfInspection("Pass");
+        controller.enterResultOfInspection("PASS");
 
         controller.printResult();
         controller.openGarage();
