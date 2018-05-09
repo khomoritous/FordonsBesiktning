@@ -31,23 +31,22 @@ public class VehicleRegistry {
     }
     
     /**
-     * @param vehicle Lägger till en instans av klassen <code>Vehicle</code>
-     * till registret.
-     * 
+     * @param vehicle Lägger till en instans av <code>Vehicle</code>
+     * till <code>VehicleRegistry</code>.
      */
     public void addVehicle(Vehicle vehicle) {
         vehicleRegistry.add(vehicle);
     }
     
     /**
-     * @param index int som hjälper till att hämta ett fordon.
-     * @return En fordonsinstans av klassen <code>Vehicle</code>.
+     * @param index int som hjälper till att hämta ett <code>Vehicle</code>.
+     * @return En instans av <code>Vehicle</code>.
      */
     public Vehicle getVehicle(int index) {
         return vehicleRegistry.get(index);
     }
     /**
-     * @return Antal fordon i registret.
+     * @return Antal <code>Vehicle</code> i <code>VehicleRegistry</code>.
      */
     public int sizeOfVehicleRegistry() {
        return vehicleRegistry.size();
