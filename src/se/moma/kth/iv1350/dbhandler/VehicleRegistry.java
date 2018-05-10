@@ -52,9 +52,5 @@ public class VehicleRegistry {
        return vehicleRegistry.size();
     }
     
-    /*public int isVehiclePresent(int registrationNumber) {
-        vehicleRegistry.contains(this)
-    }*/
-   
     
 }
