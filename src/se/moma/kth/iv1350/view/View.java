@@ -21,6 +21,13 @@ public class View {
     Controller controller = null;
     LocalDate dnow = LocalDate.now();
     LocalTime tnow = LocalTime.now();
+    
+    private static final String VENDOR = "VISA";
+    private static final int CARD_NUMBER = 2334;
+    private final LocalDate validDate = LocalDate.now();
+    private static final  String CARD_OWNER = "Jan";
+    private static final int CCV = 222;
+    
    
     
     
@@ -49,7 +56,7 @@ public class View {
         System.out.println("-----Begin receipt-----");
         System.out.println("Date: "+dnow);
         System.out.println("Time: "+tnow);
-        System.out.println("Transaction: "+ controller.pay(cost, new CreditCardInformationDTO()));
+        System.out.println("Transaction: "+ controller.pay(cost, new CreditCardInformationDTO(VENDOR, CARD_NUMBER,validDate,CARD_OWNER,CCV)));
         System.out.println("-----End receipt-----");
 
         System.out.println("Inspection for the vehicle: " + controller.inspectVehicle());

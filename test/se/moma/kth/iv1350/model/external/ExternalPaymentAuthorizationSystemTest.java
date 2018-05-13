@@ -5,6 +5,7 @@
  */
 package se.moma.kth.iv1350.model.external;
 
+import java.time.LocalDate;
 import se.moma.kth.iv1350.model.PaymentAuthorizationRequest;
 import se.moma.kth.iv1350.model.CreditCardInformationDTO;
 import se.moma.kth.iv1350.model.external.ExternalPaymentSystem;
@@ -25,12 +26,17 @@ public class ExternalPaymentAuthorizationSystemTest {
     private ExternalPaymentSystem externalPaymentSystem = null;
     private Receipt receipt = null;
     private String expResult = null;
+    private static final String VENDOR = "VISA";
+    private static final int CARD_NUMBER = 2334;
+    private final LocalDate validDate = LocalDate.now();
+    private static final  String CARD_OWNER = "Jan";
+    private static final int CCV = 222;
     
     
     
     @Before
     public void setUp() {
-        creditCard = new CreditCardInformationDTO();
+        creditCard = new CreditCardInformationDTO(VENDOR, CARD_NUMBER, validDate, CARD_OWNER,CCV);
         request = new PaymentAuthorizationRequest(AMOUNT,creditCard);
         externalPaymentSystem = new ExternalPaymentSystem(request);
     }
