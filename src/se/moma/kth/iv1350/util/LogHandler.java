@@ -16,11 +16,10 @@ public class LogHandler {
     
     private static final String LOG_FILE_NAME = "fordonsbesiktning-log.txt";
     
-    private PrintWriter logFile;
+    private PrintWriter logFile = null;
     
     /**
      * Skapar en ny instans.
-     * Sköter in- och outputströmmar.
      */
     public LogHandler() throws IOException {
         logFile = new PrintWriter(new FileWriter(new File(LOG_FILE_NAME),true),true);
@@ -28,7 +27,7 @@ public class LogHandler {
     
     /**
      * Skriver till logfilen.
-     * @param exception Instans av <code>Exception</code> som skrivs 
+     * @param exception Instans av <code>Exception</code> som skrivs till
      * logfilen.
      */
     public void logException(Exception exception) {

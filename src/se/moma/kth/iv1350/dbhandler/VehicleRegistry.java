@@ -39,7 +39,7 @@ public class VehicleRegistry {
     }
     
     /**
-     * @param index int som hjälper till att hämta ett <code>Vehicle</code>.
+     * @param index int som hjälper till att hämta <code>Vehicle</code>.
      * @return En instans av <code>Vehicle</code>.
      */
     public Vehicle getVehicle(int index) {
