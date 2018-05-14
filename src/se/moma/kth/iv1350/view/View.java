@@ -54,9 +54,10 @@ public class View {
              System.out.println("Inspection cost for Vehicle: "+ cost);
         }
         System.out.println("-----Begin receipt-----");
+        System.out.println("Transaction: "+ controller.pay(cost, new CreditCardInformationDTO(VENDOR, CARD_NUMBER,validDate,CARD_OWNER,CCV)));
         System.out.println("Date: "+dnow);
         System.out.println("Time: "+tnow);
-        System.out.println("Transaction: "+ controller.pay(cost, new CreditCardInformationDTO(VENDOR, CARD_NUMBER,validDate,CARD_OWNER,CCV)));
+      
         System.out.println("-----End receipt-----");
 
         System.out.println("Inspection for the vehicle: " + controller.inspectVehicle());

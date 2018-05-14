@@ -60,6 +60,8 @@ public class Vehicle {
     public void resultOfInspection(String result) {
        inspection.setResultOfInspection(result);
     }
+
+    
     
     
 }
