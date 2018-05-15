@@ -1,0 +1,34 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package se.moma.kth.iv1350.model.exception;
+
+import se.moma.kth.iv1350.model.Vehicle;
+
+/**
+ * Kastas då ett fordon inte har några inspektioner.
+ * @author monde
+ */
+public class InspectionException extends Exception  {
+    
+    private Vehicle vehicleWithNoInspections = null;
+    
+    /**
+     * Skapar en ny instans.
+     * @param vehicleWithNoInspection Instans av <code>Vehicle</code>
+     * utan <code>Inspection</code>.
+     */
+   public InspectionException(Vehicle vehicleWithNoInspection) {
+        super("No inspections found for vehicle number: " + vehicleWithNoInspection.getVehicleNumber());
+        this.vehicleWithNoInspections = vehicleWithNoInspection;
+    }
+   
+    /**
+    * @return <code>Vehicle</code> med inga <code>Inspection</code>.
+    */
+  public Vehicle getVehicleWithNoInspections() {
+        return vehicleWithNoInspections;
+   }
+}
