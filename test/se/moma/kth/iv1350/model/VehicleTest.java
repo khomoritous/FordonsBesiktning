@@ -11,9 +11,7 @@ import se.moma.kth.iv1350.model.Inspection;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -33,6 +31,7 @@ public class VehicleTest {
     private static final String INSPECTION_RESULT = "PASS";
     private static final int INSPECTION_COST = 100;
     private static final int VEHICLE_NUMBER = 10;
+    private Vehicle vehicle_two = null;
     
    
     @Before
@@ -91,13 +90,13 @@ public class VehicleTest {
     
     @Test
     public void testEqualsMethod() {
-        Vehicle vehicle_two = new Vehicle(VEHICLE_NUMBER, inspection);
+        vehicle_two = new Vehicle(VEHICLE_NUMBER, inspection);
         assertTrue("Different vehicles!", vehicle_two.equals(vehicle));
     }
     
     @Test
     public void testHashMethod() {
-       Vehicle vehicle_two = new Vehicle(VEHICLE_NUMBER, inspection);
-       assertNotSame("Its not the same vehicle!",vehicle_two, vehicle);
+       vehicle_two = new Vehicle(VEHICLE_NUMBER, inspection);
+       assertNotSame("Its the same vehicle!",vehicle_two, vehicle);
     }
 }
