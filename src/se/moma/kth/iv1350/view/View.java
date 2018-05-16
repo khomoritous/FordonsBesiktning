@@ -51,7 +51,7 @@ public class View {
         
         
         try {
-            if((cost = controller.registerNumber(VEHICLE_NUMBER_WITH_NO_INSPECTION)) == 0) {
+            if((cost = controller.registerNumber(VEHICLE_NUMBER)) == 0) {
                 System.out.println("No vehicle with that number.");
             }else {
                 System.out.println("Inspection cost for Vehicle: "+ cost);
