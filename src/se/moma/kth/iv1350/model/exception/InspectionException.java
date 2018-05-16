@@ -13,22 +13,22 @@ import se.moma.kth.iv1350.model.Vehicle;
  */
 public class InspectionException extends Exception  {
     
-    private Vehicle vehicleWithNoInspections = null;
+     private Vehicle vehicleWithNoInspections = null;
     
     /**
      * Skapar en ny instans.
      * @param vehicleWithNoInspection Instans av <code>Vehicle</code>
      * utan <code>Inspection</code>.
      */
-   public InspectionException(Vehicle vehicleWithNoInspection) {
-        super("No inspections found for vehicle number: " + vehicleWithNoInspection.getVehicleNumber());
-        this.vehicleWithNoInspections = vehicleWithNoInspection;
+   public InspectionException(Vehicle vehicleWithNoInspections) {
+        super("No inspections found with vehicle registration number: " + vehicleWithNoInspections);
+        this.vehicleWithNoInspections = vehicleWithNoInspections;
     }
    
     /**
     * @return <code>Vehicle</code> med inga <code>Inspection</code>.
     */
-  public Vehicle getVehicleWithNoInspections() {
+   public Vehicle getVehicleWithNoInspections() {
         return vehicleWithNoInspections;
-   }
+   } 
 }

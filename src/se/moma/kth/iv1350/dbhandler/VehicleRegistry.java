@@ -7,8 +7,11 @@ package se.moma.kth.iv1350.dbhandler;
 
 import java.util.ArrayList;
 import java.util.List;
+import se.moma.kth.iv1350.dbhandler.exception.VehicleRegistryException;
 import se.moma.kth.iv1350.model.Inspection;
 import se.moma.kth.iv1350.model.Vehicle;
+import se.moma.kth.iv1350.model.exception.InspectionException;
+import se.moma.kth.iv1350.util.exception.OperationFailedException;
 
 /**
  * Skapar ett fordonsregister.
@@ -18,6 +21,7 @@ public class VehicleRegistry {
     
     private List<Vehicle> vehicleRegistry = null;
     private static final int VEHICLE_NUMBER = 10;
+    private static final int VEHICLE_TWO_NUMBER = 20;
     private static final int INSPECTION_COST = 100;
     
     
@@ -25,8 +29,9 @@ public class VehicleRegistry {
     * Skapar en ny instans.
     */
     public VehicleRegistry() {
-       vehicleRegistry = new ArrayList<>();
-       vehicleRegistry.add(new Vehicle(VEHICLE_NUMBER, new Inspection(INSPECTION_COST)));
+     vehicleRegistry = new ArrayList<>();
+     vehicleRegistry.add(new Vehicle(VEHICLE_NUMBER, new Inspection(INSPECTION_COST)));
+     vehicleRegistry.add(new Vehicle(VEHICLE_TWO_NUMBER, null));
        
     }
     
@@ -48,12 +53,22 @@ public class VehicleRegistry {
     /**
      * @return Antal <code>Vehicle</code> i <code>VehicleRegistry</code>.
      */
-    public int sizeOfVehicleRegistry() {
-       return vehicleRegistry.size();
+    public int sizeOfVehicleRegistry() throws VehicleRegistryException {
+            if(vehicleRegistry == null) throw new VehicleRegistryException("Could not access registry. Try again later.");
+            return vehicleRegistry.size();
     }
     
     /*public int isVehiclePresent(int registrationNumber) {
         vehicleRegistry.contains(this)
+    }*/
+    
+    
+    /**
+     * @param vehicle Instans av <code>Vehicle</code> som har <code>Inspection</code>.
+     * @return Kostnad för <code>Inspection</code>.
+     */
+    /*public int findVehicleInspectionCost(Vehicle vehicle) {
+        return vehicle.getVehicleInspection().getInspectionCost();
     }*/
    
     

@@ -5,6 +5,7 @@
  */
 package se.moma.kth.iv1350.model;
 
+import se.moma.kth.iv1350.model.exception.InspectionException;
 import se.moma.kth.iv1350.model.external.ExternalPrinter;
 
 /**

@@ -1,12 +1,15 @@
 package se.moma.kth.iv1350.controller;
 
 import se.moma.kth.iv1350.dbhandler.VehicleRegistry;
+import se.moma.kth.iv1350.dbhandler.exception.VehicleRegistryException;
 import se.moma.kth.iv1350.model.CreditCardInformationDTO;
 import se.moma.kth.iv1350.model.external.Garage;
 import se.moma.kth.iv1350.model.Inspection;
 import se.moma.kth.iv1350.model.PaymentAuthorizationRequest;
 import se.moma.kth.iv1350.model.Receipt;
 import se.moma.kth.iv1350.model.Vehicle;
+import se.moma.kth.iv1350.model.exception.InspectionException;
+import se.moma.kth.iv1350.util.exception.OperationFailedException;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -61,13 +64,13 @@ public class Controller {
      * för hitta <code>Vehicle</code> i <code>VehicleRegistry</code>. 
      * @return Kostnaden för <code>Inspection</code> av <code>Vehicle</code>.
      */
-    public int registerNumber(int registrationNumber) {
+    public int registerNumber(int registrationNumber) throws InspectionException {
         int cost = 0;
         cost = matches(registrationNumber, cost);
         return cost;
     } 
 
-    private int matches(int registrationNumber, int cost) {
+    private int matches(int registrationNumber, int cost) throws InspectionException {
         for(int index = 0; index < vehicleRegistry.sizeOfVehicleRegistry(); index++) {
             if(vehicleRegistry.getVehicle(index).getVehicleNumber() == registrationNumber && vehicleRegistry.getVehicle(index).getVehicleInspection() != null) {
                 vehicle = vehicleRegistry.getVehicle(index);
@@ -95,10 +98,10 @@ public class Controller {
     
     /**
      * Används för att besikta fordonet. 
-     * @return Instans av klassen <code>Inspection</code> som visar vad på fordonet
+     * @return Instans av <code>Inspection</code> som visar vad på <code>Vehicle</code>
      * som behöver besiktas.
      */
-    public Inspection inspectVehicle() {
+    public Inspection inspectVehicle() throws InspectionException {
         Inspection inspection = null;
         if(vehicle.getVehicleInspection() != null) {
             inspection = vehicle.getVehicleInspection();

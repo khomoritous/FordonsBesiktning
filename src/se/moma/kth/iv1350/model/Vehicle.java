@@ -5,6 +5,8 @@
  */
 package se.moma.kth.iv1350.model;
 
+import se.moma.kth.iv1350.model.exception.InspectionException;
+
 /**
  * Skapar ett fordon med registreringsnummer och inspektion.
  * @author monde
@@ -45,8 +47,11 @@ public class Vehicle {
      * @return En instans av <code> Inspection</code> som 
      * hör till <code>Vehicle</code>.
      */
-    public Inspection getVehicleInspection() {
-       return inspection.getInspection();
+    public Inspection getVehicleInspection() throws InspectionException {
+        if(inspection == null) 
+            throw new InspectionException(this);
+        else
+            return inspection.getInspection();
     }
     /**
      * Utskrift av resultat vid <code>Inspection</code> av <code>Vehicle</code>.
@@ -61,5 +66,10 @@ public class Vehicle {
        inspection.setResultOfInspection(result);
     }
     
+    
+    @Override
+    public String toString() {
+        return "" + vehicleRegistrationNumber; 
+    }
     
 }
