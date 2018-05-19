@@ -16,6 +16,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import se.moma.kth.iv1350.model.exception.InspectionException;
 
 /**
  *
@@ -62,12 +63,12 @@ public class VehicleTest {
     }
 
     @Test
-    public void testGetVehicleInspection() {
+    public void testGetVehicleInspection() throws InspectionException  {
          assertNotNull(vehicle.getVehicleInspection());
     }
   
     @Test
-    public void testPrintVehicleInspectionResult() {
+    public void testPrintVehicleInspectionResult() throws InspectionException {
         outContent = new ByteArrayOutputStream();
         
         System.setOut(new PrintStream(outContent));
@@ -83,7 +84,7 @@ public class VehicleTest {
     }
     
     @Test
-    public void testResultOfInspection() {
+    public void testResultOfInspection() throws InspectionException {
         vehicle.resultOfInspection(INSPECTION_RESULT);
         assertEquals(INSPECTION_RESULT,vehicle.getVehicleInspection().getResult());
     }
