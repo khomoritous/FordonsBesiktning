@@ -49,8 +49,6 @@ public class Controller {
         garage.openGarage();
     } 
 
-    
-    
     /**
      * Stänger <code>Garage</code>.
      */
