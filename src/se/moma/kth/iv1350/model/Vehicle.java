@@ -18,7 +18,7 @@ public class Vehicle {
     
     /**
      * Skapar en ny instans.
-     * @param vehicleRegistrationNumber registreringsnummer för <code>Vehicle</code>.
+     * @param vehicleRegistrationNumber Registreringsnummer för <code>Vehicle</code>.
      * @param inspection <code>Inspection</code> som ska utföras på <code>Vehicle</code>.
      */
     public Vehicle(int vehicleRegistrationNumber, Inspection inspection) {
@@ -46,6 +46,8 @@ public class Vehicle {
     /**
      * @return En instans av <code> Inspection</code> som 
      * hör till <code>Vehicle</code>.
+     * @throws se.moma.kth.iv1350.model.exception.InspectionException Kastas då ingen <code>Inspection</code>
+     * för ett <code>Vehicle</code> hittas.
      */
     public Inspection getVehicleInspection() throws InspectionException {
         if(inspection == null) 
@@ -65,8 +67,46 @@ public class Vehicle {
     public void resultOfInspection(String result) {
        inspection.setResultOfInspection(result);
     }
+    /**
+     * 
+     * @return Hashkod för en instans av <code>Vehicle</code>.
+     */
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 97 * hash + this.vehicleRegistrationNumber;
+        return hash;
+    }
+    /**
+     * Testar likhet för två <code>Vehicle</code> med avseende på registeringsnummer.
+     * @param obj En instans av <code>Vehicle</code>
+     * @return <code>True</code>, om två instanser av <code>Vehicle</code> är lika, annars
+     * <code>false</code>.
+     */
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Vehicle other = (Vehicle) obj;
+        if (this.vehicleRegistrationNumber != other.vehicleRegistrationNumber) {
+            return false;
+        }
+        return true;
+    }
+
     
     
+    /**
+     * 
+     * @return Ett <code>Vehicle</code> registreringsnummer.
+     */
     @Override
     public String toString() {
         return "" + vehicleRegistrationNumber; 

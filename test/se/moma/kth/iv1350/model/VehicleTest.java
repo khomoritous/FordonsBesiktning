@@ -89,4 +89,16 @@ public class VehicleTest {
         assertEquals(INSPECTION_RESULT,vehicle.getVehicleInspection().getResult());
     }
     
+    
+    @Test
+    public void testEqualsMethod() {
+        Vehicle vehicle_two = new Vehicle(VEHICLE_NUMBER, inspection);
+        assertTrue("Different vehicles!", vehicle_two.equals(vehicle));
+    }
+    
+    @Test
+    public void testHashMethod() {
+       Vehicle vehicle_two = new Vehicle(VEHICLE_NUMBER, inspection);
+       assertNotSame("Its not the same vehicle!",vehicle_two, vehicle);
+    }
 }

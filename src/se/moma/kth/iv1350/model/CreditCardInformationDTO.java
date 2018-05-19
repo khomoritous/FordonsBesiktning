@@ -5,6 +5,7 @@
  */
 package se.moma.kth.iv1350.model;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 /**
@@ -14,17 +15,27 @@ import java.util.Date;
 public final class CreditCardInformationDTO {
     
     private String creditCardVendor = null;
-    private int creditCardNumber;
-    private Date validDate = null;
+    private final int creditCardNumber;
+    private LocalDate validDate = null;
     private String creditCardHolder = null;
-    private int CCV;
+    private final int CCV;
     
     
    
     /**
      * Skapar en ny instans.
+     * @param creditCardVendor Kortutgivare
+     * @param creditCardNumber Kortnummer
+     * @param validDate Giltigtsdatum t.o.m
+     * @param creditCardHolder Namn på kortinnehavare
+     * @param CCV autentiseringskod
      */
-    public CreditCardInformationDTO() {
+    public CreditCardInformationDTO(String creditCardVendor, int creditCardNumber, LocalDate validDate,String creditCardHolder, int CCV) {
+        this.creditCardVendor = creditCardVendor;
+        this.creditCardNumber = creditCardNumber;
+        this.validDate = validDate;
+        this.creditCardHolder = creditCardHolder;
+        this.CCV = CCV;
     }
     
     /**
@@ -33,6 +44,29 @@ public final class CreditCardInformationDTO {
     public CreditCardInformationDTO getCreditCard() {
         return this;
     }
+
+    public String getCreditCardVendor() {
+        return creditCardVendor;
+    }
+
+    public int getCreditCardNumber() {
+        return creditCardNumber;
+    }
+
+    public LocalDate getValidDate() {
+        return validDate;
+    }
+
+    public String getCreditCardHolder() {
+        return creditCardHolder;
+    }
+
+    public int getCCV() {
+        return CCV;
+    }
+    
+    
+    
     /**
      * 
      * @return En textsträngrepresentation av <code>CreditCardInformationDTO</code>.

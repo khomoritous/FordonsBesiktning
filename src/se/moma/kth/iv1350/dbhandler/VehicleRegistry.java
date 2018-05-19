@@ -53,8 +53,8 @@ public class VehicleRegistry {
     /**
      * @return Antal <code>Vehicle</code> i <code>VehicleRegistry</code>.
      */
-    public int sizeOfVehicleRegistry() throws VehicleRegistryException {
-            if(vehicleRegistry == null) throw new VehicleRegistryException("Could not access registry. Try again later.");
+    public int sizeOfVehicleRegistry() {
+            
             return vehicleRegistry.size();
     }
     
@@ -70,6 +70,6 @@ public class VehicleRegistry {
     /*public int findVehicleInspectionCost(Vehicle vehicle) {
         return vehicle.getVehicleInspection().getInspectionCost();
     }*/
-   
+
     
 }
