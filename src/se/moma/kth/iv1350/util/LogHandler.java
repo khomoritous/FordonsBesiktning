@@ -20,6 +20,7 @@ public class LogHandler {
     
     /**
      * Skapar en ny instans.
+     * @throws java.io.IOException Kastas då I/O-strömmar inte fungerar.
      */
     public LogHandler() throws IOException {
         logFile = new PrintWriter(new FileWriter(new File(LOG_FILE_NAME),true),true);

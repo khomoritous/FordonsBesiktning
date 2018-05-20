@@ -27,9 +27,14 @@ public class Vehicle {
     }
     /**
      * @return Kostnad för <code>Inspection</code> som hör till <code>Vehicle</code>.
+     * @throws se.moma.kth.iv1350.model.exception.InspectionException Kastas då ingen 
+     * <code>Inspection</code> hittats.
      */
-    public int getVehicleInspectionCost() {
-        return inspection.getInspectionCost();
+    public int getVehicleInspectionCost() throws InspectionException {
+        if(inspection == null)
+            throw new InspectionException(this);
+        else
+            return inspection.getInspectionCost();
     }
     /**
      * @return En instans av <code>Vehicle</code>.
@@ -46,13 +51,8 @@ public class Vehicle {
     /**
      * @return En instans av <code> Inspection</code> som 
      * hör till <code>Vehicle</code>.
-     * @throws se.moma.kth.iv1350.model.exception.InspectionException Kastas då ingen <code>Inspection</code>
-     * för ett <code>Vehicle</code> hittas.
      */
-    public Inspection getVehicleInspection() throws InspectionException {
-        if(inspection == null) 
-            throw new InspectionException(this);
-        else
+    public Inspection getVehicleInspection() {
             return inspection.getInspection();
     }
     /**
@@ -78,7 +78,7 @@ public class Vehicle {
         return hash;
     }
     /**
-     * Testar likhet för två <code>Vehicle</code> med avseende på registeringsnummer.
+     * Testar likhet för två <code>Vehicle</code> med avseende på registreringsnummer.
      * @param obj En instans av <code>Vehicle</code>
      * @return <code>True</code>, om två instanser av <code>Vehicle</code> är lika, annars
      * <code>false</code>.
