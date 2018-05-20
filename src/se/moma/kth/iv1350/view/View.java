@@ -71,7 +71,7 @@ public class View {
                 controller.closeGarage();
             
        
-                if((cost = controller.registerNumber(VEHICLE_NUMBER_WITH_NO_INSPECTION)) == 0) {
+                if((cost = controller.registerNumber(VEHICLE_NUMBER)) == 0) {
                     System.out.println("No vehicle with that number.");
                 }else {
                     System.out.println("Inspection cost for Vehicle: "+ cost);
@@ -83,12 +83,12 @@ public class View {
                 System.out.println("Time: "+tnow);
                 System.out.println("-----End receipt-----");
 
-                System.out.println("Inspection for the vehicle: " + controller.inspectVehicle(VEHICLE_NUMBER_WITH_NO_INSPECTION));
+                System.out.println("Inspection for the vehicle: " + controller.inspectVehicle(VEHICLE_NUMBER));
         
 
-                controller.enterResultOfInspection(VEHICLE_NUMBER_WITH_NO_INSPECTION,"PASS");
+                controller.enterResultOfInspection(VEHICLE_NUMBER,"PASS");
 
-                controller.printResult(VEHICLE_NUMBER_WITH_NO_INSPECTION);
+                controller.printResult(VEHICLE_NUMBER);
                 controller.openGarage();
                 controller.closeGarage();
         } catch (InspectionException ex) {
