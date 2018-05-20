@@ -35,8 +35,7 @@ public class VehicleRegistry {
     }
     
     /**
-     * @param vehicle Lägger till en instans av <code>Vehicle</code>
-     * till <code>VehicleRegistry</code>.
+     * @param vehicle Lägger till en instans av <code>Vehicle</code>.
      */
     public void addVehicle(Vehicle vehicle) {
         vehicleRegistry.add(vehicle);
@@ -49,39 +48,60 @@ public class VehicleRegistry {
     public Vehicle getVehicle(int index) {
         return vehicleRegistry.get(index);
     }
+    
     /**
      * @return Antal <code>Vehicle</code> i <code>VehicleRegistry</code>.
      */
     public int sizeOfVehicleRegistry() {
-            return vehicleRegistry.size();
+        return vehicleRegistry.size();
     }
     
+    /**
+     * @param registrationNumber Sökt <code>Vehicle</code> registreringsnummer.
+     * @return <code>True</code>, om <code>Vehicle</code> finns i <code>VehicleRegistry</code>,
+     * <code>false</code> annars.
+     */
     public boolean isVehiclePresent(int registrationNumber) {
-        return vehicleRegistry.contains(new Vehicle(registrationNumber, null));
+        return vehicleRegistry.contains(createVehicleInstance(registrationNumber));
     }
     
     /**
      * @param registrationNumber <code>Vehicle</code> registreringsnummer.
      * @return Kostnad för <code>Inspection</code>.
-     * @throws se.moma.kth.iv1350.model.exception.InspectionException Kastar undantag
+     * @throws se.moma.kth.iv1350.model.exception.InspectionException Kastas
      * då <code>Vehicle</code> inte har någon <code>Inspection</code>.
      */
     public int findVehicleInspectionCost(int registrationNumber) throws InspectionException {
-       return getVehicle(vehicleRegistry.indexOf(new Vehicle(registrationNumber, null))).getVehicleInspectionCost();
+       return getVehicle(vehicleRegistry.indexOf(createVehicleInstance(registrationNumber))).getVehicleInspectionCost();
     }
     
+    /**
+     * @param registrationNumber <code>Vehicle</code> registeringsnummer.
+     * @return <code>Inspection</code> tillhörande <code>Vehicle</code>
+     * @throws InspectionException Kastas då ingen <code>Inspection</code> hittats.
+     */
     public Inspection findVehicleInspection(int registrationNumber) throws InspectionException {
-        return getVehicle(vehicleRegistry.indexOf(new Vehicle(registrationNumber, null))).getVehicleInspection();
+        return getVehicle(vehicleRegistry.indexOf(createVehicleInstance(registrationNumber))).getVehicleInspection();
     }
     
+    /**
+     * @param registrationNumber <code>Vehicle</code> registreringsnummer.
+     * @param result Resultatet av <code>Inspection</code> av <code>Vehicle</code>.
+     */
     public void setVehicleInspectionResult(int registrationNumber, String result) {
-        int index = vehicleRegistry.indexOf(new Vehicle(registrationNumber, null));
+        int index = vehicleRegistry.indexOf(createVehicleInstance(registrationNumber));
         vehicleRegistry.get(index).resultOfInspection(result);
     }
-    
+    /**
+     * @param registrationNumber <code>Vehicle</code> registreringsnummer.
+     */
     public void printVehicleInspectionResult(int registrationNumber) {
-       int index = vehicleRegistry.indexOf(new Vehicle(registrationNumber,null));
+       int index = vehicleRegistry.indexOf(createVehicleInstance(registrationNumber));
        vehicleRegistry.get(index).printVehicleInspectionResult();
+    }
+    
+    private Vehicle createVehicleInstance(int registrationNumber) {
+        return new Vehicle(registrationNumber, null);
     }
     
 }

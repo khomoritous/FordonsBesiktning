@@ -1,15 +1,12 @@
 package se.moma.kth.iv1350.controller;
 
 import se.moma.kth.iv1350.dbhandler.VehicleRegistry;
-import se.moma.kth.iv1350.dbhandler.exception.VehicleRegistryException;
 import se.moma.kth.iv1350.model.CreditCardInformationDTO;
 import se.moma.kth.iv1350.model.external.Garage;
 import se.moma.kth.iv1350.model.Inspection;
 import se.moma.kth.iv1350.model.PaymentAuthorizationRequest;
 import se.moma.kth.iv1350.model.Receipt;
-import se.moma.kth.iv1350.model.Vehicle;
 import se.moma.kth.iv1350.model.exception.InspectionException;
-import se.moma.kth.iv1350.util.exception.OperationFailedException;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -25,7 +22,7 @@ public class Controller {
     
    
     
-    private Vehicle vehicle = null;
+    //private Vehicle vehicle = null;
     private VehicleRegistry vehicleRegistry = null;
     private Garage garage = null;
     
@@ -57,10 +54,12 @@ public class Controller {
     }
     
     /**
-     * Hämta kostnaden för <code>Inspection</code> för <code>Vehicle</code>.
+     * Hämta kostnaden av <code>Inspection</code> för <code>Vehicle</code>.
      * @param registrationNumber Är <code>Vehicle</code> registreringsnummer och används 
      * för hitta <code>Vehicle</code> i <code>VehicleRegistry</code>. 
      * @return Kostnaden för <code>Inspection</code> av <code>Vehicle</code>.
+     * @throws se.moma.kth.iv1350.model.exception.InspectionException Kastas då ingen <code>Inspection</code>
+     * hittas för <code>Vehicle</code> med det registreringsnummret.
      */
     public int registerNumber(int registrationNumber) throws InspectionException {
         int cost = 0;
@@ -81,7 +80,8 @@ public class Controller {
      */
     public Receipt pay(int amount, CreditCardInformationDTO creditCard) {
         Receipt receipt = null;
-        PaymentAuthorizationRequest request = new PaymentAuthorizationRequest(amount,creditCard);
+        PaymentAuthorizationRequest request = null;
+        request = createPaymentRequest(amount, creditCard);
         if(request.isApproved()) {
           receipt = request.getCustomerReceipt();
         }
@@ -89,30 +89,39 @@ public class Controller {
     }
     
     /**
-     * Används för att besikta fordonet. 
+     * Används för att besikta <code>Vehicle</code>. 
+     * @param registrationNumber Ett <code>Vehicle</code> registreringsnummer för 
+     * att söka i <code>VehicleRegistry</code>.
      * @return Instans av <code>Inspection</code> som visar vad på <code>Vehicle</code>
      * som behöver besiktas.
-     */
+     * @throws se.moma.kth.iv1350.model.exception.InspectionException Kastas då ingen <code>Inspection</code>
+     * hittas.
+     */ 
     public Inspection inspectVehicle(int registrationNumber) throws InspectionException {
         return vehicleRegistry.findVehicleInspection(registrationNumber);
     } 
     
    /**
-    * Skriver resultatet vid inspektion av besiktning.
-    * @param result Textsträng som visar resultat på en fordonsbesiktning.
+    * Skriver resultatet vid en <code>Inspection</code> av <code>Vehicle</code>.
+    * @param registrationNumber Används för att hitta <code>Vehicle</code> i 
+    * <code>VehicleRegistry</code>.
+    * @param result Textsträng som anger resultat på en <code>Inspection</code>
+    * av <code>Vehicle</code>.
     */
    public void enterResultOfInspection(int registrationNumber,String result) {
        vehicleRegistry.setVehicleInspectionResult(registrationNumber, result);
    }
+    
     /**
      * GÖr en utskrift på resultatet vid fordonsbesiktningen.
+     * @param registrationNumber <code>Vehicle</code> registreringsnummer.
      */
    public void printResult(int registrationNumber) {
         vehicleRegistry.printVehicleInspectionResult(registrationNumber);
    }
    
    /**
-    * Öppnar garaget.
+    * Öppnar <code>Garage</code>
     */
    public void openGarage() {
        garage.openGarage();
@@ -123,7 +132,9 @@ public class Controller {
         garage.nextCustomerInQueue();
    }
    
-   
+   private PaymentAuthorizationRequest createPaymentRequest(int amount, CreditCardInformationDTO creditCard) {
+       return new PaymentAuthorizationRequest(amount, creditCard);
+   }
     
 }
     
