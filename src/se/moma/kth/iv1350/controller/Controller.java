@@ -57,26 +57,20 @@ public class Controller {
     }
     
     /**
-     *  Hitta <code>Vehicle</code> registreringsnummer.
+     * Hämta kostnaden för <code>Inspection</code> för <code>Vehicle</code>.
      * @param registrationNumber Är <code>Vehicle</code> registreringsnummer och används 
      * för hitta <code>Vehicle</code> i <code>VehicleRegistry</code>. 
      * @return Kostnaden för <code>Inspection</code> av <code>Vehicle</code>.
      */
     public int registerNumber(int registrationNumber) throws InspectionException {
         int cost = 0;
-        cost = matches(registrationNumber, cost);
-        return cost;
-    } 
-
-    private int matches(int registrationNumber, int cost) throws InspectionException {
-        for(int index = 0; index < vehicleRegistry.sizeOfVehicleRegistry(); index++) {
-            if(vehicleRegistry.getVehicle(index).getVehicleNumber() == registrationNumber && vehicleRegistry.getVehicle(index).getVehicleInspection() != null) {
-                vehicle = vehicleRegistry.getVehicle(index);
-                cost = vehicle.getVehicleInspectionCost();
-            } 
+        if(vehicleRegistry.isVehiclePresent(registrationNumber)) {
+            cost = vehicleRegistry.findVehicleInspectionCost(registrationNumber);
         }
         return cost;
     } 
+
+  
     
     /**
      * Används för att betala för en besiktning.
@@ -99,27 +93,24 @@ public class Controller {
      * @return Instans av <code>Inspection</code> som visar vad på <code>Vehicle</code>
      * som behöver besiktas.
      */
-    public Inspection inspectVehicle() throws InspectionException {
-        Inspection inspection = null;
-        if(vehicle.getVehicleInspection() != null) {
-            inspection = vehicle.getVehicleInspection();
-        }
-        return inspection;
+    public Inspection inspectVehicle(int registrationNumber) throws InspectionException {
+        return vehicleRegistry.findVehicleInspection(registrationNumber);
     } 
     
    /**
     * Skriver resultatet vid inspektion av besiktning.
     * @param result Textsträng som visar resultat på en fordonsbesiktning.
     */
-   public void enterResultOfInspection(String result) {
-        vehicle.resultOfInspection(result);
+   public void enterResultOfInspection(int registrationNumber,String result) {
+       vehicleRegistry.setVehicleInspectionResult(registrationNumber, result);
    }
     /**
      * GÖr en utskrift på resultatet vid fordonsbesiktningen.
      */
-   public void printResult() {
-        vehicle.printVehicleInspectionResult();
+   public void printResult(int registrationNumber) {
+        vehicleRegistry.printVehicleInspectionResult(registrationNumber);
    }
+   
    /**
     * Öppnar garaget.
     */

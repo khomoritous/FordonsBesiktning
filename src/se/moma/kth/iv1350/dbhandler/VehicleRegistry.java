@@ -7,11 +7,9 @@ package se.moma.kth.iv1350.dbhandler;
 
 import java.util.ArrayList;
 import java.util.List;
-import se.moma.kth.iv1350.dbhandler.exception.VehicleRegistryException;
 import se.moma.kth.iv1350.model.Inspection;
 import se.moma.kth.iv1350.model.Vehicle;
 import se.moma.kth.iv1350.model.exception.InspectionException;
-import se.moma.kth.iv1350.util.exception.OperationFailedException;
 
 /**
  * Skapar ett fordonsregister.
@@ -32,6 +30,7 @@ public class VehicleRegistry {
      vehicleRegistry = new ArrayList<>();
      vehicleRegistry.add(new Vehicle(VEHICLE_NUMBER, new Inspection(INSPECTION_COST)));
      vehicleRegistry.add(new Vehicle(VEHICLE_TWO_NUMBER, null));
+     
        
     }
     
@@ -54,22 +53,35 @@ public class VehicleRegistry {
      * @return Antal <code>Vehicle</code> i <code>VehicleRegistry</code>.
      */
     public int sizeOfVehicleRegistry() {
-            
             return vehicleRegistry.size();
     }
     
-    /*public int isVehiclePresent(int registrationNumber) {
-        vehicleRegistry.contains(this)
-    }*/
-    
+    public boolean isVehiclePresent(int registrationNumber) {
+        return vehicleRegistry.contains(new Vehicle(registrationNumber, null));
+    }
     
     /**
-     * @param vehicle Instans av <code>Vehicle</code> som har <code>Inspection</code>.
+     * @param registrationNumber <code>Vehicle</code> registreringsnummer.
      * @return Kostnad för <code>Inspection</code>.
+     * @throws se.moma.kth.iv1350.model.exception.InspectionException Kastar undantag
+     * då <code>Vehicle</code> inte har någon <code>Inspection</code>.
      */
-    /*public int findVehicleInspectionCost(Vehicle vehicle) {
-        return vehicle.getVehicleInspection().getInspectionCost();
-    }*/
-
+    public int findVehicleInspectionCost(int registrationNumber) throws InspectionException {
+       return getVehicle(vehicleRegistry.indexOf(new Vehicle(registrationNumber, null))).getVehicleInspectionCost();
+    }
+    
+    public Inspection findVehicleInspection(int registrationNumber) throws InspectionException {
+        return getVehicle(vehicleRegistry.indexOf(new Vehicle(registrationNumber, null))).getVehicleInspection();
+    }
+    
+    public void setVehicleInspectionResult(int registrationNumber, String result) {
+        int index = vehicleRegistry.indexOf(new Vehicle(registrationNumber, null));
+        vehicleRegistry.get(index).resultOfInspection(result);
+    }
+    
+    public void printVehicleInspectionResult(int registrationNumber) {
+       int index = vehicleRegistry.indexOf(new Vehicle(registrationNumber,null));
+       vehicleRegistry.get(index).printVehicleInspectionResult();
+    }
     
 }
