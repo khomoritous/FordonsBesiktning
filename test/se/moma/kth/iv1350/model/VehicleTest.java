@@ -48,7 +48,7 @@ public class VehicleTest {
     }
 
     @Test
-    public void testGetVehicleInspectionCost() {
+    public void testGetVehicleInspectionCost() throws InspectionException {
        assertEquals(INSPECTION_COST, vehicle.getVehicleInspectionCost());
     }
  
