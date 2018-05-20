@@ -5,8 +5,10 @@
  */
 package se.moma.kth.iv1350.model;
 
-import se.moma.kth.iv1350.model.exception.InspectionException;
+import java.util.ArrayList;
+import java.util.List;
 import se.moma.kth.iv1350.model.external.ExternalPrinter;
+import se.moma.kth.iv1350.model.interfaces.InspectionObserver;
 
 /**
  * Skapar en inspektion med tillhörande kostnad.
@@ -17,6 +19,8 @@ public class Inspection {
     private final int cost;
     private String result;
     
+    private List<InspectionObserver> inspectionObservers = null;
+    
     
     /**
      * Skapar en ny instans.
@@ -25,7 +29,7 @@ public class Inspection {
     
     public Inspection(int cost) {
         this.cost  = cost;
-       // this.result = result;
+        inspectionObservers = new ArrayList<>();
     }
     
     /**
@@ -47,6 +51,7 @@ public class Inspection {
      */
     public void setResultOfInspection(String result) {
         this.result = result;
+        notifyObservers();
     }
     
     /**
@@ -74,5 +79,19 @@ public class Inspection {
     private ExternalPrinter createInstanceOfPrinter() {
        return new ExternalPrinter(this);
     } 
+    
+    
+    
+    
+    private void notifyObservers() {
+        for(InspectionObserver inspectionObserver: inspectionObservers) {
+            inspectionObserver.newInspection(this);
+        }
+    }
+     
+    public void addInspectionObserver(InspectionObserver obs) {
+         inspectionObservers.add(obs);
+    }
+    
     
 }
