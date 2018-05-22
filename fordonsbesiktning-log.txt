@@ -26,3 +26,39 @@ se.moma.kth.iv1350.model.exception.InspectionException: No inspections found wit
 	at se.moma.kth.iv1350.controller.Controller.registerNumber(Controller.java:67)
 	at se.moma.kth.iv1350.view.View.sampleExecution(View.java:74)
 	at se.moma.kth.iv1350.startup.Main.main(Main.java:27)
+2018-maj-22 06:05:23,Exception was thrown: No inspections found with vehicle registration number: 20
+se.moma.kth.iv1350.model.exception.InspectionException: No inspections found with vehicle registration number: 20
+	at se.moma.kth.iv1350.model.Vehicle.getVehicleInspectionCost(Vehicle.java:35)
+	at se.moma.kth.iv1350.dbhandler.VehicleRegistry.findVehicleInspectionCost(VehicleRegistry.java:75)
+	at se.moma.kth.iv1350.controller.Controller.registerNumber(Controller.java:67)
+	at se.moma.kth.iv1350.view.View.sampleExecution(View.java:74)
+	at se.moma.kth.iv1350.startup.Main.main(Main.java:27)
+2018-maj-22 06:06:00,Exception was thrown: No inspections found with vehicle registration number: 20
+se.moma.kth.iv1350.model.exception.InspectionException: No inspections found with vehicle registration number: 20
+	at se.moma.kth.iv1350.model.Vehicle.getVehicleInspectionCost(Vehicle.java:35)
+	at se.moma.kth.iv1350.dbhandler.VehicleRegistry.findVehicleInspectionCost(VehicleRegistry.java:75)
+	at se.moma.kth.iv1350.controller.Controller.registerNumber(Controller.java:67)
+	at se.moma.kth.iv1350.view.View.sampleExecution(View.java:74)
+	at se.moma.kth.iv1350.startup.Main.main(Main.java:27)
+2018-maj-22 06:06:51,Exception was thrown: No inspections found with vehicle registration number: 20
+se.moma.kth.iv1350.model.exception.InspectionException: No inspections found with vehicle registration number: 20
+	at se.moma.kth.iv1350.model.Vehicle.getVehicleInspectionCost(Vehicle.java:35)
+	at se.moma.kth.iv1350.dbhandler.VehicleRegistry.findVehicleInspectionCost(VehicleRegistry.java:75)
+	at se.moma.kth.iv1350.controller.Controller.registerNumber(Controller.java:67)
+	at se.moma.kth.iv1350.view.View.sampleExecution(View.java:74)
+	at se.moma.kth.iv1350.startup.Main.main(Main.java:27)
+2018-maj-22 06:06:59,Exception was thrown: No inspections found with vehicle registration number: 20
+se.moma.kth.iv1350.model.exception.InspectionException: No inspections found with vehicle registration number: 20
+	at se.moma.kth.iv1350.model.Vehicle.getVehicleInspectionCost(Vehicle.java:35)
+	at se.moma.kth.iv1350.dbhandler.VehicleRegistry.findVehicleInspectionCost(VehicleRegistry.java:75)
+	at se.moma.kth.iv1350.controller.Controller.registerNumber(Controller.java:67)
+	at se.moma.kth.iv1350.view.View.sampleExecution(View.java:74)
+	at se.moma.kth.iv1350.startup.Main.main(Main.java:27)
+2018-maj-22 06:16:33,Exception was thrown: No inspections found with vehicle registration number: 20
+>>>>>>> undantagshantering
+se.moma.kth.iv1350.model.exception.InspectionException: No inspections found with vehicle registration number: 20
+	at se.moma.kth.iv1350.model.Vehicle.getVehicleInspectionCost(Vehicle.java:35)
+	at se.moma.kth.iv1350.dbhandler.VehicleRegistry.findVehicleInspectionCost(VehicleRegistry.java:75)
+	at se.moma.kth.iv1350.controller.Controller.registerNumber(Controller.java:67)
+	at se.moma.kth.iv1350.view.View.sampleExecution(View.java:74)
+	at se.moma.kth.iv1350.startup.Main.main(Main.java:27)

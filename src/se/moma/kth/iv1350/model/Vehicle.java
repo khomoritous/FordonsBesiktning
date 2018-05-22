@@ -105,7 +105,7 @@ public class Vehicle {
     
     /**
      * 
-     * @return Ett <code>Vehicle</code> registreringsnummer.
+     * @return Ett <code>Vehicle</code> på strängformat.
      */
     @Override
     public String toString() {
