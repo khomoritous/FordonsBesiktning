@@ -91,9 +91,12 @@ public class View {
                 controller.printResult(VEHICLE_NUMBER_WITH_NO_INSPECTION);
                 controller.openGarage();
                 controller.closeGarage();
-        } catch (InspectionException ex) {
-           handleExecution("No inspections found for that vehiclenumber!");
-           logger.logException(ex);
+        } catch (InspectionException iex) {
+           handleExecution("No inspections found for vehicle number " + iex.getVehicleWithNoInspections().getVehicleNumber());
+           logger.logException(iex);
+        } catch(Exception ex) {
+            handleExecution(ex.getMessage());
+            logger.logException(ex);
         }
         
     }

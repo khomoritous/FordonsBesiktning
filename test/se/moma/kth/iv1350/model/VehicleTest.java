@@ -5,15 +5,11 @@
  */
 package se.moma.kth.iv1350.model;
 
-import se.moma.kth.iv1350.model.Vehicle;
 import se.moma.kth.iv1350.model.external.ExternalPrinter;
-import se.moma.kth.iv1350.model.Inspection;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import se.moma.kth.iv1350.model.exception.InspectionException;
@@ -48,7 +44,7 @@ public class VehicleTest {
     }
 
     @Test
-    public void testGetVehicleInspectionCost() {
+    public void testGetVehicleInspectionCost() throws InspectionException {
        assertEquals(INSPECTION_COST, vehicle.getVehicleInspectionCost());
     }
  
