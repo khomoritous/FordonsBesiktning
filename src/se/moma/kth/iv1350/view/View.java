@@ -67,7 +67,6 @@ public class View {
                 controller.inspectNewVehicle();
                 controller.closeGarage();
             
-       
                 if((cost = controller.registerNumber(VEHICLE_NUMBER)) == 0) {
                     System.out.println("No vehicle with that number.");
                 }else {
@@ -81,11 +80,9 @@ public class View {
                 System.out.println("-----End receipt-----");
 
                 System.out.println("Inspection for the vehicle: " + controller.inspectVehicle(VEHICLE_NUMBER));
-        
-
                 controller.enterResultOfInspection(VEHICLE_NUMBER,INSPECTION_RESULT);
-
                 controller.printResult(VEHICLE_NUMBER);
+                
                 controller.openGarage();
                 controller.closeGarage();
         } catch (InspectionException iex) {
