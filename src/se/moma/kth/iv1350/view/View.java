@@ -28,10 +28,9 @@ public class View {
     private ErrorMessageHandler errorMsgHandler = null;
     private LogHandler logger = null;
     
-    
-
     private final static int VEHICLE_NUMBER = 10;
     private final static int VEHICLE_NUMBER_WITH_NO_INSPECTION = 20;
+    private final static String INSPECTION_RESULT = "PASS";
 
     private static final String VENDOR = "VISA";
     private static final int CARD_NUMBER = 2334;
@@ -40,9 +39,6 @@ public class View {
     private static final int CCV = 222;
     
     private static final int EXIT_STATUS = 1;
-    
-
-   
     
     
     /**
@@ -87,7 +83,7 @@ public class View {
                 System.out.println("Inspection for the vehicle: " + controller.inspectVehicle(VEHICLE_NUMBER));
         
 
-                controller.enterResultOfInspection(VEHICLE_NUMBER,"PASS");
+                controller.enterResultOfInspection(VEHICLE_NUMBER,INSPECTION_RESULT);
 
                 controller.printResult(VEHICLE_NUMBER);
                 controller.openGarage();
