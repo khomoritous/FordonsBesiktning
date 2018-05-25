@@ -8,10 +8,13 @@ package se.moma.kth.iv1350.model;
 import se.moma.kth.iv1350.model.external.ExternalPrinter;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import se.moma.kth.iv1350.dbhandler.VehicleRegistry;
 import se.moma.kth.iv1350.model.exception.InspectionException;
 
 /**
@@ -27,9 +30,11 @@ public class VehicleTest {
     private ExternalPrinter printer = null;
     private String expResult = null;
     private String result = null;
+    private VehicleRegistry vehicleRegistry = null;
     private static final String INSPECTION_RESULT = "PASS";
     private static final int INSPECTION_COST = 100;
     private static final int VEHICLE_NUMBER = 10;
+    private static final int VEHICLE_NUMBER_WITH_NO_INSPECTION = 20;
     
    
     @Before
@@ -96,5 +101,19 @@ public class VehicleTest {
     public void testHashMethod() {
        Vehicle vehicle_two = new Vehicle(VEHICLE_NUMBER, inspection);
        assertNotSame("Its not the same vehicle!",vehicle_two, vehicle);
+    }
+    
+    @Test
+    public void testGetVehicleWithNoInspection() {
+        vehicleRegistry = new VehicleRegistry();
+        try {
+            vehicleRegistry.findVehicleInspectionCost(VEHICLE_NUMBER_WITH_NO_INSPECTION);
+            fail("Could get inspection from vehicle with no inspections!");
+        } catch (InspectionException ex) {
+            assertTrue("Wrong exception message!", ex.getMessage().contains(ex.getVehicleWithNoInspections().toString()));
+        }
+        
+        
+        
     }
 }

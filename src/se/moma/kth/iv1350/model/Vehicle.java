@@ -28,7 +28,7 @@ public class Vehicle {
     /**
      * @return Kostnad för <code>Inspection</code> som hör till <code>Vehicle</code>.
      * @throws se.moma.kth.iv1350.model.exception.InspectionException Kastas då ingen 
-     * <code>Inspection</code> hittats.
+     * <code>Inspection</code> hittats för <code>Vehicle</code>.
      */
     public int getVehicleInspectionCost() throws InspectionException {
         if(inspection == null)
@@ -51,9 +51,15 @@ public class Vehicle {
     /**
      * @return En instans av <code> Inspection</code> som 
      * hör till <code>Vehicle</code>.
+     * @throws se.moma.kth.iv1350.model.exception.InspectionException Kastas då ingen <code>Inspection<U/code>
+     * hittats för <code>Vehicle</code>.
      */
-    public Inspection getVehicleInspection() {
+    public Inspection getVehicleInspection() throws InspectionException {
+        if(inspection == null) {
+            throw new InspectionException(this);
+        }else {
             return inspection.getInspection();
+        }
     }
     /**
      * Utskrift av resultat vid <code>Inspection</code> av <code>Vehicle</code>.
