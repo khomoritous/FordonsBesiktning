@@ -11,7 +11,7 @@ import se.moma.kth.iv1350.model.external.ExternalPrinter;
 import se.moma.kth.iv1350.model.interfaces.VehicleObserver;
 
 /**
- * Skapar en inspektion med tillhörande kostnad.
+ * Skapar en <code>Inspection</code> med tillhörande kostnad.
  * @author monde
  */
 public class Inspection {
@@ -19,7 +19,7 @@ public class Inspection {
     private final int cost;
     private String result;
     
-    private List<VehicleObserver> inspectionObservers = null;
+    private List<VehicleObserver> vehicleObservers = null;
     
     
     /**
@@ -29,7 +29,7 @@ public class Inspection {
     
     public Inspection(int cost) {
         this.cost  = cost;
-        inspectionObservers = new ArrayList<>();
+        vehicleObservers = new ArrayList<>();
     }
     
     /**
@@ -76,14 +76,24 @@ public class Inspection {
         return "Inspections to perform....";
     }
     
-    
-    public void addInspectionObserver(VehicleObserver obs) {
-         inspectionObservers.add(obs);
+    /**
+     * Lägger till en <code>VehicleObserver</code> som är intresserad utav utförda <code>Inspection</code>.
+     * @param obs Instans av <code>VehicleObserver</code>.
+     */
+    public void addVehicleObserver(VehicleObserver obs) {
+         vehicleObservers.add(obs);
+    }
+    /**
+     * Lägger till en lista av <code>VehicleObserver</code> som är intresserade utav utförda <code>Inspection</code>.
+     * @param obs Instans av lista av <code>VehicleObserver</code>.
+     */
+    public void addVehicleObservers(List<VehicleObserver> obs) {
+        vehicleObservers.addAll(obs);
     }
     
     
     private void notifyObservers() {
-        for(VehicleObserver inspectionObserver: inspectionObservers) {
+        for(VehicleObserver inspectionObserver: vehicleObservers) {
             inspectionObserver.newInspection(result);
         }
     }

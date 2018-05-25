@@ -1,5 +1,7 @@
 package se.moma.kth.iv1350.controller;
 
+import java.util.ArrayList;
+import java.util.List;
 import se.moma.kth.iv1350.dbhandler.VehicleRegistry;
 import se.moma.kth.iv1350.model.CreditCardInformationDTO;
 import se.moma.kth.iv1350.model.external.Garage;
@@ -7,6 +9,7 @@ import se.moma.kth.iv1350.model.Inspection;
 import se.moma.kth.iv1350.model.PaymentAuthorizationRequest;
 import se.moma.kth.iv1350.model.Receipt;
 import se.moma.kth.iv1350.model.exception.InspectionException;
+import se.moma.kth.iv1350.model.interfaces.VehicleObserver;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -20,7 +23,7 @@ import se.moma.kth.iv1350.model.exception.InspectionException;
  */
 public class Controller {
     
-   
+    private List<VehicleObserver> vehicleObservers = new ArrayList<>();
     private VehicleRegistry vehicleRegistry = null;
     private Garage garage = null;
     
@@ -96,6 +99,7 @@ public class Controller {
      * hittas.
      */ 
     public Inspection inspectVehicle(int registrationNumber) throws InspectionException {
+        vehicleRegistry.findVehicleInspection(registrationNumber).addVehicleObservers(vehicleObservers);
         return vehicleRegistry.findVehicleInspection(registrationNumber);
     } 
     
@@ -116,6 +120,10 @@ public class Controller {
      */
    public void printResult(int registrationNumber) {
         vehicleRegistry.printVehicleInspectionResult(registrationNumber);
+   }
+   
+   public void addVehicleObservers(VehicleObserver obs) {
+       vehicleObservers.add(obs);
    }
    
    /**

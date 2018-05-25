@@ -52,6 +52,7 @@ public class View {
     public View(Controller controller)  {
         try {
             this.controller = controller;
+            controller.addVehicleObservers(new InspectionStatsView());
             errorMsgHandler = new ErrorMessageHandler();
             logger = new LogHandler();
         } catch (IOException ex) {

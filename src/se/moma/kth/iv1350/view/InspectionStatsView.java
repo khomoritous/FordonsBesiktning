@@ -26,7 +26,9 @@ public class InspectionStatsView implements VehicleObserver {
         failedInspections = new ArrayList<>();
     }
     
-    
+    /**
+     * @param inspectionResult Resultatet av en ny <code>Inspection</code>.
+     */
     @Override
     public void newInspection(String inspectionResult) {
         if(inspectionResult.equals("PASS")) {
