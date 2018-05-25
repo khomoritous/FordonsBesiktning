@@ -66,7 +66,7 @@ public class View {
     public void sampleExecution()  {
         int cost = 0;
         
-       try {
+        try {
                 controller.inspectNewVehicle();
                 controller.closeGarage();
             

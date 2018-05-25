@@ -5,15 +5,13 @@
  */
 package se.moma.kth.iv1350.model.interfaces;
 
-import se.moma.kth.iv1350.model.Inspection;
-
 /**
  * Ett lyssnarinterface för klasser som är intresserade av att bli notifierade vid resultat från 
- * en <code>Inspection</code> efter en besiktning.
+ * en <code>Inspection</code> efter en besiktning av <code>Vehicle</code>.
  * @author monde
  */
-public interface InspectionObserver {
+public interface VehicleObserver {
     
-    void newInspection(Inspection inspection);
+    void newInspection(String result);
     
 }

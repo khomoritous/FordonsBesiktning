@@ -21,8 +21,6 @@ import se.moma.kth.iv1350.model.exception.InspectionException;
 public class Controller {
     
    
-    
-    //private Vehicle vehicle = null;
     private VehicleRegistry vehicleRegistry = null;
     private Garage garage = null;
     
@@ -113,7 +111,7 @@ public class Controller {
    }
     
     /**
-     * GÖr en utskrift på resultatet vid fordonsbesiktningen.
+     * Gör en utskrift av resultatet vid fordonsbesiktningen.
      * @param registrationNumber <code>Vehicle</code> registreringsnummer.
      */
    public void printResult(int registrationNumber) {

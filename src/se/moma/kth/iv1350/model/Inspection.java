@@ -8,7 +8,7 @@ package se.moma.kth.iv1350.model;
 import java.util.ArrayList;
 import java.util.List;
 import se.moma.kth.iv1350.model.external.ExternalPrinter;
-import se.moma.kth.iv1350.model.interfaces.InspectionObserver;
+import se.moma.kth.iv1350.model.interfaces.VehicleObserver;
 
 /**
  * Skapar en inspektion med tillhörande kostnad.
@@ -19,7 +19,7 @@ public class Inspection {
     private final int cost;
     private String result;
     
-    private List<InspectionObserver> inspectionObservers = null;
+    private List<VehicleObserver> inspectionObservers = null;
     
     
     /**
@@ -76,6 +76,19 @@ public class Inspection {
         return "Inspections to perform....";
     }
     
+    
+    public void addInspectionObserver(VehicleObserver obs) {
+         inspectionObservers.add(obs);
+    }
+    
+    
+    private void notifyObservers() {
+        for(VehicleObserver inspectionObserver: inspectionObservers) {
+            inspectionObserver.newInspection(result);
+        }
+    }
+     
+    
     private ExternalPrinter createInstanceOfPrinter() {
        return new ExternalPrinter(this);
     } 
@@ -83,15 +96,8 @@ public class Inspection {
     
     
     
-    private void notifyObservers() {
-        for(InspectionObserver inspectionObserver: inspectionObservers) {
-            inspectionObserver.newInspection(this);
-        }
-    }
-     
-    public void addInspectionObserver(InspectionObserver obs) {
-         inspectionObservers.add(obs);
-    }
+    
+    
     
     
 }
