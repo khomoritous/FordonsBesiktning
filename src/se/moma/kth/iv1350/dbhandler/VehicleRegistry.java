@@ -87,15 +87,19 @@ public class VehicleRegistry {
     /**
      * @param registrationNumber <code>Vehicle</code> registreringsnummer.
      * @param result Resultatet av <code>Inspection</code> av <code>Vehicle</code>.
+     * @throws se.moma.kth.iv1350.model.exception.InspectionException Kastas
+     * då ingen <code>Inspection</code> hittats för <code>Vehicle</code>.
      */
-    public void setVehicleInspectionResult(int registrationNumber, String result) {
+    public void setVehicleInspectionResult(int registrationNumber, String result) throws InspectionException {
         int index = vehicleRegistry.indexOf(createVehicleInstance(registrationNumber));
         vehicleRegistry.get(index).resultOfInspection(result);
     }
     /**
      * @param registrationNumber <code>Vehicle</code> registreringsnummer.
+     * @throws se.moma.kth.iv1350.model.exception.InspectionException Kastas
+     * då ingen <code>Inspection</code> hittats för <code>Vehicle</code>.
      */
-    public void printVehicleInspectionResult(int registrationNumber) {
+    public void printVehicleInspectionResult(int registrationNumber) throws InspectionException {
        int index = vehicleRegistry.indexOf(createVehicleInstance(registrationNumber));
        vehicleRegistry.get(index).printVehicleInspectionResult();
     }

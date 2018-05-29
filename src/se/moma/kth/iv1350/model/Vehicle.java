@@ -8,7 +8,7 @@ package se.moma.kth.iv1350.model;
 import se.moma.kth.iv1350.model.exception.InspectionException;
 
 /**
- * Skapar ett fordon med registreringsnummer och inspektion.
+ * Skapar ett <code>Vehicle</code> med registreringsnummer och <code>Inspection</code>.
  * @author monde
  */
 public class Vehicle {
@@ -31,7 +31,7 @@ public class Vehicle {
      * <code>Inspection</code> hittats för <code>Vehicle</code>.
      */
     public int getVehicleInspectionCost() throws InspectionException {
-            return getVehicleInspection().getInspectionCost();
+        return getVehicleInspection().getInspectionCost();
     }
     /**
      * @return En instans av <code>Vehicle</code>.
@@ -58,18 +58,25 @@ public class Vehicle {
             return inspection.getInspection();
         }
     }
+   
     /**
      * Utskrift av resultat vid <code>Inspection</code> av <code>Vehicle</code>.
+     * @throws InspectionException Kastas då ingen <code>Inspection</code> för 
+     * <code>Vehicle</code>hittats.
      */
-    public void printVehicleInspectionResult() {
-        inspection.printInspectionResult();
+    public void printVehicleInspectionResult() throws InspectionException {
+        getVehicleInspection().printInspectionResult();
     }
+    
     /**
      * @param result Ange resultat vid <code>Inspection</code> av <code>Vehicle</code>.
+     * @throws se.moma.kth.iv1350.model.exception.InspectionException Kastas då ingen 
+     * <code>Inspection</code> för <code>Vehicle</code> hittats.
      */
-    public void resultOfInspection(String result) {
-       inspection.setResultOfInspection(result);
+    public void resultOfInspection(String result) throws InspectionException {
+        getVehicleInspection().setResultOfInspection(result);
     }
+    
     /**
      * 
      * @return Hashkod för en instans av <code>Vehicle</code>.

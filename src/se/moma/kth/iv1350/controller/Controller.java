@@ -109,16 +109,20 @@ public class Controller {
     * <code>VehicleRegistry</code>.
     * @param result Textsträng som anger resultat på en <code>Inspection</code>
     * av <code>Vehicle</code>.
+    * @throws se.moma.kth.iv1350.model.exception.InspectionException  Kastas
+    * då ingen <code>Inspection</code> hittats för <code>Vehicle</code>.
     */
-   public void enterResultOfInspection(int registrationNumber,String result) {
+   public void enterResultOfInspection(int registrationNumber,String result) throws InspectionException {
        vehicleRegistry.setVehicleInspectionResult(registrationNumber, result);
    }
     
     /**
      * Gör en utskrift av resultatet vid fordonsbesiktningen.
      * @param registrationNumber <code>Vehicle</code> registreringsnummer.
+     * @throws se.moma.kth.iv1350.model.exception.InspectionException Kastas
+     * då ingen <code>Inspection</code> hittats för <code>Vehicle</code>.
      */
-   public void printResult(int registrationNumber) {
+   public void printResult(int registrationNumber) throws InspectionException {
         vehicleRegistry.printVehicleInspectionResult(registrationNumber);
    }
    

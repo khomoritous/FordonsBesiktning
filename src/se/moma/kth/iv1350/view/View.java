@@ -98,7 +98,9 @@ public class View {
     private void handleExecution(String uiMsg) {
         errorMsgHandler.showErrorMsg(uiMsg);
     }
-    
-    
+    /*
+    private void handleLogging(Exception ex) {
+        logger.logException(ex);
+    } */
     
 }
