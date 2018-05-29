@@ -31,10 +31,7 @@ public class Vehicle {
      * <code>Inspection</code> hittats för <code>Vehicle</code>.
      */
     public int getVehicleInspectionCost() throws InspectionException {
-        if(inspection == null)
-            throw new InspectionException(this);
-        else
-            return inspection.getInspectionCost();
+            return getVehicleInspection().getInspectionCost();
     }
     /**
      * @return En instans av <code>Vehicle</code>.
