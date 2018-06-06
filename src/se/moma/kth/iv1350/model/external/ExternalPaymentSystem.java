@@ -39,7 +39,7 @@ public class ExternalPaymentSystem {
        * @return <code>Receipt</code> på betalning.
        */
       public Receipt getReceipt(int amount) {
-          return createReceiptInstance(amount).getReceipt();
+          return createReceiptInstance(amount).getReceiptInstance();
       }
 
       private Receipt createReceiptInstance(int amount) {

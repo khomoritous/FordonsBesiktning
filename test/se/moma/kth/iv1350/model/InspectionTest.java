@@ -36,7 +36,7 @@ public class InspectionTest {
 
     @Test
     public void testGetInspection() {
-        assertNotNull(inspection.getInspection());
+        assertNotNull(inspection.getInspectionInstance());
     }
 
     @Test

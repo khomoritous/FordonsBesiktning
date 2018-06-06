@@ -19,7 +19,7 @@ public class Vehicle {
     /**
      * Skapar en ny instans.
      * @param vehicleRegistrationNumber Registreringsnummer för <code>Vehicle</code>.
-     * @param inspection <code>Inspection</code> som ska utföras på <code>Vehicle</code>.
+     * @param inspection Instans av <code>Inspection</code> som ska utföras på <code>Vehicle</code>.
      */
     public Vehicle(int vehicleRegistrationNumber, Inspection inspection) {
         this.vehicleRegistrationNumber  = vehicleRegistrationNumber;
@@ -36,7 +36,7 @@ public class Vehicle {
     /**
      * @return En instans av <code>Vehicle</code>.
      */
-    public Vehicle getVehicle() {
+    public Vehicle getVehicleInstance() {
         return this;
     }
     /**
@@ -55,7 +55,7 @@ public class Vehicle {
         if(inspection == null) {
             throw new InspectionException(this);
         }else {
-            return inspection.getInspection();
+            return inspection.getInspectionInstance();
         }
     }
    

@@ -25,7 +25,7 @@ public class ReceiptTest {
 
     @Test
     public void testGetReceipt() {
-        assertNotNull("No receipt created!",receipt.getReceipt());
+        assertNotNull("No receipt created!",receipt.getReceiptInstance());
     }
 
     @Test

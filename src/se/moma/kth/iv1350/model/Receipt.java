@@ -23,7 +23,7 @@ public class Receipt {
      * @return En instans av <code>Receipt</code> som används 
      * vid en transaktion.
      */
-    public Receipt getReceipt() {
+    public Receipt getReceiptInstance() {
         return this;
     }
     /**

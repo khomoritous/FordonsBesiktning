@@ -55,7 +55,7 @@ public class VehicleTest {
  
     @Test
     public void testGetVehicle() {
-       assertNotNull(vehicle.getVehicle());
+       assertNotNull(vehicle.getVehicleInstance());
     }
  
     @Test

@@ -42,7 +42,7 @@ public class Inspection {
     /**
      * @return En instans av <code>Inspection</code>.
      */
-    public Inspection getInspection() {
+    public Inspection getInspectionInstance() {
         return this;
     }
     
@@ -65,7 +65,7 @@ public class Inspection {
      * Skriver ut resultat av <code>Inspection</code>.
      */
     public void printInspectionResult() {
-       createInstanceOfPrinter().print();
+       createPrinterInstance().print();
     }
     
     /**
@@ -99,7 +99,7 @@ public class Inspection {
     }
      
     
-    private ExternalPrinter createInstanceOfPrinter() {
+    private ExternalPrinter createPrinterInstance() {
        return new ExternalPrinter(this);
     } 
     
