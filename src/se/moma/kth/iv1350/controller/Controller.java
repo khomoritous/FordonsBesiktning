@@ -125,7 +125,10 @@ public class Controller {
    public void printResult(int registrationNumber) throws InspectionException {
         vehicleRegistry.printVehicleInspectionResult(registrationNumber);
    }
-   
+   /**
+    * Lägger till Observers till lista.
+    * @param obs En instans av <code>VehicleObserver</code>.
+    */
    public void addVehicleObservers(VehicleObserver obs) {
        vehicleObservers.add(obs);
    }
