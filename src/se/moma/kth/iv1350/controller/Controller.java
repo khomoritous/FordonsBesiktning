@@ -77,9 +77,11 @@ public class Controller {
      * @param amount Beloppet som betalas.
      * @param creditCard Är en instans av <code>CreditCardInformationDTO</code>
      * och används för att göra en kreditkortsbetalning.
-     * @return Kvitto på betalningen.
+     * @return Instans av <code>Receipt</code> på betalningen.
      */
     public Receipt pay(int amount, CreditCardInformationDTO creditCard) {
+        if(creditCard == null) throw new IllegalArgumentException("Sätt i ditt kort!");
+        
         Receipt receipt = null;
         PaymentAuthorizationRequest request = null;
         request = createPaymentRequest(amount, creditCard);
@@ -113,6 +115,7 @@ public class Controller {
     * då ingen <code>Inspection</code> hittats för <code>Vehicle</code>.
     */
    public void enterResultOfInspection(int registrationNumber,String result) throws InspectionException {
+       if(result == null) throw new IllegalArgumentException("Du glömde fylla i resultat för inspektionen!");
        vehicleRegistry.setVehicleInspectionResult(registrationNumber, result);
    }
     
